@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+{% block body %}
+
+
+<div class="container-fluid">
+    
+    <div class="row" style="margin-top:40px;">
+        <div class="col-md-4" id="left">
+
+            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="projects-tab" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="true">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="offers-tab" data-toggle="tab" href="#offers" role="tab" aria-controls="offers" aria-selected="false">Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Demands-tab" data-toggle="tab" href="#demands" role="tab" aria-controls="demands" aria-selected="false">Demands</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+                    <ul id="projects_table">
+        
+                    </ul>
+                    <a href="create_project/" id="post_project" class="create">Create a Project</a>
+                </div>
+                <div class="tab-pane fade" id="offers" role="tabpanel" aria-labelledby="offers-tab">
+                    <ul id="offers_table">
+        
+                    </ul>
+                    <a href="create_offer/" id="post_offer" class="create">Create an Offer</a>
+                </div>
+                <div class="tab-pane fade" id="demands" role="tabpanel" aria-labelledby="demands-tab">
+                    <ul id="demands_table">
+        
+                    </ul>
+                    <a href="create_demand/" id="post_demand" class="create">Create a Demand</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 offset-md-1" id="right">
+                {% csrf_token %}
+        <div id="container-right">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8" style="border: 2px solid black;">
+                            titre
+                        </div>
+                        <div class="col-md-3 offset-md-1" style="border: 2px solid black;">
+                            date
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8" style="border: 2px solid black;">
+                            description
+                        </div>
+                        <div class="col-md-3 offset-md-1" style="border: 2px solid black;">
+                            <div style="border: 2px solid red;">
+                                address
+                            </div>
+                            <div style="border: 2px solid blue;">
+                                organizer
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1" style="border: 2px solid black;">
+                            Volunteers or attendees
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1" style="border: 2px solid black;">
+                            Disccussion
+                        </div>
+                    </div>
+
+
+                </div>
+        </div>
+
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+
+
+{% endblock body%}
+
+{% block script %}
+{% load static %}
+<script src="{% static 'js/homepage.js' %}"></script>
+<script src="{% static 'js/home_maps.js' %}"></script>
+<script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6Z5koVS_Mje5I2wDmcaZ0IqAKl25lzi4&callback=initMap">
+</script>       
+
+{% endblock script %}

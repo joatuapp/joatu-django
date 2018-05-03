@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+{% block body %}
+{% load static %}
+<div id="show_List_Projects">
+    <div class="container" >
+        <div class="row" style="margin-top:15px;" >
+            <div class="col-10 offset-1">
+                <h2 style="text-align:center;">Community Activities</h2>
+
+            </div>
+        </div>
+        <div class="row" style="margin-top:15px;">
+            <div class="col-7 offset-1">
+                <form action="">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="search" id="search_bar" style="width:100%;" placeholder="Search...">
+                    </div>
+
+                    
+                </form>
+
+            </div>
+        </div>
+        <div class="col-12" id="projects">
+            <ul id="projects_table" style="list-style-type: none; margin:0; padding:0;">
+            </ul>
+            
+        </div>
+        <div style="padding-bottom:150px;">
+
+        </div>
+    </div>
+    <div style="position:fixed; bottom:40px; right:20px;">
+            <a href="/create_project/" id="" class="">&nbsp;
+                <img src="{% static 'images/icon/add_mobile.png' %}" alt="Button_to_add_project">
+            </a>
+    </div>
+    
+</div>
+
+{% endblock body%}
+
+{% block script %}
+{% load static %}
+<script>
+    var logo= "{% static 'images/icon/tree_original.svg' %}"
+</script>
+<script src="{% static 'js/projects/list_projects.js' %}"></script>
+<script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+
+{% endblock script %}

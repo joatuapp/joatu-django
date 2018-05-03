@@ -1,0 +1,94 @@
+<div id="edit_profile_form">
+    <form id="edit_user_profile"  accept-charset="utf-8" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputName">Your User Name*</label>
+                <input pattern=".{1,20}" type="text" name ="display_name" class="form-control" id="inputName" placeholder="This is what others users will see" required>
+                <div class="invalid-feedback">Please choose a name (less than 20 characters)</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputBirthday">Your Birthday*</label>
+                <input type="date" required name ="birth_date" class="form-control" id="inputBirthday">
+                <div class="invalid-feedback">Please enter your birthday</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-10 offset-1">
+                <label for="inputStreet">Street</label>
+                <input pattern=".{1,50}" type="text" name="street" class="form-control" id="inputStreet" placeholder="Main Street">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-10 offset-1">
+                <label for="inputCity">City*</label>
+                <input pattern=".{1,50}" type="text" required name="city" class="form-control" id="inputCity" placeholder="Montréal">
+                <div class="invalid-feedback">Please enter your city</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputZip">Postal Code*</label>
+                <input pattern=".{1,10}" type="text" required name="postal_code" class="form-control" id="inputZip" placeholder="H3K1K2">
+                <div class="invalid-feedback">Please enter your zip code</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputCountry">Country*</label>
+                <input pattern=".{1,50}" type="text" required name="country" class="form-control" id="inputCountry" placeholder="Canada">
+                <div class="invalid-feedback">Please enter your country</div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputPicture">Profile Picture</label>
+                <input type="file" name="picture" class="form-control" id="Picture" disabled>
+                <div class="invalid-feedback">Format not recognized</div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        
+    </form>
+    <div class="row">
+        <div class="col-10 offset-1" style="text-align:center;" >
+            <a href="#" id="save_edit_profile" class="flat_button_success" style="margin:0 auto; display:block;" >Save the changes</a>
+        </div>
+    </div>
+</div>

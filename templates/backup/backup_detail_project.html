@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+{% block body %}
+<div id="show_Detail_Project">
+        <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8" style="border: 2px solid black;">
+                        <h1 id="project_name"></h1>
+                    </div>
+                    <div class="col-md-3 offset-md-1" style="border: 2px solid black;">
+                        <h2 id="project_start"></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8" style="border: 2px solid black;">
+                        <p id="project_description"></p>
+                    </div>
+                    <div class="col-md-3 offset-md-1" style="border: 2px solid black;">
+                        <div style="border: 2px solid red;">
+                           <h2 id="project_address"></h2>
+                        </div>
+                        <div style="border: 2px solid blue;">
+                           <h3 id="project_organizer"></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 offset-md-1" style="border: 2px solid black;">
+                        Volunteers or attendees
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1" style="border: 2px solid black;">
+                        <ul id="project_discussion">
+                        
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1" style="border: 2px solid black;">
+                        <form method="POST" action="" id="start_discussion" accept-charset="utf-8">
+                        <input type="hidden" name="project_ref" id="id_discussion">
+                        <div>
+                                <label for="inputTitle">Title of the discussion</label>
+                                <input pattern=".{1,100}" type="text" name ="title" class="form-control" id="inputTitle" placeholder="Title of the discussion" required>
+                                    <div class="invalid-feedback">Please choose a title for the discussion</div>
+                            </div>
+                        
+                        <div>
+                            <textarea name="text" required placeholder="..." ></textarea>
+                            <div class="invalid-feedback">Please enter text</div>
+                        </div>
+                        <button type="submit">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+</div>
+
+{% endblock body%}
+
+{% block script %}
+{% load static %}
+<script src="{% static 'js/projects/detail_project.js' %}"></script>
+<script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+
+{% endblock script %}

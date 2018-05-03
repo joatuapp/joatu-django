@@ -1,0 +1,117 @@
+<div id="form_creation">
+
+
+    Project
+    <form class="needs-validation" method="POST" id="form_project" action="" accept-charset="utf-8" enctype="multipart/form-data" novalidate>
+        <button type="submit" class="btn btn-primary" >Submit</button>
+    <div>
+        <label for="inputName">Name of the project*</label>
+        <input pattern=".{1,20}" type="text" name ="name" class="form-control" id="inputName" placeholder="Name of the project" required>
+            <div class="invalid-feedback">Please choose a name (less than 20 characters)</div>
+    </div>
+    <div>
+        <textarea name="description" required placeholder="Describe your project" ></textarea>
+        <div class="invalid-feedback">Please enter your country</div>
+    </div>
+    <div>
+        <label for="inputStartDate">Start Date</label>
+        <input type="datetime-local" required name ="start" class="form-control" id="inputStartDate">
+        <div class="invalid-feedback">Please enter when start your project</div>
+    </div>
+
+    <div>
+        <label for="inputEndDate">End Date</label>
+        <input type="datetime-local" required name ="end" class="form-control" id="inputEndDate">
+        <div class="invalid-feedback">Please enter when start your project</div>
+    </div>
+
+    <div>
+        <label for="inputNumber">Number</label>
+        <input type="text" required name ="number" class="form-control" id="inputNumber">
+        <div class="invalid-feedback">TO BE CHANGED</div>
+    </div>
+
+    <div>
+        <label for="inputStreet">Street</label>
+        <input type="text" required name ="street" class="form-control" id="inputStreet">
+        <div class="invalid-feedback">TO BE CHANGED</div>
+    </div>
+    <div>
+        <label for="inputCity">City*</label>
+        <input pattern=".{1,50}" type="text" required name="city" class="form-control" id="inputCity" placeholder="">
+        <div class="invalid-feedback">Please enter your city</div>
+    
+    </div>
+    <div>
+        <label for="inputZip">Postal Code*</label>
+        <input pattern=".{1,10}" type="text" required name="postal_code" class="form-control" id="inputZip" placeholder="">
+        <div class="invalid-feedback">Please enter your zip code</div>
+    </div>
+    <div>
+        <label for="selectType">Are you looking for volunteers, attendees or both?</label>
+        <select name="project_type" id="selectType">
+                <option selected="true" disabled="disabled">Select an option</option>
+                <option value="CP">Community Project, I am looking for Volunteers</option>
+                <option value="CO">Community Offer, I am looking for Attendees</option>
+                <option value="BO">Community Project and Community Offer, I am looking for Volunteers and Attendees</option>
+        </select>
+    </div>
+
+    <div id="Form_Volunteer" style="display:none;">
+
+            
+            <div>
+                <label for="is_general_volunteering">Do your project involve specific volunteering roles?</label>
+                    <input id="Role1General" type="checkbox" name="volunteers[0][is_general_volunteering]">
+            </div>
+            <div id="Form_Role1" style="display:none;">
+                <div>
+                    <label for="Role1">Title of the Role*</label>
+                    <input pattern=".{1,50}" type="text" name ="volunteers[0][role]" class="form-control" id="Role1" placeholder="Title of the first Role">
+                        <div class="invalid-feedback">Please choose a name (less than 20 characters)</div>
+                </div>
+<!--
+                <div>
+                    <label for="inputStartDateRole1">Role 1 Start at:</label>
+                    <input type="datetime-local" name ="volunteers[0][start]" class="form-control" id="inputStartDateRole1">
+                    <div class="invalid-feedback">Please enter when start your project</div>
+                </div>
+            
+                <div>
+                    <label for="inputEndDateRole1">Role 1 End at:</label>
+                    <input type="datetime-local"  name ="volunteers[0][end]" class="form-control" id="inputEndDateRole1">
+                    <div class="invalid-feedback"></div>
+                </div>
+            -->
+            </div>
+            <div>
+                <div>
+                    <textarea name="volunteers[0][description]" placeholder="Explain in couple sentences what will be the tasks for the volunteers"></textarea>
+                    <div class="invalid-feedback">Please enter your country</div>
+                </div>
+                <div>
+                
+                    <label for="inputRole1Seat">How many volunteering places are available</label>
+                    <input type="number" pattern="[0-9]" min="1"  name="volunteers[0][seats]" class="form-control" id="inputRole1Seat" step="1" value="1">        
+                </div>
+                <div>
+                    <label for="inputRole1MinimumRegistration">How many people do you need at least for the project to happen?</label>
+                    <input type="number" pattern="[0-9]" min="0" name="volunteers[0][minimum_registration]" class="form-control" value="1" id="inputRole1MinimumRegistration" step="1">        
+                </div>
+                
+            </div>
+
+
+    </div>
+
+    <div id="Form_Attendee" style="display:none;">
+
+            <div>
+                <span>ATTENDEES</span>
+                <label for="inputAttendeeSeat">Numbers of seats available</label>
+                <input type="number" pattern="[0-9]" min="2"  name="attendees[seats]" class="form-control" id="inputAttendeeSeat" step="1" value="2">        
+            </div>
+        
+    </div>
+</form>
+</div>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>login</title>
+{% endblock title %}
+{% block login %}
+    <!--<ul class="navbar-nav ml-auto">-->
+        <form class="navbar-form ml-auto form-inline my-2 my-lg-0" method="post" role="form" action="{% url 'accounts:login' %}" accept-charset="utf-8">
+            <div class="form-group mr-2">
+                <input type="email" placeholder="email" class="form-control" name="email">
+            </div>
+            <div class="form-group mr-2">
+                <input type="password" placeholder="Password" class="form-control" name="password">
+            </div>      
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success mr-5">login</button>
+        </form>
+    <!--</ul>-->
+{% endblock login %}
+
+
+          
+{% block body %}
+{% load crispy_forms_tags %}
+
+    <form action="{% url 'accounts:index' %}" method="post" accept-charset="utf-8">
+        {{ registration_form|crispy }}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+{% endblock body %}

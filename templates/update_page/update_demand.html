@@ -1,0 +1,45 @@
+<div id="form_update">
+        Demand
+        <form class="needs-validation" method="POST" id="updateTheForm" accept-charset="utf-8" enctype="multipart/form-data" novalidate >
+            {% csrf_token %}
+        
+        <div>
+            <label for="inputTitle">Title</label>
+            <input pattern=".{1,20}" type="text" name ="title" class="form-control" id="inputTitle" required>
+                <div class="invalid-feedback">TO BE CHANGED</div>
+        </div>
+        <div>
+            <label for="inputNumber">Number</label>
+            <input type="text" required name ="number" class="form-control" id="inputNumber">
+            <div class="invalid-feedback">TO BE CHANGED</div>
+        </div>
+        <div>
+            <label for="inputStreet">Street</label>
+            <input type="text" required name ="street" class="form-control" id="inputStreet">
+            <div class="invalid-feedback">TO BE CHANGED</div>
+        </div>
+        <div>
+            <label for="inputCity">City*</label>
+            <input pattern=".{1,50}" type="text" required name="city" class="form-control" id="inputCity" >
+            <div class="invalid-feedback">Please enter your city</div>
+        
+        </div>
+        <div>
+            <label for="inputZip">Postal Code*</label>
+            <input pattern=".{1,10}" type="text" required name="postal_code" class="form-control" id="inputZip" >
+            <div class="invalid-feedback">Please enter your postal code</div>
+        </div>
+        <div>
+                <textarea name="description" required id="inputDescription"></textarea>
+                <div class="invalid-feedback">TO BE CHANGED</div>
+        </div>
+        <div>
+                <input type="checkbox" name="is_CAPS" id="inputIsCAPS" > Exchange for <input type="number" name="price_CAPS" class="is_required" id="inputCAPS"> CAPS<br>
+                <input type="checkbox" name="is_BARTER" id="inputIsBarter" > Exchange for <input type="text" name="price_barter" class="is_required" id="inputBarter"><br>
+                <input type="checkbox" name="is_GIVE" id="inputIsGive"> Give it for Free
+            </div>
+        <button type="submit" class="btn btn-primary" id="Edit_Form">Edit</button>
+        </form>
+    
+    </div>
+    

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+{% block body %}
+
+
+<div class="container-fluid">
+
+    <div class="row" style="text-align:center; margin-top:15px;">
+        <div class="col-10 offset-1">
+            <h2>Welcome to Joatu</h2>
+            <span>swipe right or click on the top left corner</span>
+
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-10 offset-1" style="text-align:center;">
+            <h5>What's happening in your Hub</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1">
+            <ul id="newsfeed" style="list-style-type: none; margin:0; padding:0; border:1px solid rgb(158, 156, 156);">
+
+            </ul>
+        </div>
+    </div>
+
+    
+</div>
+<div style="height:50px;"></div>
+
+
+
+
+
+{% endblock body%}
+
+{% block script %}
+{% load static %}
+<script src="{% static 'js/homepage.js' %}"></script>
+<script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+
+{% endblock script %}

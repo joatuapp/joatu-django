@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+{% block body %}
+<div id="show_Detail_Offer">
+    <div class="container" >
+            {% csrf_token %}
+        <div class="row" style="margin-top:15px;" >
+            <div class="offset-6" id="is_Seller">
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col-8">
+                <ul id="list_offer_detail">
+
+                </ul>
+            </div>
+        </div>              
+    </div>
+</div>
+<div style="padding-bottom:50px;"></div>
+
+{% endblock body%}
+
+{% block script %}
+{% load static %}
+<script>
+    var not_registered_button = "{% static 'images/icon/check_grey_mobile.png' %}"
+    var registered_button = "{% static 'images/icon/check_green_mobile.png' %}"
+    var profile_answer = "{% static 'images/icon/profile_answer.png' %}"
+    var profile_start_discussion = "{% static 'images/icon/profile_start_discussion.png' %}"
+     </script>
+<script src="{% static 'js/offers/detail_offer.js' %}"></script>
+<script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+
+{% endblock script %}

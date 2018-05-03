@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Settings</title>
+{% endblock title %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+{% endblock css %}
+{% block body %}
+<div id="dialog" title="Save" style="display:none;">
+    <p id="message_box"></p>
+</div>
+
+<div class="row" style="margin-top:15px;">
+    <div class="col-10 offset-1" style="text-align:center;">
+        <h3>Profile</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-8 offset-2">
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-10 offset-1" style="text-align:left;" id="content_profile">
+        <span>Here you can change:</span>
+        <ul>
+            <li>
+                <span>Your username</span>
+            </li>
+            <li>
+                <span>Your postal code</span>
+            </li>
+            <li>
+                <span>Your profile picture</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 offset-8" id="button_edit" style="text-align:center;">
+        <a href="#" id="edit_profile" class="flat_button_success" style="margin:0 auto; display:block;" >Edit</a>
+    </div>
+</div>
+
+<div class="row" style="margin-top:20px;">
+    <div class="col-10 offset-1" style="text-align:center;">
+        <h3>Account</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-8 offset-2">
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-10 offset-1" style="text-align:left;" id="content_account">
+        <span>Here you can change:</span>
+        <ul>
+            <li>
+                <span>Your email address</span>
+            </li>
+            <li>
+                <span>Your password</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3 offset-8" id="button_profile" style="text-align:center;">
+        <a href="#" id="edit_account" class="flat_button_success" style="margin:0 auto; display:block;text-align:center;" >Edit</a>
+    </div>
+</div>
+
+<div style="height:50px;">
+
+</div>
+
+{% endblock body%}
+
+{% block script %}
+{% load static %}
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="{% static 'js/settings/settings.js' %}"></script>
+
+{% endblock script %}

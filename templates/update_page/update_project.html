@@ -1,0 +1,48 @@
+<div id="form_creation">
+        offer
+        <form class="needs-validation" method="POST" action="" accept-charset="utf-8" enctype="multipart/form-data" id="form_offer" novalidate>
+            {% csrf_token %}
+        
+            <div>
+                    <label for="inputTitle">Title</label>
+                    <input pattern=".{1,20}" type="text" name ="title" class="form-control" id="inputTitle" placeholder="Title" required>
+                        <div class="invalid-feedback">TO BE CHANGED</div>
+                </div>
+                <div>
+                    <label for="inputNumber">Number</label>
+                    <input type="text" required name ="number" class="form-control" id="inputNumber">
+                    <div class="invalid-feedback">TO BE CHANGED</div>
+                </div>
+                <div>
+                    <label for="inputStreet">Street</label>
+                    <input type="text" required name ="street" class="form-control" id="inputStreet">
+                    <div class="invalid-feedback">TO BE CHANGED</div>
+                </div>
+                <div>
+                    <label for="inputCity">City*</label>
+                    <input pattern=".{1,50}" type="text" required name="city" class="form-control" id="inputCity" placeholder="Montréal">
+                    <div class="invalid-feedback">Please enter your city</div>
+                
+                </div>
+                <div>
+                    <label for="inputZip">Postal Code*</label>
+                    <input pattern=".{1,10}" type="text" required name="postal_code" class="form-control" id="inputZip" placeholder="H3K1K2">
+                    <div class="invalid-feedback">Please enter your zip code</div>
+                </div>
+                <div>
+                    <label for="inputCountry">Country*</label>
+                    <input pattern=".{1,50}" type="text" required name="country" class="form-control" id="inputCountry" placeholder="Canada">
+                    <div class="invalid-feedback">Please enter your country</div>
+                </div>
+                <div>
+                        <textarea name="description" required >Enter text here...</textarea>
+                        <div class="invalid-feedback">Please enter your country</div>
+                </div>
+                <div>
+                        <input type="checkbox" name="is_CAPS" > Exchange for <input type="number" name="price_CAPS" class="is_required"> CAPS<br>
+                        <input type="checkbox" name="is_BARTER" > Exchange for <input type="text" name="price_barter" class="is_required"><br>
+                        <input type="checkbox" name="is_GIVE" > Give it for Free
+                    </div>
+                <button type="submit" class="btn btn-primary" >Submit</button>
+                </form>
+            </div>

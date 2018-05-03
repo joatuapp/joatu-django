@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+{% block body %}
+<div id="show_Detail_Project">
+    <div class="container" >
+            
+            {% csrf_token %}
+        <div class="row" style="margin-top:15px;" >
+            <div class="offset-6" id="is_organizer">
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col-8">
+                <div class="row">
+                    <div id="icon_category" class="col-2" style="display:inline-block;">
+                        {% load static %}
+                        <object data="{% static 'images/icon/tree_original.svg' %}" width="50" height="50" type="image/svg+xml">
+                        </object>
+                    </div>
+                    <div class="col-9 offset-1" style="display:inline-block;">
+                        <h4 id="project_name"></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 offset-1">
+                <div class="row">
+                    <span id="time_start"></span>
+                </div>
+                <div class="row">
+                    <span id="date_start"></span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <span id="project_address"></span>
+            </div>
+            <div class="col-3 offset-1">
+                <span>0.2Km</span>
+            </div>
+        </div>
+        <div class="row">
+            <div style="text-align:center; width:100%;">
+                <p>Organized by: <span id="project_organizer"></span></p>
+            </div>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <h5>Description:</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p id="project_description"></p>
+                </div>
+            </div>
+        </div>
+        <div id="show_roles" style="display:none;">
+            <div class="row">
+                <div class="col-8">
+                    <h5>Roles:</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul id="roles" style="list-style-type: none;">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="show_attendees" style="display:none;">
+            <div class="row">
+                <div class="col-8">
+                    <h5>Attendees:</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <span id="number_attendees"></span>
+                </div>
+                <div id="button_attendees" class="col-4">
+                        <a class="btn btn-danger" style="display:none;" id="unregistration_attendees">Unregister</a>
+                        <a class="btn btn-success" style="display:none;" id="registration_attendees">Register</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="discussion_container">
+            <div class="row">
+                <div class="col-8">
+                    <h5>Discussion:</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <form action="" id="discussion_form">
+                        <div class="form-group">
+                                <input type="hidden" name="project_ref" id="id_discussion">
+                            <div class="row">
+                                <div class="col-8">
+                                    <input type="text" name="title" id="title_start_discussion" class="form-control" placeholder="Discussion Title" style="margin-bottom:5px;">
+                                </div>
+                            </div>
+                            <textarea class="form-control" name="text" id="text_start_discussion" cols="100" rows="2" placeholder="Start a discussion"></textarea>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul id="discussion" style="list-style-type: none; margin:0; padding:0;">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div style="padding-bottom:50px;"></div>
+
+{% endblock body%}
+
+{% block script %}
+{% load static %}
+<script>
+    var not_registered_button = "{% static 'images/icon/check_grey_mobile.png' %}"
+    var registered_button = "{% static 'images/icon/check_green_mobile.png' %}"
+    var profile_answer = "{% static 'images/icon/profile_answer.png' %}"
+    var profile_start_discussion = "{% static 'images/icon/profile_start_discussion.png' %}"
+     </script>
+<script src="{% static 'js/projects/detail_project.js' %}"></script>
+<script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+
+{% endblock script %}

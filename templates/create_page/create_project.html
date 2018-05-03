@@ -1,0 +1,855 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="{% static 'css/datetimepicker/default.css' %}">
+<link rel="stylesheet" href="{% static 'css/datetimepicker/default.date.css' %}">
+<link rel="stylesheet" href="{% static 'css/datetimepicker/default.time.css' %}">
+
+{% endblock css %}
+{% block body %}
+{% load static %}
+
+<div id="create_Project">
+    
+    <div id="dialog" title="Missing answer" style="display:none;">
+        <p>Please answer all questions</p>
+    </div>
+    <div class="row text-top" style="margin:15px;">
+        <div class="col-12">
+            <div style="text-align:center;" class="">
+                <h5 style="margin-bottom:5px;">Organize a Community activity</h5>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div class="container" >
+                <div id="disclaimer">
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;font-size:1em;" >Congratulations on becoming a <br>Community Organizer!
+                                    <br>This is both a great opportunity and a serious responsibility so it is important to, <br> <strong style="font-size:1.3em;">Please create your community activity with care.</strong> 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+        <!-- ####################################################################QUESTION1##############################################-->
+                <div id="page_1" style="display:none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;">Reminder: Community Activities are intended to add value to your local neighbourhood.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <span>Which <strong>Category</strong> & <strong>Sub-Category</strong> are the best fit for your community activity?</span>
+                        </div>  
+                    </div>
+                    <div class="row select_category" >
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-10">
+                                    <label class="container_radio" for="Cul">
+                                        <input type="radio" name="category" value="Cul" id="Cul" required>
+                                        <span class="checkmark">Culture & Recreation</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="select_sub_category" style="display:none;">
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Cul_con">
+                                            <input type="radio" name="sub_category" value="Cul_con" id="Cul_con" required>
+                                            <span class="checkmark">Concert or Performance</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Cul_oth">
+                                            <input type="radio" name="sub_category" value="Cul_oth" id="Cul_oth" required>
+                                            <span class="checkmark">Other Activity</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row select_category" >
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-10">
+                                    <label class="container_radio" for="Edu">
+                                        <input type="radio" name="category" value="Edu" id="Edu" required>
+                                        <span class="checkmark">Education</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="select_sub_category" style="display:none;">
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Edu_kno">
+                                            <input type="radio" name="sub_category" value="Edu_kno" id="Edu_kno" required>
+                                            <span class="checkmark">Knowledge Sharing</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Edu_ski">
+                                            <input type="radio" name="sub_category" value="Edu_ski" id="Edu_ski" required>
+                                            <span class="checkmark">Skills Sharing</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Edu_oth">
+                                            <input type="radio" name="sub_category" value="Edu_oth" id="Edu_oth" required>
+                                            <span class="checkmark">Other Activity</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row select_category" >
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-10">
+                                    <label class="container_radio" for="Hea">
+                                        <input type="radio" name="category" value="Hea" id="Hea" required>
+                                        <span class="checkmark">Health</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="select_sub_category" style="display:none;">
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Hea_phy">
+                                            <input type="radio" name="sub_category" value="Hea_phy" id="Hea_phy" required>
+                                            <span class="checkmark">Physical fitness</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Hea_emo">
+                                            <input type="radio" name="sub_category" value="Hea_emo" id="Hea_emo" required>
+                                            <span class="checkmark">Emotional well-being</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Hea_oth">
+                                            <input type="radio" name="sub_category" value="Hea_oth" id="Hea_oth" required>
+                                            <span class="checkmark">Other Activity</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row select_category">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-10">
+                                    <label class="container_radio" for="Soc">
+                                        <input type="radio" name="category" value="Soc" id="Soc" required>
+                                        <span class="checkmark">Social Services</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="select_sub_category" style="display:none;">
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Soc_foo">
+                                            <input type="radio" name="sub_category" value="Soc_foo" id="Soc_foo" required>
+                                            <span class="checkmark">Food Security</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Soc_chi">
+                                            <input type="radio" name="sub_category" value="Soc_chi" id="Soc_chi" required>
+                                            <span class="checkmark">Childcare</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Soc_eld">
+                                            <input type="radio" name="sub_category" value="Soc_eld" id="Soc_eld" required>
+                                            <span class="checkmark">Eldercare</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Soc_ani">
+                                            <input type="radio" name="sub_category" value="Soc_ani" id="Soc_ani" required>
+                                            <span class="checkmark">Animalcare</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Soc_oth">
+                                            <input type="radio" name="sub_category" value="Soc_oth" id="Soc_oth" required>
+                                            <span class="checkmark">Other Activity</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row select_category">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-10">
+                                    <label class="container_radio" for="Env">
+                                        <input type="radio" name="category" value="Env" id="Env" required>
+                                        <span class="checkmark">Environment</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="select_sub_category" style="display:none;">
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Env_gar">
+                                            <input type="radio" name="sub_category" value="Env_gar" id="Env_gar" required>
+                                            <span class="checkmark">Gardening</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Env_cle">
+                                            <input type="radio" name="sub_category" value="Env_cle" id="Env_cle" required>
+                                            <span class="checkmark">Cleanups</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Env_oth">
+                                            <input type="radio" name="sub_category" value="Env_oth" id="Env_oth" required>
+                                            <span class="checkmark">Other Activity</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row select_category">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-10">
+                                    <label class="container_radio" for="Oth">
+                                        <input type="radio" name="category" value="Oth" id="Oth" required>
+                                        <span class="checkmark">Other</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="select_sub_category" style="display:none;">
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Oth_oth">
+                                            <input type="radio" name="sub_category" value="Oth_oth" id="Oth_oth" required>
+                                            <span class="checkmark">Other Activity</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>  
+                    </div>
+                    <hr>
+                </div>
+        <!--#########################################################################################-->        
+                <div id="page_2" style="display:none;">
+                    <div class="row question">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;"><strong>All Community Activities are free to attend for the public.</strong>
+                                    <br>Organizers and Volunteers are rewarded with CAPS for their time.
+                                    <br>Attendees do not earn CAPS but are placed on the activity guest list.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12" style="text-align:left;">
+                            <span>Please check at least one of the following:</span>
+                        </div>  
+                    </div>
+                    <div class="row" >
+                        <div class="col-10 offset-1">
+                            <label class="container_radio" for="activity_volunteers">
+                                <input type="checkbox" name="activity_type" value="volunteers" id="activity_volunteers" required>
+                                <span class="checkmark">People will <strong>volunteer</strong> at this activity</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <label class="container_radio" for="activity_attendees">
+                                <input type="checkbox" name="activity_type" value="attendees" id="activity_attendees">
+                                <span class="checkmark">People will <strong>attend</strong> this activity</span>
+                            </label>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+        <!-- ##################################################QUESTION2############################################################-->
+                <div id="page_3" style="display:none;"> 
+                    <div class="row question">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;">Let us know why we should get involved in your community activity!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>      
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="name">Title:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <input class="form-control" type="text" name="name" id="name" placeholder="Give a name to your Activity" required style="width:100%;">                        
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 offset-3">
+                            <span>e.g.<i> Ms. Illusion's Magic Show
+                                <br>Outremont Park Cleanup
+                                <br>Become a better tutor workshop</i>
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="description">Description:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <textarea class="form-control" id="description" cols="100" rows="8" placeholder="Who is your activity for? Who does it benefit? What is it about? What would make you want to go?" required></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-3">
+                            <span>Start:</span>
+                        </div>
+                        <div class="col-9">
+                            <div class="row">
+                                <input type="text" id="date_start" class="datepicker" placeholder="Date" required>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <input type="text" id="time_start" class="timepicker" placeholder="Time" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-3">
+                            <span>End:</span>
+                        </div>
+                        <div class="col-9">
+                            <div class="row">
+                                <input type="text" id="date_end" class="datepicker" placeholder="Date" required>
+                            </div>
+                            <div class="row" style="margin-top:5px">
+                                <input type="text" id="time_end" class="timepicker" placeholder="Time" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+        <!-- ##################################################QUESTION4############################################################-->
+                <div id="page_4" style="display:none;">
+                    <div class="row question">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;">Where will your community activity be hosted?</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>  
+                    <div class="row" >
+                        <div class="col-7 offset-1" style="margin-right:5px;">
+                            <label class="container_radio" for="hub">
+                                <input type="radio" name="add_isHub" id="hub" required>
+                                <span class="checkmark" style="text-align:center;">Your Community Hub</span>
+                            </label>
+                        </div>
+                        <div class="col-3" style="margin-left:5px;">
+                            <label class="container_radio" for="other">
+                                <input type="radio" name="add_isHub" id="other">
+                                <span class="checkmark" style="text-align:center;">Other</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-10 offset-1">
+                            <div id="address" class="form-group" style="display:none;">
+                                <label for="address_number">Number</label>
+                                <input class="form-control"  type="number" id="address_number" required>
+                                <label style="margin-top:10px;" for="address_street">Street</label>
+                                <input class="form-control"  type="text" name="" id="address_street" required>
+                                <label style="margin-top:10px;" for="address_postal_code">Postal code</label>
+                                <input class="form-control"  type="text" name="" id="address_postal_code" required>
+                                <label style="margin-top:10px;" for="address_city">City</label>
+                                <input class="form-control"  type="text" id="address_city" required>
+                            </div>         
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+    <!-- ##################################################QUESTION6############################################################-->
+                <div id="page_5" style="display:none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;">Tell the community how many people can participate to your activity.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>   
+                    <div id="attendees_div" style="display:none;">
+                        <div class="row">
+                            <div class="col-12" style="text-align:center;">
+                                <span><strong>Attendees</strong></span>
+                            </div>  
+                        </div>
+                        <div class="row" style="margin-top:15px;">
+                            <div class="row">
+                                <div class="col-10 offset-1">
+                                    <label for="attendees_min_reg">This community activity will bring value to the community if there is at least <input class="spinner" id="attendees_min_reg" name="min_reg_att" min="2" placeholder="2" value="2" style="width:30px;" required> people attending.</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:15px;">
+                            <div class="row">
+                                <div class="col-10 offset-1">
+                                    <label for="number_attendees">This community activity can host up to <input class="spinner" id="number_attendees" name="num_reg_att" min="2" placeholder="2" value="2" style="width:30px;" required> people.</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div id="volunteers_div" style="display:none;">
+                        <div class="row">
+                            <div class="col-12" style="text-align:center;">
+                                <span><strong>Volunteers</strong></span>
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-12" style="text-align:center;">
+                                <span>Do you have identified more than 1 volunteer role?</span>
+                            </div>  
+                        </div>
+                        <div class="row" style="margin-top:15px;" >
+                            <div class="col-4 offset-1">
+                                <label class="container_radio" for="yes_answer">
+                                    <input type="radio" name="more_than_1_role" id="yes_answer" value="yes" required>
+                                    <span class="checkmark" style="text-align:center;">Yes</span>
+                                </label>
+                            </div>
+                            <div class="col-4 offset-2">
+                                <label class="container_radio" for="no_answer">
+                                    <input type="radio" name="more_than_1_role" id="no_answer" value="no">
+                                    <span class="checkmark" style="text-align:center;">No</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div style="margin-top:15px; display:none;" id="more_than_1_role_is_true">
+                            <div class="row">
+                                <div class="col-10 offset-1">
+                                    <label for="numbers_of_roles">How many?</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 offset-2">
+                                    <input class="spinner" id="numbers_of_roles"  min="2" max="5" placeholder="2" value="2" required>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>        
+        <!-- ##################################################ROLES############################################################-->
+            <!-- Role 1-->
+                <div id="page_6" style="display:none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;"> <strong>Role 1</strong> <br> Tell the community what are the tasks asked for this volunteer role.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="name">Title:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <input class="form-control" type="text" name="name" id="title_role_1" placeholder="Title of the role" required >                        
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="description">Description:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <textarea class="form-control" id="description_role_1" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_volunteers_role_1">How many volunteers do you need for this role?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_volunteers_role_1" name="num_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_min_role_1">What is the minimum registration (for this role) for your activity to happen?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_min_role_1" name="min_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>    
+                </div>
+                <!-- Role 2-->
+                <div id="page_7" style="display:none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;"> <strong>Role 2</strong> <br> Tell the community what are the tasks asked for this volunteer role.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="name">Title:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <input class="form-control" type="text" name="name" id="title_role_2" placeholder="Title of the role" required >                        
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="description">Description:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <textarea class="form-control" id="description_role_2" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_volunteers_role_1">How many volunteers do you need for this role?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_volunteers_role_2" name="num_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_min_role_2">What is the minimum registration (for this role) for your activity to happen?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_min_role_2" name="min_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>     
+                </div>
+                <!-- Role 3-->
+                <div id="page_8" style="display:none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;"> <strong>Role 3</strong> <br> Tell the community what are the tasks asked for this volunteer role.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="name">Title:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <input class="form-control" type="text" name="name" id="title_role_3" placeholder="Title of the role" required >                        
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="description">Description:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <textarea class="form-control" id="description_role_3" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_volunteers_role_3">How many volunteers do you need for this role?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_volunteers_role_3" name="num_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_min_role_3">What is the minimum registration (for this role) for your activity to happen?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_min_role_3" name="min_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>    
+                </div>
+                <!-- Role 4-->
+                <div id="page_9" style="display:none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;"> <strong>Role 4</strong> <br> Tell the community what are the tasks asked for this volunteer role.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="name">Title:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <input class="form-control" type="text" name="name" id="title_role_4" placeholder="Title of the role" required >                        
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="description">Description:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <textarea class="form-control" id="description_role_4" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_volunteers_role_4">How many volunteers do you need for this role?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_volunteers_role_4" name="num_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_min_role_4">What is the minimum registration (for this role) for your activity to happen?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_min_role_4" name="min_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>    
+                </div>
+                <!-- Role 5-->
+                <div id="page_10" style="display:none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="" style="text-align:center;">
+                                <span style="margin-bottom:5px;"> <strong>Role 5</strong> <br> Tell the community what are the tasks asked for this volunteer role.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="name">Title:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <input class="form-control" type="text" name="name" id="title_role_5" placeholder="Title of the role" required >                        
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="description">Description:</label>
+                        </div>
+                        <div class="col-8" style="text-align:left;">
+                            <textarea class="form-control" id="description_role_5" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-5">
+                                <label for="number_volunteers_role_5">How many volunteers do you need for this role?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_volunteers_role_5" name="num_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_min_role_1">What is the minimum registration (for this role) for your activity to happen?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_min_role_5" name="min_reg_att" min="2" placeholder="2" value="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>    
+                </div>
+<!-- Preview page -->
+                <div id="preview_page" style="display:none;">
+                </div>   
+            </div>
+        </div>
+    </div>
+    <!--################################################################END OF PAGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <div class="row" id="buttons" style="background-color:white;display:align-block;margin-top:30px">
+        <div class="col-5 offset-1" id="button_left">
+        </div>
+        <div class="col-5" id="button_right" style="text-align:right;">
+
+        </div>
+    </div>                           
+        
+    <div style="padding-bottom:100px;">
+
+    </div>
+</div>
+
+        
+        <form id="form_create_project" style="display:none">
+                {% csrf_token %}
+                <input pattern=".{1,20}" type="text" name ="name"  id="inputName" required>
+                <textarea name="description" id="inputDescription" required></textarea>
+                <input type="datetime-local" required name ="start" id="inputStartDate">
+                <input type="datetime-local" required name ="end" id="inputEndDate">
+                <input type="text" required name ="category"  id="inputCategory">
+                <input type="text" required name ="sub_category"  id="inputSubCategory">
+                <input type="text" required name ="number"  id="inputNumber">
+                <input type="text" required name ="street" class="form-control" id="inputStreet">
+                <input pattern=".{1,50}" type="text" required name="city" id="inputCity">
+                <input pattern=".{1,10}" type="text" required name="postal_code" id="inputZip">
+                <input type="text" required name="project_type" id="selectType">
+                <div id="role_1">
+                    <input pattern=".{1,50}" type="text" name ="volunteers[0][role]"id="inputRole1Title" value="role1">
+                    <textarea name="volunteers[0][description]" id="inputRole1Description">role1</textarea>
+                    <input type="number" pattern="[0-9]" min="1"  name="volunteers[0][seats]" id="inputRole1Seat"  value="1">        
+                    <input type="number" pattern="[0-9]" min="0" name="volunteers[0][minimum_registration]"  value="1" id="inputRole1MinimumRegistration">
+                </div>
+                <div id="role_2">   
+                    <input pattern=".{1,50}" type="text" name ="volunteers[1][role]"id="inputRole2Title" value="role2">
+                    <textarea name="volunteers[1][description]" id="inputRole2Description">role2</textarea>
+                    <input type="number" pattern="[0-9]" min="1"  name="volunteers[1][seats]" id="inputRole2Seat"  value="1">        
+                    <input type="number" pattern="[0-9]" min="0" name="volunteers[1][minimum_registration]"  value="1" id="inputRole2MinimumRegistration" >
+                </div>
+                <div id="role_3">
+                    <input pattern=".{1,50}" type="text" name ="volunteers[2][role]"id="inputRole3Title" value="role3">
+                    <textarea name="volunteers[2][description]" id="inputRole3Description">role3</textarea>
+                    <input type="number" pattern="[0-9]" min="1"  name="volunteers[2][seats]" id="inputRole3Seat"  value="1">        
+                    <input type="number" pattern="[0-9]" min="0" name="volunteers[2][minimum_registration]"  value="1" id="inputRole3MinimumRegistration" >
+                </div>
+                <div id="role_4">
+                    <input pattern=".{1,50}" type="text" name ="volunteers[3][role]"id="inputRole4Title" value="role4">
+                    <textarea name="volunteers[3][description]" id="inputRole4Description">role4</textarea>
+                    <input type="number" pattern="[0-9]" min="1"  name="volunteers[3][seats]" id="inputRole4Seat"  value="1">        
+                    <input type="number" pattern="[0-9]" min="0" name="volunteers[3][minimum_registration]"  value="1" id="inputRole4MinimumRegistration" >
+                </div>
+                <div id="role_5">
+                    <input pattern=".{1,50}" type="text" name ="volunteers[4][role]"id="inputRole5Title" value="role5">
+                    <textarea name="volunteers[4][description]" id="inputRole5Description">role5</textarea>
+                    <input type="number" pattern="[0-9]" min="1"  name="volunteers[4][seats]" id="inputRole5Seat"  value="1">        
+                    <input type="number" pattern="[0-9]" min="0" name="volunteers[4][minimum_registration]"  value="1" id="inputRole5MinimumRegistration" >
+                </div>
+                <div id="form_attendees">
+                    <input type="number" pattern="[0-9]" min="2"  name="attendees[seats]" id="inputAttendeeSeat" value="2">
+                    <input type="number" pattern="[0-9]" min="2"  name="attendees[minimum_registration]" id="inputAttendeeMinRegistration" value="2">        
+                </div>
+                
+        </form>
+
+
+{% endblock body%}
+
+{% block script %}
+{% load static %}
+ 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="{% static 'js/datetimepicker/picker.js' %}"></script>
+<script src="{% static 'js/datetimepicker/picker.date.js' %}"></script>
+<script src="{% static 'js/datetimepicker/picker.time.js' %}"></script>
+<script>
+    var logo= "{% static 'images/icon/tree_original.svg' %}"
+    var template= "{% static 'html/preview_project.html' %}"
+
+</script>
+
+<script src="{% static 'js/projects/create_project.js' %}"></script>
+<script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+
+{% endblock script %}
