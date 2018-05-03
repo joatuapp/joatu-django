@@ -3,12 +3,13 @@ import urllib.parse
 from decimal import Decimal
 from math import pi, acos, cos, sin
 from hubs.models import HubGeolocation
+from django.conf import settings
 
 
 
 
 def coordinates_calculation(street, postal_code, city, country):
-    API_key = 'AIzaSyDM17QITeync0gIHsGgyqG_IxLH-7JSHo0'
+    API_key = settings.GOOGLE_API_KEY
     main_api = "https://maps.googleapis.com/maps/api/geocode/json?"
     address = street + ' ' + postal_code + ' ' + city + ' ' + country
     url = main_api + urllib.parse.urlencode({'address':address})+ '&key='+API_key
@@ -20,7 +21,7 @@ def coordinates_calculation(street, postal_code, city, country):
 
 
 def offer__demand_coordinates_calculation(number, street, postal_code, city):
-    API_key = 'AIzaSyDM17QITeync0gIHsGgyqG_IxLH-7JSHo0'
+    API_key = settings.GOOGLE_API_KEY
     main_api = "https://maps.googleapis.com/maps/api/geocode/json?"
     address =number+' ' +street + ' ' + postal_code + ' ' + city 
     url = main_api + urllib.parse.urlencode({'address':address})+ '&key='+API_key
