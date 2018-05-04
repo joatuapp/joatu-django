@@ -1,9 +1,16 @@
 from django.contrib import admin
-from projects.models import Project, Project_isValidated, Project_Volunteers, Project_Volunteers_Registration, Project_Discussion, Project_Answer_Discussion
-# Register your models here.
+from projects.models import (
+    Project,
+    ProjectIsValidated,
+    ProjectVolunteers,
+    ProjectVolunteersRegistration,
+    ProjectDiscussion,
+    ProjectAnswerDiscussion
+)
+
 admin.site.register(Project)
-admin.site.register(Project_isValidated)
-admin.site.register(Project_Volunteers)
-admin.site.register(Project_Volunteers_Registration)
-admin.site.register(Project_Discussion)
-admin.site.register(Project_Answer_Discussion)
+admin.site.register(ProjectIsValidated)
+admin.site.register(ProjectVolunteers)
+admin.site.register(ProjectVolunteersRegistration)
+admin.site.register(ProjectDiscussion)
+admin.site.register(ProjectAnswerDiscussion)

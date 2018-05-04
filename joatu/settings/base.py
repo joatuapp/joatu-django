@@ -15,19 +15,17 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY','$gw&@sn%!49x#rhp*+%@s2(c(xfm(*e%9_2u-j&f=7er)y2l!n')
+SECRET_KEY = os.environ.get('SECRET_KEY', '$gw&@sn%!49x#rhp*+%@s2(c(xfm(*e%9_2u-j&f=7er)y2l!n')
 
-GOOGLE_API_KEY= os.environ.get('GOOGLE_API_KEY')
+GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -100,7 +98,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -119,7 +116,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -133,7 +129,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
@@ -144,9 +139,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-LOGIN_REDIRECT_URL= '/profiles/index'
-LOGOUT_REDIRECT_URL= '/accounts/index'
+LOGIN_REDIRECT_URL = '/profiles/index'
+LOGOUT_REDIRECT_URL = '/accounts/index'
 LOGIN_URL = '/accounts/index/'
 LOGIN_EXEMPT_URLS = (
     'accounts/login/',
@@ -156,7 +150,7 @@ LOGIN_EXEMPT_URLS = (
     'accounts/reset_password/done/',
     'accounts/reset_password/complete/',
     'accounts/reset_password/confirm/<uidb64>/<token>/',
-    )
+)
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -164,6 +158,6 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
 }
 
-
 import django_heroku
+
 django_heroku.settings(locals())
