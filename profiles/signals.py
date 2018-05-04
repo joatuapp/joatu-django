@@ -29,6 +29,7 @@ def _distance_calculation(user_lat, user_lng, hubs):
 
 
 def profile_created(sender, update_fields, **kwargs):
+
     instance = kwargs['instance']
     if kwargs['created']:
         ProfileWallet.objects.create(profile=instance)
@@ -38,7 +39,6 @@ post_save.connect(profile_created, sender=Profile)
 
 
 def profile_geolocation_created_or_updated(sender, update_fields, **kwargs):
-    print('1')
     instance = kwargs['instance']
     user = Profile.objects.get(pk=instance.profile.pk)
     hub_list = Hub.objects.filter(city__unaccent__icontains=user.city)

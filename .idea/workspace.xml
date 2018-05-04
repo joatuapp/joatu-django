@@ -2,77 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="209ea488-1ee5-4cba-941a-57314c2d9771" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demands/extras/coordinates.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demands/extras/distance.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demands/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/demands/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hubs/extras/coordinates.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hubs/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hubs/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joatu/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/joatu/settings/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joatu/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/joatu/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ledger/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ledger/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ledger/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ledger/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/offers/extras/coordinates.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/offers/extras/distance.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/offers/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/offers/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/offers/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/offers/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles/extras/coordinates.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles/extras/hub_selection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles/templates/profiles/create_profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/extras/coordinates.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/extras/distance.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/extras/coordinates.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/permissions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest_api/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/html/preview_project.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/datetimepicker/legacy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/datetimepicker/picker.date.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/datetimepicker/picker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/datetimepicker/picker.time.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/demands/list_demands.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/home_maps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/homepage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/homepage_backup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.serialize-object.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/mobile/menu-mobile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/offers/create_offer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/offers/detail_offer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/offers/list_offers.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/projects/create_project.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/projects/detail_project.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/projects/list_projects.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/settings/settings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/create_page/create_demand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/create_page/create_offer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/create_page/create_project.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detail_page/detail_demand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detail_page/detail_offer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detail_page/detail_project.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list_page/list_demands.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list_page/list_offers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list_page/list_projects.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/update_page/update_demand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/update_page/update_offer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/update_page/update_project.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demands/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/demands/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demands/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/demands/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demands/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/demands/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hubs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/hubs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hubs/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/hubs/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hubs/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/hubs/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ledger/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ledger/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ledger/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/ledger/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ledger/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/ledger/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/offers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offers/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/offers/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/offers/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/offers/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiles/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/signals.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -83,102 +31,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/views.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/joatu/settings/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="94" column="30" lean-forward="true" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/joatu/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_profile.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/profiles/templates/create_profile.html">
+      <file leaf-file-name="apps.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/apps.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="155">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/profiles/services.py">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rest_api/profiles/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#56#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rest_api/profiles/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rest_api/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="31">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -215,6 +81,21 @@
         <option value="$PROJECT_DIR$/rest_api/urls.py" />
         <option value="$PROJECT_DIR$/rest_api/profiles/urls.py" />
         <option value="$PROJECT_DIR$/profiles/templates/create_profile.html" />
+        <option value="$PROJECT_DIR$/profiles/services.py" />
+        <option value="$PROJECT_DIR$/profiles/views.py" />
+        <option value="$PROJECT_DIR$/profiles/__init__.py" />
+        <option value="$PROJECT_DIR$/profiles/signals.py" />
+        <option value="$PROJECT_DIR$/profiles/apps.py" />
+        <option value="$PROJECT_DIR$/demands/apps.py" />
+        <option value="$PROJECT_DIR$/demands/__init__.py" />
+        <option value="$PROJECT_DIR$/hubs/apps.py" />
+        <option value="$PROJECT_DIR$/hubs/__init__.py" />
+        <option value="$PROJECT_DIR$/ledger/apps.py" />
+        <option value="$PROJECT_DIR$/ledger/__init__.py" />
+        <option value="$PROJECT_DIR$/offers/__init__.py" />
+        <option value="$PROJECT_DIR$/offers/apps.py" />
+        <option value="$PROJECT_DIR$/projects/apps.py" />
+        <option value="$PROJECT_DIR$/projects/__init__.py" />
       </list>
     </option>
   </component>
@@ -225,9 +106,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
     <option name="y" value="28" />
-    <option name="width" value="960" />
+    <option name="width" value="954" />
     <option name="height" value="1018" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -249,7 +129,7 @@
             <path>
               <item name="joatu-django" type="b2602c69:ProjectViewProjectNode" />
               <item name="joatu-django" type="462c0819:PsiDirectoryNode" />
-              <item name="profiles" type="462c0819:PsiDirectoryNode" />
+              <item name="projects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="joatu-django" type="b2602c69:ProjectViewProjectNode" />
@@ -270,7 +150,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../joatu" />
+    <property name="last_opened_file_path" value="$USER_HOME$/projects/Backend" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -343,8 +223,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32938388" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32938388" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32938388" />
@@ -428,23 +308,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profiles/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/profiles/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profiles/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -495,9 +362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -520,7 +384,7 @@
         <state relative-caret-position="-558" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demands/services.py">
+    <entry file="file://$PROJECT_DIR$/demands/signals.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-554">
           <folding>
@@ -539,7 +403,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hubs/services.py">
+    <entry file="file://$PROJECT_DIR$/hubs/signals.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-120">
           <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
@@ -549,36 +413,10 @@
     <entry file="file://$PROJECT_DIR$/projects/views.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/joatu/settings/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="94" column="30" lean-forward="true" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/joatu/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
           <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rest_api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rest_api/profiles/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,13 +437,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/profiles/services.py">
+    <entry file="file://$PROJECT_DIR$/rest_api/profiles/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        <state relative-caret-position="62">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profiles/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joatu/settings/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profiles/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rest_api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profiles/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profiles/signals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profiles/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demands/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hubs/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hubs/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demands/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ledger/signals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ledger/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ledger/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offers/signals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/offers/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
