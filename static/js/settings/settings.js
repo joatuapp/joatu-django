@@ -5,8 +5,8 @@ $(document).ready(function(){
         $('#content_profile').delay(200).slideUp(function() {
             $(this).empty();       
             
-            $(this).load('/edit_profile/' + ' #edit_profile_form');
-            $.getJSON('/rest_api/update_profile/', function(data){
+            $(this).load('/profiles/update/' + ' #edit_profile_form');
+            $.getJSON('/api/profiles/update/', function(data){
                 $("#inputName").val(data.display_name);
                 $("#inputBirthday").val(data.birth_date);
                 $("#inputStreet").val(data.street);
@@ -20,7 +20,7 @@ $(document).ready(function(){
          });
     })
     $('#main').on('click','#save_edit_profile',function(e){
-        var url = '/rest_api/update_profile/';
+        var url = '/api/profiles/update/';
         var csrf = $('#main').find('input[name=csrfmiddlewaretoken]').val();  
         var data_form = $('#main').find($("#edit_user_profile")).serialize();;
         $.ajax({

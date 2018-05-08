@@ -51,14 +51,16 @@ class EditProfileView(RetrieveUpdateAPIView):
     def update(self, request, *args, **kwargs):
         try:
             instance = request.data
-            print(instance)
             lat_cal, lng_cal = coordinates_calculation(
-                '',
-                instance.__getitem__('postal_code'),
-                instance.__getitem__('city'),
-                instance.__getitem__('country'),
+                number='',
+                street=instance.get('street', ''),
+                postal_code=instance.get('postal_code', ''),
+                city=instance.get('city', ''),
+                country=instance.get('country', '')
             )
             response = super(EditProfileView, self).update(request, *args, **kwargs)
+            if lat_cal == -1 and lng_cal == -1:
+                return response
             profile = Profile.objects.get(user=self.request.user)
             geo = ProfileGeolocation.objects.get(profile=profile)
             geo.lat = lat_cal

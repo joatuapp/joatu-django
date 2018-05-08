@@ -4,14 +4,18 @@ from decimal import Decimal
 import requests
 import urllib.parse
 
+from django.conf import settings
+
 
 def coordinates_calculation(number, street, postal_code, city, country=''):
-    api_key = 'AIzaSyDM17QITeync0gIHsGgyqG_IxLH-7JSHo0'
+    api_key = settings.GOOGLE_API_KEY
     main_api = "https://maps.googleapis.com/maps/api/geocode/json?"
     address = number + ' ' + street + ' ' + postal_code + ' ' + city + ' ' + country
     address = address.strip()
     url = main_api + urllib.parse.urlencode({'address': address}) + '&key=' + api_key
     json_data = requests.get(url).json()
+    if not json_data['results']:
+        return -1, -1
     lat = Decimal(json_data['results'][0]['geometry']['location']['lat'])
     lng = Decimal(json_data['results'][0]['geometry']['location']['lng'])
     return lat, lng

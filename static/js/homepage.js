@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     var userId = $('#userId').attr('value');
-    var link = '/rest_api/profiles/'+userId+'/';
+    var link = '/api/profiles/'+userId+'/';
     $.getJSON(link, function(data){ // load profile data
         $.getJSON(data.profile_hub[0].hub, function(result){
             var newsfeed=[];

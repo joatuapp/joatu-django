@@ -8,7 +8,7 @@ router = DefaultRouter()
 router.register('profiles', ProfileViewSet)
 
 urlpatterns = [
-    path('profile/create/', CreateProfileView.as_view()),
-    path('profile/update/', EditProfileView.as_view()),
+    path('profiles/create/', CreateProfileView.as_view()),
+    path('profiles/update/', EditProfileView.as_view()),
     re_path('^', include(router.urls)),
 ]
