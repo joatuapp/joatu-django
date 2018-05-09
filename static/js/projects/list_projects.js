@@ -69,7 +69,7 @@ $(document).ready(function(){
                 
                 $('#projects_table').append(
                     $('<li>').append(
-                        $('<a>').attr('href','/detail_project/'+projects[i].project.id +'/').append(
+                        $('<a>').attr('href','/projects/detail/'+projects[i].project.id +'/').append(
                             $('<div>').attr('class','box_list row').append(
                                 $('<div>').attr('class','col-2 logo_list').append(
                                     $('<object>').attr({'data':logo,width:'100%',height:'100%','type':"image/svg+xml"})

@@ -1,7 +1,8 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, reverse
 
 from rest_framework.generics import CreateAPIView, RetrieveUpdateAPIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
+from rest_framework.response import Response
 
 from profiles.models import Profile, ProfileGeolocation
 from .serializers import CreateProfileSerializers, UpdateProfileSerializers, ProfileSerializer
@@ -24,10 +25,14 @@ class CreateProfileView(CreateAPIView):
             )
             profile = Profile.objects.get(user=self.request.user)
             ProfileGeolocation.objects.create(profile=profile, lat=lat_cal, lng=lng_cal)
-            return redirect('homepage')
+            return Response({'redirect': reverse('homepage')})
         except Exception as e:
-            print(e)
-            return
+            err = e.__dict__.get('detail')
+            if not err:
+                return Response({'redirect': reverse('homepage')})
+            err = {k: ' '.join(err[k]) for k in err.keys()}
+            err.update({'err': True})
+            return Response(err)
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

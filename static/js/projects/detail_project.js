@@ -322,7 +322,7 @@ $(document).ready(function () {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    var link = '../../api/projects/' + getQueryVariable() + '/'
+    var link = '/api/projects/' + getQueryVariable() + '/'
     var user_id = $('#userId').val();
     $.getJSON(link, function (data) {
         if (data.user_Is_Owner === true) { //if user is organizer show the edit and delete button
@@ -532,7 +532,7 @@ $(document).ready(function () {
                 xhr.setRequestHeader("X-CSRFToken", csrf);
             },
             success: function (result) {
-                window.location.href = "/list_projects/";
+                window.location.href = "/projects/list/";
             }
         });
         e.preventDefault();

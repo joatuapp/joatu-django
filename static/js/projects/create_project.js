@@ -506,7 +506,7 @@ $(document).ready(function(){
                 xhr.setRequestHeader("X-CSRFToken", csrf);
             },
             success: function(result){
-                window.location.href = "/list_projects/";
+                window.location.href = "/projects/list/";
             
             }
         });
