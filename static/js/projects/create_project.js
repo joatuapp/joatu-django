@@ -20,7 +20,7 @@ $(document).ready(function(){
     /// PAGE4
     $('#hub').click(function(){//when user click on "My community Hub"
         $('#address').show(); // show address input
-        $.getJSON('/rest_api/profiles/'+user_id+'/', function(data){    //get data from user
+        $.getJSON('/api/profiles/'+user_id+'/', function(data){    //get data from user
             $.getJSON(data.profile_hub[0].hub,function(result){     // get Hub's data
                 $('#address_number').val(result.number).prop('disabled', true);        // give value to the input and disabled = true
                 $('#address_street').val(result.street).prop('disabled', true);        // "  "
@@ -428,7 +428,7 @@ $(document).ready(function(){
             $('#icon_category').append(
                 $('<object>').attr({'data':logo, 'width':'50','height':'50', 'type':'image/svg+xml'})
             );
-            $.getJSON('/rest_api/profiles/'+user_id+'/',function(data){
+            $.getJSON('/api/profiles/'+user_id+'/',function(data){
             $('#project_organizer').text(data.display_name); //show name of organizer
             });
             $('#project_description').text( $('#inputDescription').val());//show 
@@ -497,7 +497,7 @@ $(document).ready(function(){
         console.log(final_data);
         var csrf = $('#form_create_project').find('input[name=csrfmiddlewaretoken]').val();    //auth token
         $.ajax({
-            url: '/rest_api/projects/',
+            url: '/api/projects/',
             data: final_data ,
             dataType:"json",
             method: "POST",
@@ -506,7 +506,7 @@ $(document).ready(function(){
                 xhr.setRequestHeader("X-CSRFToken", csrf);
             },
             success: function(result){
-                window.location.href = "/list_projects/";
+                window.location.href = "/projects/list/";
             
             }
         });

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Create Profile</title>
+{% endblock title %}
+
+{% block body %}
+    <div class="row" style="margin-top:15px;">
+        <div class="col-10 offset-1" style="text-align:center;">
+            <h3>Create your Profile</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <hr>
+        </div>
+    </div>
+
+    <form class="needs-validation" accept-charset="utf-8" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputName">Your User Name*</label>
+                <input pattern=".{1,20}" type="text" name="display_name" class="form-control" id="inputName"
+                       placeholder="This is what others users will see" required>
+                <p id="display-name-err"></p>
+                <div class="invalid-feedback">Please choose a name (less than 20 characters)</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputBirthday">Your Birthday*</label>
+                <input type="date" required name="birth_date" class="form-control" id="inputBirthday">
+                <p id="birth-date-err"></p>
+                <div class="invalid-feedback">Please enter your birthday</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputCity">City*</label>
+                <input pattern=".{1,50}" type="text" required name="city" class="form-control" id="inputCity"
+                       placeholder="Montréal">
+                <p id="city-err"></p>
+                <div class="invalid-feedback">Please enter your city</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputZip">Postal Code*</label>
+                <input pattern=".{1,10}" type="text" required name="postal_code" class="form-control" id="inputZip"
+                       placeholder="H3K1K2">
+                <p id="postal-code-err"></p>
+                <div class="invalid-feedback">Please enter your zip code</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <label for="inputCountry">Country*</label>
+                <input pattern=".{1,50}" type="text" required name="country" class="form-control" id="inputCountry"
+                       placeholder="Canada">
+                <p id="country-err"></p>
+                <div class="invalid-feedback">Please enter your country</div>
+            </div>
+        </div>
+        <!-- <div class="row">
+             <div class="col-8 offset-2">
+                 <hr>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-10 offset-1">
+                 <label for="inputPicture">Profile Picture</label>
+                 <input type="file" name="picture" class="form-control" id="Picture" disabled>
+                 <div class="invalid-feedback">Format not recognized</div>
+             </div>
+         </div>-->
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <button type="submit" id="profile-creation" class="flat_button_success"
+                        style="margin:0 auto; display:block;">Submit
+                </button>
+            </div>
+        </div>
+    </form>
+    <div style="height:50px;">
+
+    </div>
+
+{% endblock body %}
+{% block script %}
+    {% load static %}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{% static 'js/profiles/create.js' %}"></script>
+{% endblock %}

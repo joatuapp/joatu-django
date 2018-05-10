@@ -79,7 +79,7 @@ $(document).ready(function () {
                 if (volunteerElement.length) {
                     return
                 }
-                var url = `/rest_api/profiles/${volunteerId}/`
+                var url = `/api/profiles/${volunteerId}/`
                 $.getJSON(url, function (volunteer) {
                     $(`#role-${roleNumber}`).append(
                         `<li class="volunteer" id=role-${roleNumber}-${volunteerId}>${volunteer.display_name}</li>`
@@ -322,7 +322,7 @@ $(document).ready(function () {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    var link = '../../rest_api/projects/' + getQueryVariable() + '/'
+    var link = '/api/projects/' + getQueryVariable() + '/'
     var user_id = $('#userId').val();
     $.getJSON(link, function (data) {
         if (data.user_Is_Owner === true) { //if user is organizer show the edit and delete button
@@ -377,7 +377,7 @@ $(document).ready(function () {
 
     $('#show_attendees').on("click", "#registration_attendees", function (e) {
         var csrf = $('.container').find('input[name=csrfmiddlewaretoken]').val();
-        var url = '/rest_api/projects_attendees_registration/';
+        var url = '/api/projects_attendees_registration/';
         var ref = {'project_attendees_ref': $(this).data("ref-role")};
         $.ajax({
             url: url,
@@ -421,7 +421,7 @@ $(document).ready(function () {
     /////////////////////////////////////////////REGISTER AND UNREGISTER FOR ROLE/////////////////////////////////////////////////
     $('#roles').on("click", ".volunteer_unregistered", function (e) {
         var csrf = $('.container').find('input[name=csrfmiddlewaretoken]').val();
-        var url = '/rest_api/projects_volunteers_registration/';
+        var url = '/api/projects_volunteers_registration/';
         var ref = {'project_volunteers_ref': $(this).data("ref-role")};
         console.log(ref)
         $.ajax({
@@ -464,7 +464,7 @@ $(document).ready(function () {
     $('#text_start_discussion').keypress(function (e) {
         if (e.which == 13) {
             var csrf = $('.container').find('input[name=csrfmiddlewaretoken]').val();
-            var url = '/rest_api/projects_discussion/';
+            var url = '/api/projects_discussion/';
             var data = $('#discussion_form').serialize();
             $.ajax({
                 url: url,
@@ -501,7 +501,7 @@ $(document).ready(function () {
     $('#discussion').on('keypress', '.reply_discussion', function (e) {
         if (e.which == 13) {
             var csrf = $('.container').find('input[name=csrfmiddlewaretoken]').val();
-            var url = '/rest_api/projects_answer_discussion/';
+            var url = '/api/projects_answer_discussion/';
             var discussion_id = $(this).data('disc-id')
             var data = $('#disc_' + discussion_id).serialize();
             var textarea = $(this);
@@ -532,7 +532,7 @@ $(document).ready(function () {
                 xhr.setRequestHeader("X-CSRFToken", csrf);
             },
             success: function (result) {
-                window.location.href = "/list_projects/";
+                window.location.href = "/projects/list/";
             }
         });
         e.preventDefault();

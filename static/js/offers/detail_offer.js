@@ -115,7 +115,7 @@ function load_answers(data, ans_id){
 
 
 
-    var link = '../../rest_api/offers/' + getQueryVariable() + '/'
+    var link = '../../api/offers/' + getQueryVariable() + '/'
     var user_id = $('#userId').val();
     $.getJSON( link, function( data ){
         if(data.user_Is_Owner === true){ //if user is organizer show the edit and delete button

@@ -24,9 +24,9 @@
                     <a class="closebtn" id="close_navbar">&times;</a>
                     {% if user.is_authenticated %}
                     <a href="/">Home</a>
-                    <a class="nav-link" id="projects-tab" href="/list_projects/" >Activities</a>
-                    <a class="nav-link" id="offers-tab"  href="/list_offers/" >Offers</a>
-                    <a class="nav-link" id="Demands-tab" href="/list_demands/">Requests</a>
+                    <a class="nav-link" id="projects-tab" href="{% url 'projects:list' %}" >Activities</a>
+                    <a class="nav-link" id="offers-tab"  href="{% url 'offers:list' %}" >Offers</a>
+                    <a class="nav-link" id="Demands-tab" href="{% url 'demands:list' %}">Requests</a>
                     <a class="nav-link" id="settings" href="/settings/">Settings</a>
                     <a href="{% url 'accounts:logout' %}">Log Out</a>
                     {% else %}

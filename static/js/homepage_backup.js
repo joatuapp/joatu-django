@@ -107,7 +107,7 @@ $(document).ready(function(){
         ////////////////////////////////////////////////////////SUBMIT DISCUSSION/////////////////////////////////////////
         $('#container-right').on("submit","#start_discussion",function(e){
             var csrf = $('#right').find('input[name=csrfmiddlewaretoken]').val();
-            var url = '/rest_api/projects_discussion/';
+            var url = '/api/projects_discussion/';
             var data = $('#start_discussion').serialize();    
             $.ajax({
                 url: url,
@@ -183,7 +183,7 @@ $(document).ready(function(){
 ///////////////////////////////////////////////////////////////////////////POST////////////////////////////////////////////////////////////////////////////////////////////
             //post demand to back end
             $('#container-right').on("submit","#form_demand",function(e){
-                $.post('/rest_api/demands/', $('#form_demand').serialize())
+                $.post('/api/demands/', $('#form_demand').serialize())
                 .done(function(data){
                     var url = data.url;
                     $('#container-right').empty();
@@ -208,7 +208,7 @@ $(document).ready(function(){
 
             // post offer to back end
             $('#container-right').on("submit","#form_offer",function(e){
-                $.post('/rest_api/offers/', $('#form_offer').serialize())
+                $.post('/api/offers/', $('#form_offer').serialize())
                 .done(function(data){
 
                     var url = data.url;
@@ -262,7 +262,7 @@ $(document).ready(function(){
                 final_data = JSON.stringify(data_to_send);  
                 var csrf = $('#right').find('input[name=csrfmiddlewaretoken]').val();   
                 $.ajax({
-                    url: '/rest_api/projects/',
+                    url: '/api/projects/',
                     data: final_data ,
                     dataType:"json",
                     method: "POST",
@@ -382,7 +382,7 @@ $(document).ready(function(){
         }
     };
     
-    xhr.open('GET', '/rest_api/hubs/1/', true);
+    xhr.open('GET', '/api/hubs/1/', true);
     xhr.send(null);
 
 

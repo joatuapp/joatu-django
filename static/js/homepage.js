@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     var userId = $('#userId').attr('value');
-    var link = '/rest_api/profiles/'+userId+'/';
+    var link = '/api/profiles/'+userId+'/';
     $.getJSON(link, function(data){ // load profile data
         $.getJSON(data.profile_hub[0].hub, function(result){
             var newsfeed=[];
@@ -12,7 +12,7 @@ $(document).ready(function(){
                 newsfeed.push({
                     'type':'project',
                     'title':projects[i].project.name,
-                    'link':'/detail_project/'+projects[i].project.id+'/', 
+                    'link':'/projects/detail/'+projects[i].project.id+'/',
                     'created':projects[i].project.created
                 })
             }
@@ -20,14 +20,14 @@ $(document).ready(function(){
                 newsfeed.push({
                     'type':'request', 
                     'title':demands[i].demand.title,
-                    'link':'/detail_demand/'+demands[i].demand.id+'/', 
+                    'link':'/demands/detail/'+demands[i].demand.id+'/',
                     'created':demands[i].demand.created})
             }
             for(i in offers){
                 newsfeed.push({
                     'type':'offer', 
                     'title':offers[i].offer.title,
-                    'link':'/detail_offer/'+offers[i].offer.id+'/', 
+                    'link':'/offers/detail/'+offers[i].offer.id+'/',
                     'created':offers[i].offer.created})
             }
             newsfeed.sort(function(a,b) { 
