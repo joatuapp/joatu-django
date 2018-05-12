@@ -1,66 +1,71 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-    var userId = $('#userId').attr('value');
-    var link = '/api/profiles/'+userId+'/';
-    $.getJSON(link, function(data){ // load profile data
-        $.getJSON(data.profile_hub[0].hub, function(result){
-            var newsfeed=[];
-            var demands= result.demands;
-            var projects= result.projects;
-            var offers= result.offers;
-            for(i in projects){
-                newsfeed.push({
-                    'type':'project',
-                    'title':projects[i].project.name,
-                    'link':'/projects/detail/'+projects[i].project.id+'/',
-                    'created':projects[i].project.created
-                })
-            }
-            for(i in demands){
-                newsfeed.push({
-                    'type':'request', 
-                    'title':demands[i].demand.title,
-                    'link':'/demands/detail/'+demands[i].demand.id+'/',
-                    'created':demands[i].demand.created})
-            }
-            for(i in offers){
-                newsfeed.push({
-                    'type':'offer', 
-                    'title':offers[i].offer.title,
-                    'link':'/offers/detail/'+offers[i].offer.id+'/',
-                    'created':offers[i].offer.created})
-            }
-            newsfeed.sort(function(a,b) { 
-                return new Date(b.created)- new Date(a.created)
-            });
-
-            for(i in newsfeed){
-                $('#newsfeed').append(
-                    $('<li>').css({'margin':'5px'}).append(
-                        $('<div>').attr('class','row').append(
-                            $('<div>').attr('class','col-6 offset-1').append(
-                                $('<span>').text(newsfeed[i].title)
-                            )
-                        ).append(
-                            $('<div>').attr('class','col-3 offset-2').append(
-                                $('<span>').text(newsfeed[i].type)
-                            )
+    function feedNews(data) {
+        for (var i = 0; i < data.length; i++) {
+            $('#newsfeed').append(
+                $('<li>').css({'margin': '5px'}).append(
+                    $('<div>').attr('class', 'row').append(
+                        $('<div>').attr('class', 'col-6 offset-1').append(
+                            $('<span>').text(data[i].title)
                         )
                     ).append(
-                        $('<div>').attr('class','row').css({'margin-top':'15px'}).append(
-                            $('<div>').attr('class','col-9 offset-3').css('text-align','right').append(
-                                $('<a>').attr({'href':newsfeed[i].link,'class':'flat_button_preview'}).text('More details...')
-                            )
+                        $('<div>').attr('class', 'col-3 offset-2').append(
+                            $('<span>').text(data[i].type)
                         )
                     )
                 ).append(
-                    $('<hr>')
-                );
-            }
-            console.log(newsfeed);
+                    $('<div>').attr('class', 'row').css({'margin-top': '15px'}).append(
+                        $('<div>').attr('class', 'col-9 offset-3').css('text-align', 'right').append(
+                            $('<a>').attr({
+                                'href': data[i].link,
+                                'class': 'flat_button_preview'
+                            }).text('More details...')
+                        )
+                    )
+                )
+            ).append(
+                $('<hr>')
+            );
+        }
+    }
 
-        });
+    function dataFetch(urls, index, retData, type, callback) {
+        if (index == urls.length) {
+            retData.sort(function (a, b) {
+                return new Date(b.created) - new Date(a.created)
+            })
+            callback(retData)
+            return
+        } else {
+            $.getJSON(urls[index], function (data) {
+                retData.push(({
+                    'type': type,
+                    'title': data.name,
+                    'link': `/${type}s/detail/${data.id}/`,
+                    'created': data.created
+                }))
+                dataFetch(urls, index + 1, retData, type, callback)
+            })
+        }
+    }
+
+
+    var userId = $('#userId').attr('value');
+    var link = '/api/profiles/' + userId + '/';
+
+    $.getJSON(link, function (data) { // load profile data
+        var projectLinks = data.profile_projects
+        var projectsData = []
+        dataFetch(projectLinks, 0, projectsData, 'project', feedNews)
+
+
+        var demandLinks = data.profile_demands
+        var demandsData = []
+        dataFetch(demandLinks, 0, demandsData, 'demand', feedNews)
+
+        var offerLinks = data.profile_offers
+        var offersData = []
+        dataFetch(offerLinks, 0, offersData, 'offer', feedNews)
     });
-
 })
     
