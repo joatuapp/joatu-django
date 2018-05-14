@@ -58,6 +58,7 @@ $(document).ready(function(){
     }
    
     var userId = $('#userId').attr('value');
+    alert(userId + 'autre')
     var link = '/api/profiles/'+userId+'/'
     $.getJSON( link, function( data ){ // load profile data
         $.getJSON(data.profile_hub[0].hub, function(result){ // load projects in the hub (for the moment user can have only one hub)
