@@ -39,7 +39,7 @@ $(document).ready(function(){
 
                 $('#offers_table').append(
                     $('<li>').append(
-                        $('<a>').attr('href','/detail_offer/'+offers[i].offer.id +'/').append(
+                        $('<a>').attr('href','/offers/detail/'+offers[i].offer.id +'/').append(
                             $('<div>').attr({'class':'box_list row'}).append(
                                 $('<div>').attr({'class':'col-3'}).append(
                                     $('<img>').attr({'src':thumbnail, width:'100%'})
