@@ -29,7 +29,7 @@ def edit_account(request):
         form = EditProfileForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('homepage')
+            return redirect('list_homepage')
         else:
             return redirect('/accounts/edit/')
     else:
@@ -44,7 +44,7 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect('homepage')
+            return redirect('list_homepage')
         else:
             return redirect('accounts/change_password/')
 
@@ -60,7 +60,7 @@ def login_view(request):
     user = authenticate(request, email=email, password=password)
     if user is not None:
         login(request, user)
-        return redirect('homepage')
+        return redirect('list_homepage')
 
     else:
         registration_form = RegistrationForm()
