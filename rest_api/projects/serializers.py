@@ -121,7 +121,7 @@ class ProjectDiscussionSerializer(serializers.HyperlinkedModelSerializer):
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     attendees = ProjectAttendeesSerializer()
     volunteers = ProjectVolunteersSerializer(many=True)
-    discussion_project = ProjectDiscussionSerializer(many=True)
+    discussion_project = ProjectDiscussionSerializer(many=True, read_only=True)
     ### cause of the error : 
     #serializers.HyperlinkedRelatedField(
     #    many=True,

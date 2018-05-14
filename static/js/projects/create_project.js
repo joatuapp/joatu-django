@@ -493,8 +493,8 @@ $(document).ready(function(){
         //Action button #button_submit
     $('#button_right').on('click', '#button_submit',function(e){
         var data_to_send = $('#form_create_project').serializeObject(); //serialize data form  
-        final_data = JSON.stringify(data_to_send);      
-        console.log(final_data);
+        final_data = JSON.stringify(data_to_send);
+        console.log(final_data)      
         var csrf = $('#form_create_project').find('input[name=csrfmiddlewaretoken]').val();    //auth token
         $.ajax({
             url: '/api/projects/',

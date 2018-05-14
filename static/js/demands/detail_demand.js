@@ -115,16 +115,16 @@ function load_answers(data, ans_id){
 
 
 
-    var link = '../../../api/offers/' + getQueryVariable() + '/'
+    var link = '../../../api/demands/' + getQueryVariable() + '/'
     var user_id = $('#userId').val();
     $.getJSON( link, function( data ){
         if(data.user_Is_Owner === true){ //if user is organizer show the edit and delete button
-            $('#is_Seller').append(
+            $('#is_Requester').append(
                 $('<a>').attr({href:'',class:"btn btn-primary"}).css({"margin-right":"5px","margin-left":"15px"}).text('Edit')
-            ).append($('<a>').attr({href:data.url,class:"btn btn-danger",id:'delete_offer'}).css("margin-left","5px").text('Delete'));
+            ).append($('<a>').attr({href:data.url,class:"btn btn-danger",id:'delete_demand'}).css("margin-left","5px").text('Delete'));
         }
 
-        $('#list_offer_detail').append(
+        $('#list_demand_detail').append(
             $('<li>').text('title: '+ data.title)
         ).append(
             $('<li>').text('description: '+ data.description)
@@ -145,14 +145,14 @@ function load_answers(data, ans_id){
         ).append(
             $('<li>').text('updated: '+ data.updated)
         ).append(
-            $('<li>').text('seller: '+ data.seller)
+            $('<li>').text('requester: '+ data.requester)
         )
         
     });
 
 ///////////////////////////////////////////////////////////////////DELETE PROJECT///////////////////////////////////////////////////////////
     
-$('#is_Seller').on("click", "#delete_offer", function(e){
+$('#is_Requester').on("click", "#delete_demand", function(e){
         var url = this.href;
         var csrf = $('.container').find('input[name=csrfmiddlewaretoken]').val();    
 
@@ -163,7 +163,7 @@ $('#is_Seller').on("click", "#delete_offer", function(e){
                 xhr.setRequestHeader("X-CSRFToken", csrf);
             },
             success: function(result){
-                window.location.href = "/list_offers/";
+                window.location.href = "/list_demands/";
             }
         });
         e.preventDefault();
