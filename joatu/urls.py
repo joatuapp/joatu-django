@@ -29,6 +29,6 @@ urlpatterns = [
 
     path('accounts/', include('accounts.urls', namespace='accounts')),
     re_path(r'^api/', include('rest_api.urls')),
-    path('', TemplateView.as_view(template_name="homepage.html"), name='homepage'),
+    path('', TemplateView.as_view(template_name="list_projects.html"), name='list_homepage'),
     path('settings/', TemplateView.as_view(template_name="settings/settings.html"), name='settings'),
 ]
