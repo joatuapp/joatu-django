@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '$gw&@sn%!49x#rhp*+%@s2(c(xfm(*e%9_2u-j&f=7er)y2l!n')
 
-GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY', '')
+GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY', 'AlzaSyATn9BuV6csn5MHqTaQkcsqt2hKr15u6DA')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

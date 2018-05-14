@@ -121,11 +121,13 @@ class ProjectDiscussionSerializer(serializers.HyperlinkedModelSerializer):
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     attendees = ProjectAttendeesSerializer()
     volunteers = ProjectVolunteersSerializer(many=True)
-    discussion_project = serializers.HyperlinkedRelatedField(
-        many=True,
-        view_name='project_discussion-detail',
-        read_only=True
-    )
+    discussion_project = ProjectDiscussionSerializer(many=True)
+    ### cause of the error : 
+    #serializers.HyperlinkedRelatedField(
+    #    many=True,
+    #    view_name='discussion_project',
+    #    read_only=True
+    #)
 
     class Meta:
         model = Project
