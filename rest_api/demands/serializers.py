@@ -32,5 +32,22 @@ class DemandHubSerializer(serializers.HyperlinkedModelSerializer):
 class DemandSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Demand
-        fields = '__all__'
+        fields = (
+            'url',
+            'id',
+            'title',
+            'description',
+            'number',
+            'street',
+            'postal_code',
+            'city',
+            'is_CAPS',
+            'is_BARTER',
+            'is_GIVE',
+            'requester',
+            'created',
+            'updated',
+            'price_CAPS',
+            'price_barter',
+            'requester',)
         read_only_fields = ('requester',)
