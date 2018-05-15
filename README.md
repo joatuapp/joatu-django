@@ -23,7 +23,7 @@ i work with a virtual environment using virtualenv.
 ## Install
 clone the project on your computer:
 ```
-git clone https://github.com/moileretour/joatu.git
+git clone https://github.com/joatuapp/joatu-django.git
 ```
 
 If you use Postgresql, first follow the instruction for the installation on you OS https://www.postgresql.org/. 
