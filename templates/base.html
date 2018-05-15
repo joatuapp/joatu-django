@@ -78,7 +78,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script src="{% static 'js/mobile/menu-mobile.js' %}"></script>
+
+    {% if user.is_authenticated %}
     <script src="{% static 'js/script.js' %}"></script>
+    {% endif %}
+
 {% block script %}
 {% endblock script %}
 
