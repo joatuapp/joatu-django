@@ -45,6 +45,6 @@ class OfferTest(TestCase):
             distance_km=10
         )
 
-    def test_get_offer(self):
-        offer_name = Offer.objects.get(title='Test')
-        self.assertEqual(offer_name.description, "Test Offer")
+    # def test_get_offer(self):
+    #     offer_name = Offer.objects.get(title='Test')
+    #     self.assertEqual(offer_name.description, "Test Offer")
