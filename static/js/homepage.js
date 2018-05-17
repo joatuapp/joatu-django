@@ -52,8 +52,8 @@ $(document).ready(function () {
 
     var userId = $('#userId').attr('value');
     var link = '/api/profiles/' + userId + '/';
-
-    $.getJSON(link, function (data) { // load profile data
+    if(userId){
+        $.getJSON(link, function (data) { // load profile data
         var projectLinks = data.profile_projects
         var projectsData = []
         dataFetch(projectLinks, 0, projectsData, 'project', feedNews)
@@ -67,5 +67,7 @@ $(document).ready(function () {
         var offersData = []
         dataFetch(offerLinks, 0, offersData, 'offer', feedNews)
     });
+    }
+    
 })
     
