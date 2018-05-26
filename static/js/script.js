@@ -7,9 +7,21 @@ $(document).ready(function () {
     responseType: 'token id_token',
     scope: 'openid'
   });
+$("#oauth").click(function(){
+ webAuth.authorize();
+});
 
 
-    webAuth.authorize();
+  webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
+    if (err) {
+      return console.log(err);
+    }
+    webAuth.client.userInfo(authResult.accessToken, function(err, user) {
+      console.log(user)
+      console.log(user.email);
+    });
+  });
+
 
 
 //$.ajax(settings).done(function (response) {
