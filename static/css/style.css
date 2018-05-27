@@ -232,6 +232,8 @@ body { padding: 2em; }
 
 /* Facebook */
 .loginBtn--facebook {
+  cursor: pointer;
+  width:100%;
   background-color: #4C69BA;
   background-image: linear-gradient(#4C69BA, #3B55A0);
   /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
@@ -250,7 +252,9 @@ body { padding: 2em; }
 
 /* Google */
 .loginBtn--google {
+  width:100%;
   /*font-family: "Roboto", Roboto, arial, sans-serif;*/
+  cursor: pointer;
   background: #DD4B39;
 }
 .loginBtn--google:before {
