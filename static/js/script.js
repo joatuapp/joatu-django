@@ -5,9 +5,8 @@ $(document).ready(function () {
     redirectUri: 'http://localhost:8000',
     audience: 'https://' + 'joatu.auth0.com' + '/userinfo',
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid profile email'
   });
-
 
 $("#btnfb").click(function(){
  webAuth.authorize({
@@ -20,9 +19,6 @@ $("#btngoogle").click(function(){
  });
 });
 
-
-
-
 if( window.location.hash!== undefined && window.location.hash.length > 0  ){
  webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
     if (err) {
@@ -33,18 +29,5 @@ if( window.location.hash!== undefined && window.location.hash.length > 0  ){
       console.log(user.email);
     });
   });
-
 }
-
-
-
-//$.ajax(settings).done(function (response) {
-//  console.log(response);
-//});
-//    var userId = $('#userId').attr('value');
-//    if (userId) {  //fix /api/profiles// 404 (Not Found) fix
-//        $.getJSON('/api/profiles/' + userId + '/', function (data) {
-//            $('#numb_CAPS').text(data.profile_wallet.wallet);
-//        });
-//    }
 });
