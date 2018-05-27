@@ -7,12 +7,24 @@ $(document).ready(function () {
     responseType: 'token id_token',
     scope: 'openid'
   });
-$("#oauth").click(function(){
- webAuth.authorize();
+
+
+$("#btnfb").click(function(){
+ webAuth.authorize({
+ connection : 'facebook'
+ });
+});
+$("#btngoogle").click(function(){
+ webAuth.authorize({
+ connection : 'google'
+ });
 });
 
 
-  webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
+
+
+if( window.location.hash!== undefined && window.location.hash.length > 0  ){
+ webAuth.parseHash({ hash: window.location.hash }, function(err, authResult) {
     if (err) {
       return console.log(err);
     }
@@ -21,6 +33,8 @@ $("#oauth").click(function(){
       console.log(user.email);
     });
   });
+
+}
 
 
 

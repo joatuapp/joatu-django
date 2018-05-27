@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-    <title>welcome to Joatu</title>
+<title>welcome to Joatu</title>
 {% endblock title %}
 {% block login %}
 <header>
@@ -10,70 +10,65 @@
 <a href="#logIn">Log In </a>
 
 {% endblock login %}
-        
+
 {% block body %}
+<div class="container col-md-6" style="align-items:center;">
 
-
-<div id="register">
-    <div>
-        
-    </div>
-    {% load crispy_forms_tags %}
-    <form action="{% url 'accounts:index' %}" method="post" accept-charset="utf-8">
-        {{ registration_form|crispy }}
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ next }}">
-        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Register">
-    </form>
-</div>
-
-
-<div id="howItWorks">
-</div>
-
-
-<div id="logIn" style="margin-top:50px;">
-    <div class="row">
-        <div class="col-10 offset-1" style="text-align:center;">
-            <h3>Login</h3>
-        </div>
-    </div>
-    <form class="" method="post" role="form" action="{% url 'accounts:login' %}" accept-charset="utf-8"> 
-        <div class="row" style="margin-top:15px;">
-            <div class="col-10 offset-1">
-                <div class="form-group mr-2">
-                        <input type="email" placeholder="email" class="form-control" name="email">
-                    </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 offset-1">
-                <div class="form-group mr-2">
-                    <input type="password" placeholder="Password" class="form-control" name="password">
-                </div>  
-
-            </div>
-        </div>
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-4 offset-4">
-                <button type="submit" class="btn btn-success mr-5">login</button>
-            </div>
-        </div>
+    <!--<div id="register">
         <div>
-             <button type="button" id="oauth" class="btn btn-success">Using External Login</button>
+
         </div>
-        
-    </form>
-    <!--<a href="{% url 'accounts:reset_password' %}" >Forgot your password?</a>-->
-    {% if invalid %}
-    <p style="color: red; font-weight:bold;">Wrong email or Password</p>
-    {% endif %}
+        {% load crispy_forms_tags %}
+        <form action="{% url 'accounts:index' %}" method="post" accept-charset="utf-8">
+            {{ registration_form|crispy }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Register">
+        </form>
+    </div>-->
+
+
+    <div id="howItWorks">
+    </div>
+
+
+    <div id="logIn" style="margin-top:50px;">
+        <div class="row">
+            <div class="col-10 offset-1" style="text-align:center;">
+                <h3>Login</h3>
+            </div>
+        </div>
+        <form class="" method="post" role="form" action="{% url 'accounts:login' %}" accept-charset="utf-8">
+            <div class="form-group">
+                <input type="email" placeholder="email" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password" class="form-control" name="password">
+            </div>
+            {% csrf_token %}
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">login</button>
+            </div>
+            <hr/>
+            <div>
+                <button type="button" id="btnfb" class="loginBtn loginBtn--facebook">
+                    Login with Facebook
+                </button>
+            </div>
+            <div>
+                <button type="button" id="btngoogle" class="loginBtn loginBtn--google">
+                    Login with Google
+                </button>
+            </div>
+
+        </form>
+        <!--<a href="{% url 'accounts:reset_password' %}" >Forgot your password?</a>-->
+        {% if invalid %}
+        <p style="color: red; font-weight:bold;">Wrong email or Password</p>
+        {% endif %}
+    </div>
 </div>
-
-
-
-
 
 
 {% endblock body %}
+
