@@ -15,7 +15,7 @@ $("#btnfb").click(function(){
 });
 $("#btngoogle").click(function(){
  webAuth.authorize({
- connection : 'google'
+ connection : 'google-oauth2'
  });
 });
 

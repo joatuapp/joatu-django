@@ -49,20 +49,6 @@ $(document).ready(function () {
         }
     }
 
-  var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://joatu.auth0.com/oauth/token",
-  "method": "POST",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "data": "{\"client_id\":\"ezqEUwj6hRuB7VVVcgXUpohb1irPocHe\",\"client_secret\":\"MypLrMLOyMGUtB7dQLr1ek4j3G51Tac3MO88guofPJDM9bUBLzYGjgGwX6IKSi_W\",\"audience\":\"https://joatu.auth0.com/api/v2/\",\"grant_type\":\"client_credentials\"}"
-}
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
 
     var userId = $('#userId').attr('value');
     var link = '/api/profiles/' + userId + '/';
