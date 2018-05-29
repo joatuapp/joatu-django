@@ -1,10 +1,12 @@
 $(document).ready(function(){
     var main = document.getElementById('swipediv');
     var mySidenav = document.getElementById('mySidenav');
+
+/* Remove the default userSelect css property in the Hammer plugin before creating any instance, that sets the property to none.*/
+    delete Hammer.defaults.cssProps.userSelect;
     var main_swipe = new Hammer(main);
     var menu_swipe = new Hammer(mySidenav)
     var menuIsOpen =false;
-/* Set the width of the side navigation to 250px */
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
     $('#open_navbar').click(function(){
         if(menuIsOpen===false){
@@ -32,12 +34,5 @@ $(document).ready(function(){
             menuIsOpen=false;  
         }
     });
-    main_swipe.on('swipeleft',function(){
-        if(menuIsOpen===true){
-            $('#mySidenav').css('width','0');
-            menuIsOpen=false;  
-        }
-    });
 
-
-})
+});
