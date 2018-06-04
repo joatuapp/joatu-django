@@ -838,6 +838,7 @@
 
 {% block script %}
 {% load static %}
+
  
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="{% static 'js/datetimepicker/picker.js' %}"></script>
@@ -851,5 +852,62 @@
 
 <script src="{% static 'js/projects/create_project.js' %}"></script>
 <script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+
+<script>
+    $(document).ready(function() {
+        // keyboard events for input box
+        $('#number_volunteers_role_1').on('keyup focusout', function() {
+            $('#number_min_role_1').spinner({
+                max: this.value
+            });
+        });
+        $('#number_volunteers_role_2').on('keyup focusout', function() {
+            $('#number_min_role_2').spinner({
+                max: this.value
+            });
+        });
+        $('#number_volunteers_role_3').on('keyup focusout', function() {
+            $('#number_min_role_3').spinner({
+                max: this.value
+            });
+        });
+        $('#number_volunteers_role_4').on('keyup focusout', function() {
+            $('#number_min_role_4').spinner({
+                max: this.value
+            });
+        });
+        $('#number_volunteers_role_5').on('keyup focusout', function() {
+            $('#number_min_role_5').spinner({
+                max: this.value
+            });
+        });
+        // mouse events for arrow keys
+        $('#number_volunteers_role_1 + a').click(function() {
+            $('#number_min_role_1').spinner({
+                max: $('#number_volunteers_role_1').val()
+            });
+        });
+        $('#number_volunteers_role_2 + a').click(function() {
+            $('#number_min_role_2').spinner({
+                max: $('#number_volunteers_role_2').val()
+            });
+        });
+        $('#number_volunteers_role_3 + a').click(function() {
+            $('#number_min_role_3').spinner({
+                max: $('#number_volunteers_role_3').val()
+            });
+        });
+        $('#number_volunteers_role_4 + a').click(function() {
+            $('#number_min_role_4').spinner({
+                max: $('#number_volunteers_role_4').val()
+            });
+        });
+        $('#number_volunteers_role_5 + a').click(function() {
+            $('#number_min_role_5').spinner({
+                max: $('#number_volunteers_role_5').val()
+            });
+        });
+    });
+</script>
 
 {% endblock script %}

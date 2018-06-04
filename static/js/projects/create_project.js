@@ -511,9 +511,4 @@ $(document).ready(function(){
         });
         e.preventDefault();
     });
-
-    // $('#number_volunteers_role_1').keyup(funtion() {
-    //     $('#number_min_role_1').attr('max', );
-    // });
-
-})
+});
