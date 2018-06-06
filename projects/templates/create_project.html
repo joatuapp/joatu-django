@@ -856,56 +856,86 @@
 <script>
     $(document).ready(function() {
         // keyboard events for input box
-        $('#number_volunteers_role_1').on('keyup focusout', function() {
+        $('#number_volunteers_role_1').keyup(function() {
             $('#number_min_role_1').spinner({
                 max: this.value
             });
+            if (parseInt(this.value, 10) < parseInt($('#number_min_role_1').val(), 10)) {
+                $('#number_min_role_1').val($('#number_volunteers_role_1').val());
+            } 
         });
-        $('#number_volunteers_role_2').on('keyup focusout', function() {
+        $('#number_volunteers_role_2').keyup(function() {
             $('#number_min_role_2').spinner({
                 max: this.value
             });
+            if (parseInt(this.value, 10) < parseInt($('#number_min_role_2').val(), 10)) {
+                $('#number_min_role_2').val($('#number_volunteers_role_2').val());
+            } 
         });
-        $('#number_volunteers_role_3').on('keyup focusout', function() {
+        $('#number_volunteers_role_3').keyup(function() {
             $('#number_min_role_3').spinner({
                 max: this.value
             });
+            if (parseInt(this.value, 10) < parseInt($('#number_min_role_3').val(), 10)) {
+                $('#number_min_role_3').val($('#number_volunteers_role_3').val());
+            } 
         });
-        $('#number_volunteers_role_4').on('keyup focusout', function() {
+        $('#number_volunteers_role_4').keyup(function() {
             $('#number_min_role_4').spinner({
                 max: this.value
             });
+            if (parseInt(this.value, 10) < parseInt($('#number_min_role_4').val(), 10)) {
+                $('#number_min_role_4').val($('#number_volunteers_role_4').val());
+            } 
         });
-        $('#number_volunteers_role_5').on('keyup focusout', function() {
+        $('#number_volunteers_role_5').keyup(function() {
             $('#number_min_role_5').spinner({
                 max: this.value
             });
+            if (parseInt(this.value, 10) < parseInt($('#number_min_role_5').val(), 10)) {
+                $('#number_min_role_5').val($('#number_volunteers_role_5').val());
+            } 
         });
         // mouse events for arrow keys
-        $('#number_volunteers_role_1 + a').click(function() {
+        $('#number_volunteers_role_1').nextAll().click(function() {
             $('#number_min_role_1').spinner({
                 max: $('#number_volunteers_role_1').val()
             });
+            if (parseInt($('#number_volunteers_role_1').val(), 10) < parseInt($('#number_min_role_1').val(), 10)) {
+                $('#number_min_role_1').val($('#number_volunteers_role_1').val());
+            }
         });
-        $('#number_volunteers_role_2 + a').click(function() {
+        $('#number_volunteers_role_2').nextAll().click(function() {
             $('#number_min_role_2').spinner({
                 max: $('#number_volunteers_role_2').val()
             });
+            if (parseInt($('#number_volunteers_role_2').val(), 10) < parseInt($('#number_min_role_2').val(), 10)) {
+                $('#number_min_role_2').val($('#number_volunteers_role_2').val());
+            }
         });
-        $('#number_volunteers_role_3 + a').click(function() {
+        $('#number_volunteers_role_3').nextAll().click(function() {
             $('#number_min_role_3').spinner({
                 max: $('#number_volunteers_role_3').val()
             });
+            if (parseInt($('#number_volunteers_role_3').val(), 10) < parseInt($('#number_min_role_3').val(), 10)) {
+                $('#number_min_role_3').val($('#number_volunteers_role_3').val());
+            }
         });
-        $('#number_volunteers_role_4 + a').click(function() {
+        $('#number_volunteers_role_4').nextAll().click(function() {
             $('#number_min_role_4').spinner({
                 max: $('#number_volunteers_role_4').val()
             });
+            if (parseInt($('#number_volunteers_role_4').val(), 10) < parseInt($('#number_min_role_4').val(), 10)) {
+                $('#number_min_role_4').val($('#number_volunteers_role_4').val());
+            }
         });
-        $('#number_volunteers_role_5 + a').click(function() {
+        $('#number_volunteers_role_5').nextAll().click(function() {
             $('#number_min_role_5').spinner({
                 max: $('#number_volunteers_role_5').val()
             });
+            if (parseInt($('#number_volunteers_role_5').val(), 10) < parseInt($('#number_min_role_5').val(), 10)) {
+                $('#number_min_role_5').val($('#number_volunteers_role_5').val());
+            }
         });
     });
 </script>
