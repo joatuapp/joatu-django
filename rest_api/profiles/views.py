@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect, reverse
+from rest_framework.permissions import AllowAny
 
 from rest_framework.generics import CreateAPIView, RetrieveUpdateAPIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
@@ -9,13 +10,14 @@ from .serializers import CreateProfileSerializers, UpdateProfileSerializers, Pro
 from utils.utils import coordinates_calculation
 
 from django.contrib.auth import authenticate
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.status import HTTP_401_UNAUTHORIZED
 from rest_framework.authtoken.models import Token
 
 
 @api_view(["POST"])
+@permission_classes((AllowAny,))
 def login(request):
     email = request.data.get("email")
     password = request.data.get("password")
@@ -29,6 +31,7 @@ def login(request):
 
 
 @api_view(["POST"])
+@permission_classes((AllowAny,))
 def register(request):
     email = request.data.get("email")
     password = 'test@123'
