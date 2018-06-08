@@ -5,7 +5,7 @@ from rest_framework.viewsets import ReadOnlyModelViewSet
 
 from profiles.models import Profile, ProfileGeolocation
 from accounts.models import User
-from .serializers import CreateProfileSerializers, UpdateProfileSerializers, ProfileSerializer, UserSerializer
+from .serializers import CreateProfileSerializers, UpdateProfileSerializers, ProfileSerializer
 from utils.utils import coordinates_calculation
 
 from django.contrib.auth import authenticate
@@ -41,17 +41,6 @@ def register(request):
 
     token, _ = Token.objects.get_or_create(user=user)
     return Response({"token": token.key})
-
-
-class CreateUser(CreateAPIView):
-    serializer_class = UserSerializer
-
-    def create(self, request, *args, **kwargs):
-        instance = request.data
-        kwargs.setdefault('is_staff', False)
-        kwargs.setdefault('is_superuser', False)
-        User.objects.create_user(instance.__getitem__('email'), instance.__getitem__('password'), kwargs)
-        return Response({'redirect': reverse('homepage')})
 
 
 class CreateProfileView(CreateAPIView):
