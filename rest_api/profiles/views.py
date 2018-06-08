@@ -2,11 +2,56 @@ from django.shortcuts import get_object_or_404, redirect, reverse
 
 from rest_framework.generics import CreateAPIView, RetrieveUpdateAPIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
-from rest_framework.response import Response
 
 from profiles.models import Profile, ProfileGeolocation
-from .serializers import CreateProfileSerializers, UpdateProfileSerializers, ProfileSerializer
+from accounts.models import User
+from .serializers import CreateProfileSerializers, UpdateProfileSerializers, ProfileSerializer, UserSerializer
 from utils.utils import coordinates_calculation
+
+from django.contrib.auth import authenticate
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.status import HTTP_401_UNAUTHORIZED
+from rest_framework.authtoken.models import Token
+
+
+@api_view(["POST"])
+def login(request):
+    email = request.data.get("email")
+    password = request.data.get("password")
+
+    user = authenticate(email=email, password=password)
+    if not user:
+        return Response({"error": "Login failed"}, status=HTTP_401_UNAUTHORIZED)
+
+    token, _ = Token.objects.get_or_create(user=user)
+    return Response({"token": token.key})
+
+
+@api_view(["POST"])
+def register(request):
+    email = request.data.get("email")
+    password = 'test@123'
+
+    user = User.objects.get(email=email)
+    print(user)
+    if not user:
+        User.objects.create_user(email, password)
+        user = authenticate(email=email, password=password)
+
+    token, _ = Token.objects.get_or_create(user=user)
+    return Response({"token": token.key})
+
+
+class CreateUser(CreateAPIView):
+    serializer_class = UserSerializer
+
+    def create(self, request, *args, **kwargs):
+        instance = request.data
+        kwargs.setdefault('is_staff', False)
+        kwargs.setdefault('is_superuser', False)
+        User.objects.create_user(instance.__getitem__('email'), instance.__getitem__('password'), kwargs)
+        return Response({'redirect': reverse('homepage')})
 
 
 class CreateProfileView(CreateAPIView):

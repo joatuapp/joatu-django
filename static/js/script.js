@@ -25,9 +25,26 @@ if( window.location.hash!== undefined && window.location.hash.length > 0  ){
       return console.log(err);
     }
     webAuth.client.userInfo(authResult.accessToken, function(err, user) {
-      console.log(user)
-      console.log(user.email);
+       var profile = {
+       email : user.email
+       }
+       fetch('/api/register', {
+            method: "POST",
+            body: JSON.stringify(profile),
+            headers: {
+              'content-type': 'application/json'
+            }
+        }).then(
+            response => response.json()
+        ).then(
+            response => {
+                console.log(response);
+            }
+        ).catch(e => {
+        })
     });
   });
 }
+
+
 });

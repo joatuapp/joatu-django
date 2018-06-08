@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from profiles.models import Profile, ProfileHub, ProfileWallet
 from ..projects.serializers import ProjectVolunteersRegistrationSerializer, ProjectAttendeesRegistrationSerializer
 
