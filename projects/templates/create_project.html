@@ -438,14 +438,14 @@
                         <div class="row" style="margin-top:15px;">
                             <div class="row">
                                 <div class="col-10 offset-1">
-                                    <label for="attendees_min_reg">This community activity will bring value to the community if there is at least <input class="spinner" id="attendees_min_reg" name="min_reg_att" min="2" placeholder="2" value="2" style="width:30px;" required> people attending.</label>
+                                    <label for="attendees_min_reg">This community activity will bring value to the community if there is at least <input class="spinner" id="attendees_min_reg" name="min_reg_att" min="3" placeholder="3" value="3" style="width:30px;" required> people attending.</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row" style="margin-top:15px;">
                             <div class="row">
                                 <div class="col-10 offset-1">
-                                    <label for="number_attendees">This community activity can host up to <input class="spinner" id="number_attendees" name="num_reg_att" min="2" placeholder="2" value="2" style="width:30px;" required> people.</label>
+                                    <label for="number_attendees">This community activity can host up to <input class="spinner" id="number_attendees" name="num_reg_att" min="3" placeholder="3" value="3" style="width:30px;" required> people.</label>
                                 </div>
                             </div>
                         </div>
@@ -855,6 +855,7 @@
 
 <script>
     $(document).ready(function() {
+        ///////////////-Volunteers-Minimum-Input-Logic-//////////////////////
         // keyboard events for input box
         $('#number_volunteers_role_1').keyup(function() {
             $('#number_min_role_1').spinner({
@@ -935,6 +936,23 @@
             });
             if (parseInt($('#number_volunteers_role_5').val(), 10) < parseInt($('#number_min_role_5').val(), 10)) {
                 $('#number_min_role_5').val($('#number_volunteers_role_5').val());
+            }
+        });
+        //////////////////-Attendiees-Registration-Input-Logic-////////////////////
+        $('#attendees_min_reg').keyup(function() {
+            $('#number_attendees').spinner({
+                min: this.value
+            });
+            if (parseInt($('#number_attendees').val()) < parseInt(this.value)) {
+                $('#number_attendees').val(this.value);
+            }
+        });
+        $('#attendees_min_reg').nextAll().click(function() {
+            $('#number_attendees').spinner({
+                min: $('#attendees_min_reg').val()
+            });
+            if (parseInt($('#number_attendees').val()) < parseInt($('#attendees_min_reg').val())) {
+                $('#number_attendees').val($('#attendees_min_reg').val());
             }
         });
     });
