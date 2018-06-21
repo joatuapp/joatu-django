@@ -79,8 +79,7 @@ $(document).ready(function () {
         $('#disclaimer').toggle('fade', 200)// hide disclaimer page
         //$('#page_1').delay(205).toggle('fade', 200)//show page 1
         //$('#button_left').append(//add button for next page
-            $('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next')
-        );
+            //$('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next'));
     });
 
     //Action button #button_next 
