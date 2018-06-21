@@ -62,6 +62,7 @@ $(document).ready(function () {
     $('#button_right').on('click', '#button_start_create', function (e) {//go from disclaimer page to page 1
         e.preventDefault();//block the a href
         $(this).remove(); // remove the button
+        $('#button_left).remove();
         $('#disclaimer').toggle('fade', 200)// hide disclaimer page
         $('#page_1').delay(205).toggle('fade', 200)//show page 1
         $('#button_right').append(//add button for next page
