@@ -52,20 +52,7 @@ $(document).ready(function () {
 
     /// Buttons
 
-    $('#button_left').append(       // Append the button to go to the next page
-        $('<a>').attr({ 'id': 'button_see_examples', 'class': 'flat_button_success' }).text('See Examples')
-    );
-
-    //Action button #button_see_examples
-    $('#button_left').on('click', '#button_see_examples', function (e) {//go back to Activities page
-        e.preventDefault();     //block the a href
-        $(this).remove();       // remove the button
-        $('#disclaimer').toggle('fade', 200)// hide disclaimer page
-        //$('#page_1').delay(205).toggle('fade', 200)//show page 1
-        //$('#button_left').append(//add button for next page
-            $('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next')
-        );
-    });
+   
     //Create buton #button_start_create
     $('#button_right').append( // Append the button to go to the next page
         $('<a>').attr({ 'id': 'button_start_create', 'class': 'flat_button_success' }).text('I Understand')
@@ -81,7 +68,20 @@ $(document).ready(function () {
             $('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next')
         );
     });
+    $('#button_left').append(       // Append the button to go to the next page
+        $('<a>').attr({ 'id': 'button_see_examples', 'class': 'flat_button_success' }).text('See Examples')
+    );
 
+    //Action button #button_see_examples
+    $('#button_left').on('click', '#button_see_examples', function (e) {//go back to Activities page
+        e.preventDefault();     //block the a href
+        $(this).remove();       // remove the button
+        $('#disclaimer').toggle('fade', 200)// hide disclaimer page
+        //$('#page_1').delay(205).toggle('fade', 200)//show page 1
+        //$('#button_left').append(//add button for next page
+            $('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next')
+        );
+    });
 
     //Action button #button_next 
     $('#button_right').on('click', '#button_next', function (e) {
