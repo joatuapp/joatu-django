@@ -69,7 +69,7 @@ $(document).ready(function () {
         );
     });
     $('#button_left').append(       // Append the button to go to the next page
-        $('<a>').attr({ 'id': 'button_see_examples', 'class': 'flat_button_success' }).text('See Examples')
+        $('<a>').attr({ 'id': 'button_see_examples', 'class': 'flat_button_success',"disabled","disabled" }).text('See Examples')
     );
 
     //Action button #button_see_examples
