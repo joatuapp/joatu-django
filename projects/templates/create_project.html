@@ -79,7 +79,7 @@
                                     <div class="col-9 offset-1">
                                         <label class="container_radio" for="Cul_oth">
                                             <input type="radio" name="sub_category" value="Cul_oth" id="Cul_oth" required>
-                                            <span class="checkmark">Other Activity</span>
+                                        <span class="checkmark" z-index="-1">Other :&nbsp;<input class="other-category-input"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                     <div class="col-9 offset-1">
                                         <label class="container_radio" for="Edu_oth">
                                             <input type="radio" name="sub_category" value="Edu_oth" id="Edu_oth" required>
-                                            <span class="checkmark">Other Activity</span>
+                                        <span class="checkmark" z-index="-1">Other :&nbsp;<input class="other-category-input"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -155,7 +155,7 @@
                                     <div class="col-9 offset-1">
                                         <label class="container_radio" for="Hea_oth">
                                             <input type="radio" name="sub_category" value="Hea_oth" id="Hea_oth" required>
-                                            <span class="checkmark">Other Activity</span>
+                                        <span class="checkmark" z-index="-1">Other :&nbsp;<input class="other-category-input"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -209,7 +209,7 @@
                                     <div class="col-9 offset-1">
                                         <label class="container_radio" for="Soc_oth">
                                             <input type="radio" name="sub_category" value="Soc_oth" id="Soc_oth" required>
-                                            <span class="checkmark">Other Activity</span>
+                                        <span class="checkmark" z-index="-1">Other :&nbsp;<input class="other-category-input"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -247,7 +247,7 @@
                                     <div class="col-9 offset-1">
                                         <label class="container_radio" for="Env_oth">
                                             <input type="radio" name="sub_category" value="Env_oth" id="Env_oth" required>
-                                            <span class="checkmark">Other Activity</span>
+                                        <span class="checkmark" z-index="-1">Other :&nbsp;<input class="other-category-input"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@
                                 <div class="col-10">
                                     <label class="container_radio" for="Oth">
                                         <input type="radio" name="category" value="Oth" id="Oth" required>
-                                        <span class="checkmark">Other</span>
+                                        <span" class="checkmark" z-index="-1">Other  Activity:&nbsp;<input class="other-category-input" required></span>
                                     </label>
                                 </div>
                             </div>
@@ -269,7 +269,7 @@
                                     <div class="col-9 offset-1">
                                         <label class="container_radio" for="Oth_oth">
                                             <input type="radio" name="sub_category" value="Oth_oth" id="Oth_oth" required>
-                                            <span class="checkmark">Other Activity</span>
+                                        <span class="checkmark" z-index="-1">Other :&nbsp;<input class="other-category-input" required></span>
                                         </label>
                                     </div>
                                 </div>
@@ -791,6 +791,8 @@
                 <input type="datetime-local" required name ="end" id="inputEndDate">
                 <input type="text" required name ="category"  id="inputCategory">
                 <input type="text" required name ="sub_category"  id="inputSubCategory">
+                <input type="text" required name ="oth_category"  id="inputOthCategory">
+                <input type="text" required name ="oth_sub_cat"   id="inputOthSubCat">
                 <input type="text" required name ="number"  id="inputNumber">
                 <input type="text" required name ="street" class="form-control" id="inputStreet">
                 <input pattern=".{1,50}" type="text" required name="city" id="inputCity">
@@ -954,6 +956,13 @@
             if (parseInt($('#number_attendees').val()) < parseInt($('#attendees_min_reg').val())) {
                 $('#number_attendees').val($('#attendees_min_reg').val());
             }
+        });
+        //////////////////////////////////////////////////////////////////
+        $('input[id$="_oth"],input[id="Oth"]').click(function() {
+            $('.other-category-input').css('display', 'inline');
+        });
+        $('.other-category-input').blur(function() {
+            $('.other-category-input').css('display', 'none');
         });
     });
 </script>
