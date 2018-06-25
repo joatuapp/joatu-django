@@ -339,6 +339,43 @@ $(document).ready(function () {
         }
         $('#id_discussion').attr('value', data.id);///give the id of the project for discussion
         $('#project_name').text(data.name); //show project name
+        var selected_cat = data.sub_category;
+
+        var category = {
+            'Cul': 'Culture and Recreation',
+            'Edu': 'Education',
+            'Hea': 'Health',
+            'Soc': 'Social Services',
+            'Env': 'Environment',
+            'Oth': 'Other',
+        };
+
+        var sub_cat = {
+            'Cul_con': 'Concert/Show/Presentation',
+            'Edu_kno': 'Knowledge',
+            'Edu_ski': 'Skills share',
+            'Hea_phy': 'Physical fitness',
+            'Hea_emo': 'Emotional well-being',
+            'Hea_oth': 'Other activity',
+            'Soc_foo': 'Food security',
+            'Soc_chi': 'Childcare',
+            'Soc_eld': 'Eldercare',
+            'Soc_ani': 'Animalcare',
+            'Env_gar': 'Gardening',
+            'Env_cle': 'Cleanups',
+        };
+
+        if (selected_cat.slice(0, 3) === 'Oth') {
+            $('#project_cat').text(data.oth_category + ' - ' + data.oth_sub_cat);
+        }
+        else {
+            if (selected_cat.slice(4, 7) === 'oth') {
+                $('#project_cat').text(category[selected_cat.slice(0, 3)] +' - '+ data.oth_sub_cat);
+            }
+            else {
+                $('#project_cat').text(sub_cat[selected_cat]);
+            }
+        }
         // 2018-04-17T14:00:00-04:00
         var start = new Date(data.start),// convert string to date
             locale = "en-us",//english
