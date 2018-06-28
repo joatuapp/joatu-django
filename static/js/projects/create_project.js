@@ -81,7 +81,7 @@ $(document).ready(function(){
                 $( "#dialog" ).dialog( "open" );
                 return;
             }
-            if($('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
+            if(!$('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
                 if(!$('input[name=category]:checked').parent().find('.other-category-input').val()){ 
                     $('#dialog').dialog('open');
                     return;
