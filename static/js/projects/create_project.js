@@ -205,11 +205,6 @@ $(document).ready(function(){
 
 
         page +=1;// get the number of the new page
-        if(page===2){
-            $('#button_left').append(//add button for previous page
-                $('<a>').attr({'id':'button_previous','class':'flat_button_danger'}).text('Previous')// create the button previous
-            );
-        }
         $('#page_'+page).delay(205).toggle('fade',200);//show the new page
         $('#buttons').delay(205).toggle('fade',200);//show the button next
 
@@ -219,9 +214,6 @@ $(document).ready(function(){
     $('#button_left').on('click', '#button_previous',function(e){
         e.preventDefault();//block the href
         $('#page_'+page).toggle('fade',200);//hide the current page
-        if(page === 1) {
-            
-        }
         $('#buttons').toggle('fade',200);//hide the button next
         if($('#button_preview').length!=0){ // remove preview button
             $('#button_right').empty();
