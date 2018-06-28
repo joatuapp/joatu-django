@@ -62,6 +62,9 @@ $(document).ready(function(){
         $(this).remove(); // remove the button
         $('#disclaimer').toggle('fade',200)// hide disclaimer page
         $('#page_1').delay(205).toggle('fade',200)//show page 1
+        $('#button_left').append(//add button for previous page
+            $('<a>').attr({'id':'button_previous','class':'flat_button_danger'}).text('Previous')// create the button previous
+        );
         $('#button_right').append(//add button for next page
             $('<a>').attr({'id':'button_next','class':'flat_button_success'}).text('Next')
         );
@@ -77,6 +80,12 @@ $(document).ready(function(){
             if($('input[name=sub_category]:checked').length===0 || $('input[name=category]:checked').length===0 ){
                 $( "#dialog" ).dialog( "open" );
                 return;
+            }
+            if($('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
+                if(!$('input[name=category]:checked').parent().find('.other-category-input').val()){ 
+                    $('#dialog').dialog('open');
+                    return;
+                }
             }
         }
         if(page===2){ // Validation page 2
@@ -210,6 +219,9 @@ $(document).ready(function(){
     $('#button_left').on('click', '#button_previous',function(e){
         e.preventDefault();//block the href
         $('#page_'+page).toggle('fade',200);//hide the current page
+        if(page === 1) {
+            
+        }
         $('#buttons').toggle('fade',200);//hide the button next
         if($('#button_preview').length!=0){ // remove preview button
             $('#button_right').empty();
@@ -217,12 +229,17 @@ $(document).ready(function(){
                 $('<a>').attr({'id':'button_next','class':'flat_button_success'}).text('Next')
             );
         }
-        if(page===2){
-            $('#button_left').empty();
+        if(page===1){
+            $('#disclaimer').show();
+            $('#button_left, #button_right').empty();
+            $('#button_right').append( // Append the button to go to the next page
+                $('<a>').attr({'id':'button_start_create','class':'flat_button_success'}).text('I Understand')
+            );
         }
-        page -=1;// get the number of the new page
-
-        $('#page_'+page).delay(205).toggle('fade',200);//show the new page
+        else {
+            page -=1;// get the number of the new page
+            $('#page_'+page).delay(205).toggle('fade',200);//show the new page
+        }
         $('#buttons').delay(205).toggle('fade',200);//show the button next
     });
 
