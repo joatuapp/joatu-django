@@ -93,6 +93,12 @@ $(document).ready(function () {
                 $("#dialog").dialog("open");
                 return;
             }
+            if(!$('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
+                if(!$('input[name=category]:checked').parent().find('.other-category-input').val()){ 
+                    $('#dialog').dialog('open');
+                    return;
+                }
+            }
         }
         if (page === 2) { // Validation page 2
             if ($('input[name=activity_type]:checked').length === 0) {
@@ -210,6 +216,7 @@ $(document).ready(function () {
         }
 
 
+
         page += 1;// get the number of the new page
         if (page === 2) {
             $('#button_left').append(//add button for previous page
@@ -218,6 +225,7 @@ $(document).ready(function () {
         }
         $('#page_' + page).delay(205).toggle('fade', 200);//show the new page
         $('#buttons').delay(205).toggle('fade', 200);//show the button next
+
 
     });
 
@@ -232,6 +240,8 @@ $(document).ready(function () {
                 $('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next')
             );
         }
+
+
         if (page === 2) {
             $('#button_left').empty();
         }
@@ -239,6 +249,7 @@ $(document).ready(function () {
 
         $('#page_' + page).delay(205).toggle('fade', 200);//show the new page
         $('#buttons').delay(205).toggle('fade', 200);//show the button next
+
     });
 
     //Action button #button_edit
@@ -346,6 +357,12 @@ $(document).ready(function () {
         $('#inputEndDate').val(end);
         $('#inputCategory').val($('input[name=category]:checked').val());
         $('#inputSubCategory').val($('input[name=sub_category]:checked').val());
+        if ($('input[name=category]:checked').val() === 'Oth') {
+            $('#inputOthCategory').val($('input[name=category]:checked').parent().find('.other-category-input').val());
+        }
+        if ($('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
+            $('#inputOthSubCat').val($('input[name=sub_category]:checked').parent().find('.other-category-input').val());
+        }
         $('#inputNumber').val($('#address_number').val());
         $('#inputStreet').val($('#address_street').val());
         $('#inputCity').val($('#address_city').val());
@@ -443,6 +460,7 @@ $(document).ready(function () {
             $('#icon_category').append(
                 $('<object>').attr({ 'data': logo, 'width': '50', 'height': '50', 'type': 'image/svg+xml' })
             );
+
             $.getJSON('/api/profiles/' + user_id + '/', function (data) {
                 $('#project_organizer').text(data.display_name); //show name of organizer
             });
@@ -454,6 +472,7 @@ $(document).ready(function () {
                         var title = $('#inputRole' + i + 'Title').val();
                         var description = $('#inputRole' + i + 'Description').val();
                         var num_seats = 'Places Available: 0/' + $('#inputRole' + i + 'Seat').val();
+
                         $('#roles').append(
                             $('<li>').css('margin-bottom', '5px').append(
                                 $('<div>').attr('class', 'row').css({ display: 'flex', 'align-items': 'center' }).append(

@@ -133,7 +133,7 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
         model = Project
         fields = ('url', 'id', 'name', 'start',
                   'end', 'description', 'category',
-                  'sub_category', 'number', 'street',
+                  'sub_category', 'oth_category', 'oth_sub_cat', 'number', 'street',
                   'postal_code', 'city', 'organizer', 'created',
                   'updated', 'project_type', 'attendees',
                   'volunteers', 'discussion_project')

@@ -12,19 +12,19 @@
     -ms-user-select: none;
     user-select: none;
     width: 100%;
-    margin: 15px 0 15px 0;
+    margin: 15px 0 20px 0;
 }
 
 /* Hide the browser's default radio button */
 .container_radio input {
-    position: block;
+    display: block;
     opacity: 0;
     cursor: pointer;
 }
 
 /* Create a custom radio button */
 .checkmark {
-    position: absolute;
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
@@ -60,7 +60,12 @@
     display: block;
 }
 
-
+.checkmark .other-category-input {
+    border: 0px;
+    position: relative;
+    opacity: 1;
+    display: none;
+}
 
 .box_list{
 

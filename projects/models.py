@@ -29,7 +29,7 @@ class Project(models.Model):
         ('Env', 'Environment'),
         ('Oth', 'Other'),
     )
-    category = models.CharField(max_length=3, choices=TYPE_OF_CATEGORY, default='Oth')
+    category = models.CharField(max_length=3, choices=TYPE_OF_CATEGORY)
     TYPE_OF_SUB_CATEGORY = (
         ('Cul_con', 'Concert/Show/Presentation'),
         ('Cul_oth', 'Other activity'),
@@ -49,7 +49,9 @@ class Project(models.Model):
         ('Env_oth', 'Other activity'),
         ('Oth_oth', 'Other activity'),
     )
-    sub_category = models.CharField(max_length=7, choices=TYPE_OF_SUB_CATEGORY, default='Oth_oth')
+    sub_category = models.CharField(max_length=7, choices=TYPE_OF_SUB_CATEGORY)
+    oth_category = models.CharField(max_length=20, blank=True)
+    oth_sub_cat  = models.CharField(max_length=20, blank=True)
     TYPE_OF_EVENT = (
         ('CP', 'Community Project'),
         ('CO', 'Community Offer'),
