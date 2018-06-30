@@ -65,11 +65,14 @@ $(document).ready(function () {
         $('#button_see_examples').remove();
         $('#disclaimer').toggle('fade', 200)// hide disclaimer page
         $('#page_1').delay(205).toggle('fade', 200)//show page 1
+        $('#button_left').append(//add button for previous page
+            $('<a>').attr({'id':'button_previous','class':'flat_button_danger'}).text('Previous')// create the button previous
+        );
         $('#button_right').append(//add button for next page
             $('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next')
         );
     });
-    $('#button_left').append(       // Append the button to go to the next page
+    $('#button_left').append(       // Append the 'see example' button
         $('<a>').attr({ 'id': 'button_see_examples', 'class': 'flat_button_success',href:'/projects/list/' }).text('See Examples')
     );
 
@@ -93,8 +96,15 @@ $(document).ready(function () {
                 $("#dialog").dialog("open");
                 return;
             }
-            if(!$('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
-                if(!$('input[name=category]:checked').parent().find('.other-category-input').val()){ 
+            // validation for other category and subcategory
+            if($('input[name=category]:checked').val() === 'Oth') {
+                if(!$('#Oth').parent().find('.other-category-input').val()) {
+                    $('#dialog').dialog('open');
+                    return;
+                }
+            }
+            if($('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
+                if(!$('input[name=sub_category]:checked').parent().find('.other-category-input').val()){ 
                     $('#dialog').dialog('open');
                     return;
                 }
@@ -218,11 +228,6 @@ $(document).ready(function () {
 
 
         page += 1;// get the number of the new page
-        if (page === 2) {
-            $('#button_left').append(//add button for previous page
-                $('<a>').attr({ 'id': 'button_previous', 'class': 'flat_button_danger' }).text('Previous')// create the button previous
-            );
-        }
         $('#page_' + page).delay(205).toggle('fade', 200);//show the new page
         $('#buttons').delay(205).toggle('fade', 200);//show the button next
 
@@ -241,13 +246,20 @@ $(document).ready(function () {
             );
         }
 
-
-        if (page === 2) {
-            $('#button_left').empty();
+        if(page===1){
+            $('#disclaimer').show();
+            $('#button_left, #button_right').empty(); // empty for "I understand" and "See example" buttons
+            $('#button_left').append( // Append the 'see example' button
+                $('<a>').attr({ 'id': 'button_see_examples', 'class': 'flat_button_success',href:'/projects/list/' }).text('See Examples')
+            );
+            $('#button_right').append( // Append the button to go to the next page
+                $('<a>').attr({'id':'button_start_create','class':'flat_button_success'}).text('I Understand')
+            );
         }
-        page -= 1;// get the number of the new page
-
-        $('#page_' + page).delay(205).toggle('fade', 200);//show the new page
+        else {
+            page -=1;// get the number of the new page
+            $('#page_'+page).delay(205).toggle('fade',200);//show the new page
+         }
         $('#buttons').delay(205).toggle('fade', 200);//show the button next
 
     });

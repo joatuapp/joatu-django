@@ -339,7 +339,7 @@ $(document).ready(function () {
         }
         $('#id_discussion').attr('value', data.id);///give the id of the project for discussion
         $('#project_name').text(data.name); //show project name
-        var selected_cat = data.sub_category;
+        var selected_cat = data.sub_category; // project category
 
         var category = {
             'Cul': 'Culture and Recreation',
@@ -365,15 +365,15 @@ $(document).ready(function () {
             'Env_cle': 'Cleanups',
         };
 
-        if (selected_cat.slice(0, 3) === 'Oth') {
+        if (selected_cat.slice(0, 3) === 'Oth') { // user defined other category and other subcategory
             $('#project_cat').text(data.oth_category + ' - ' + data.oth_sub_cat);
         }
-        else {
-            if (selected_cat.slice(4, 7) === 'oth') {
+        else { // pre-defined category
+            if (selected_cat.slice(4, 7) === 'oth') { // other subcategory
                 $('#project_cat').text(category[selected_cat.slice(0, 3)] +' - '+ data.oth_sub_cat);
             }
-            else {
-                $('#project_cat').text(sub_cat[selected_cat]);
+            else { // pre-defined subcategory
+                $('#project_cat').text(category[selected_cat.slice(0, 3)] + ' - ' + sub_cat[selected_cat]);
             }
         }
         // 2018-04-17T14:00:00-04:00
