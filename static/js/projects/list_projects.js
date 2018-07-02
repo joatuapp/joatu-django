@@ -66,6 +66,45 @@ $(document).ready(function(){
                 return new Date(a.project.start)- new Date(b.project.start)
             });
             for (i in projects){
+
+                var project_category;
+                var selected_cat = projects[i].project.sub_category;
+
+                var category = {
+                    'Cul': 'Culture and Recreation',
+                    'Edu': 'Education',
+                    'Hea': 'Health',
+                    'Soc': 'Social Services',
+                    'Env': 'Environment',
+                    'Oth': 'Other',
+                };
+
+                var sub_cat = {
+                    'Cul_con': 'Concert/Show/Presentation',
+                    'Edu_kno': 'Knowledge',
+                    'Edu_ski': 'Skills share',
+                    'Hea_phy': 'Physical fitness',
+                    'Hea_emo': 'Emotional well-being',
+                    'Hea_oth': 'Other activity',
+                    'Soc_foo': 'Food security',
+                    'Soc_chi': 'Childcare',
+                    'Soc_eld': 'Eldercare',
+                    'Soc_ani': 'Animalcare',
+                    'Env_gar': 'Gardening',
+                    'Env_cle': 'Cleanups',
+                };
+
+                if (selected_cat.slice(0, 3) === 'Oth') { // user defined other category and other subcategory
+                    project_category = projects[i].project.oth_category + ' - ' + projects[i].project.oth_sub_cat;
+                }
+                else { // pre-defined category
+                    if (selected_cat.slice(4, 7) === 'oth') { // other subcategory
+                        project_category = category[selected_cat.slice(0, 3)] + ' - '+ projects[i].project.oth_sub_cat;
+                    }
+                    else { // pre-defined subcategory
+                        project_category = category[selected_cat.slice(0, 3)] + ' - ' + sub_cat[selected_cat];
+                    }
+                }
                 
                 $('#projects_table').append(
                     $('<li>').append(
@@ -83,6 +122,12 @@ $(document).ready(function(){
                                     ).append(
                                         $('<div>').attr('class','col-5').css({'text-align':'right','font-style':'italic'}).append(
                                             $('<span>').text(format_time(projects[i].project.start))
+                                        )
+                                    )
+                                ).append(
+                                    $('<div>').attr('class','row').append(
+                                        $('<div>').attr('class','col-12').append(
+                                            $('<span>').text(project_category)
                                         )
                                     )
                                 ).append(
