@@ -134,7 +134,7 @@ $(document).ready(function () {
                 return;
             }
         }
-        if (page === 5 && activity_selected.includes('volunteers')) { // validation page 5
+        if (page === 5 && (activity_selected.includes('volunteers') || activity_selected.includes('attendees_volunteers'))) { // validation page 5
             if ($('input[name=more_than_1_role]:checked').length === 0) {
                 $("#dialog").dialog("open");
                 return;
@@ -186,14 +186,26 @@ $(document).ready(function () {
             }).get();
             if (activity_selected.includes('attendees')) { //if activiy is an offer show div numbers of attendees
                 $('#attendees_div').show(); // show the div
+                $('#volunteers_div').hide();
             }
-            else {
-                $('#attendees_div').hide();     // hide the div
-            }
-            if (activity_selected.includes('volunteers')) { //if activiy is a project show div numbers of volunteers roles
+           // else {
+             //  $('#attendees_div').hide();     // hide the div
+            //}
+            else if (activity_selected.includes('volunteers')) { //if activiy is a project show div numbers of volunteers roles
                 $('#volunteers_div').show();
+               // $('#attendees_div').hide(); 
+            }
+            //else {     //if activity is an offer add the preview button on the next page
+              //  $('#volunteers_div').hide();
+           // }
+
+            else if (activity_selected.includes('attendees_volunteers')) { //if activiy is a project show div numbers of volunteers roles
+                $('#attendees_div').show(); // show the div
+                $('#volunteers_div').show();
+                
             }
             else {     //if activity is an offer add the preview button on the next page
+                $('#attendees_div').hide(); // show the div
                 $('#volunteers_div').hide();
                 $('#button_right').empty();
                 $('#button_right').append(  // Add button preview
@@ -360,7 +372,7 @@ $(document).ready(function () {
         else if (!activity_selected.includes('attendees')) {
             project_type = 'CP';
         }
-        else {
+        else if (activity_selected.includes('attendees_volunteers')) {
             project_type = 'BO';
         }
         $('#inputName').val($('#name').val());
@@ -390,7 +402,7 @@ $(document).ready(function () {
             $('#role_4 *').prop("disabled", true); // disable all the data input of Role 4
             $('#role_5 *').prop("disabled", true); // disable all the data input of Role 5
         }
-        if (project_type != "CO") { // fill in the Role data if it is not a community offer
+        if (project_type != "CO" || project_type == "BO") { // fill in the Role data if it is not a community offer
             /// add the first role
             $('#inputRole1Title').val($('#title_role_1').val());
             $('#inputRole1Description').val($('#description_role_1').val());
@@ -478,7 +490,7 @@ $(document).ready(function () {
             });
             $('#project_description').text($('#inputDescription').val());//show 
 
-            if (project_type != "CO") {     // if project_type is not a community offer only, load the Volunteers role
+            if (project_type != "CO" || project_type === "BO") {     // if project_type is not a community offer only, load the Volunteers role
                 if (number_of_roles > 1) {
                     for (i = 1; i <= number_of_roles; i++) {
                         var title = $('#inputRole' + i + 'Title').val();
@@ -520,7 +532,7 @@ $(document).ready(function () {
                 }
                 $('#show_roles').show();
             }
-            if (project_type != "CP") {     // if project_type is not a community project only, load the Attendees
+            if (project_type != "CP" || project_type === "BO") {     // if project_type is not a community project only, load the Attendees
                 var registered = 'Registered: 0/' + $('#inputAttendeeSeat').val();
                 $('#number_attendees_registration').text(registered);
                 $('#show_attendees').show();
