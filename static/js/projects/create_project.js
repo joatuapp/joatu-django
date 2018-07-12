@@ -10,14 +10,14 @@ $(document).ready(function () {
     $('.timepicker').pickatime();
     $('.datepicker').pickadate();
 
-    /// PAGE1
-    $('input[name=category]').click(function (e) { //when the user click on one of the category input
-        $('input[name=sub_category]:checked').prop('checked', false);
+    /// PAGE 1
+    $('input[name=category]').click(function (e) { // when the user click on one of the category input
+        $('input[name=sub_category]:checked').prop('checked', false);       
         $('.select_sub_category').hide(); // hide all the subcategories div 
         $(this).parentsUntil('.select_category').next('.select_sub_category').show();// find parent and then show the next select_sub_category
     });
 
-    /// PAGE4
+    /// PAGE 4
     $('#hub').click(function () {//when user click on "My community Hub"
         $('#address').show(); // show address input
         $.getJSON('/api/profiles/' + user_id + '/', function (data) {    //get data from user
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
 
 
-    /// PAGE5
+    /// PAGE 5
     $('#yes_answer').click(function () {
         $('#more_than_1_role_is_true').show();
     });
@@ -76,43 +76,33 @@ $(document).ready(function () {
         $('<a>').attr({ 'id': 'button_see_examples', 'class': 'flat_button_success',href:'/projects/list/' }).text('See Examples')
     );
 
-    //Action button #button_see_examples
-   // $('#button_left').on('click', '#button_see_examples', function (e) {//go back to Activities page
-        //e.preventDefault();     //block the a href
-        //$(this).remove();       // remove the button
-        //$('#disclaimer').toggle('fade', 200)// hide disclaimer page
-        //$('#page_1').delay(205).toggle('fade', 200)//show page 1
-        //$('#button_left').append(//add button for next page
-            //$('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next'));
-    //});
-
     //Action button #button_next 
     $('#button_right').on('click', '#button_next', function (e) {
         e.preventDefault();//block the href
 
         //data_validation
         if (page === 1) { // Validation page 1
-            if ($('input[name=sub_category]:checked').length === 0 || $('input[name=category]:checked').length === 0) {
-                $("#dialog").dialog("open");
+            if ($('input[name=sub_category]:checked').length === 0 || $('input[name=category]:checked').length === 0) { // if a category or sub-category is not selected
+                $("#dialog").dialog("open");        // show error dialog
                 return;
             }
-            // validation for other category and subcategory
+            // validation for 'other' category and subcategory
             if($('input[name=category]:checked').val() === 'Oth') {
                 if(!$('#Oth').parent().find('.other-category-input').val()) {
-                    $('#dialog').dialog('open');
+                    $('#dialog').dialog('open');     // show error dialog
                     return;
                 }
             }
             if($('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
                 if(!$('input[name=sub_category]:checked').parent().find('.other-category-input').val()){ 
-                    $('#dialog').dialog('open');
+                    $('#dialog').dialog('open');     // show error dialog
                     return;
                 }
             }
         }
         if (page === 2) { // Validation page 2
-            if ($('input[name=activity_type]:checked').length === 0) {
-                $("#dialog").dialog("open");
+            if ($('input[name=activity_type]:checked').length === 0) {  // if none of the activity_types are selected, 
+                $("#dialog").dialog("open");    // show error dialog
                 return;
             }
         }
@@ -134,7 +124,7 @@ $(document).ready(function () {
                 return;
             }
         }
-        if (page === 5 && (activity_selected.includes('volunteers') || activity_selected.includes('attendees_volunteers'))) { // validation page 5
+        if ( page === 5 && ( activity_selected.includes('volunteers') || activity_selected.includes('attendees_volunteers') ) ) { // validation page 5
             if ($('input[name=more_than_1_role]:checked').length === 0) {
                 $("#dialog").dialog("open");
                 return;
@@ -184,22 +174,31 @@ $(document).ready(function () {
             activity_selected = $('input[name=activity_type]:checked').map(function (_, el) {
                 return $(el).val();
             }).get();
-            if (activity_selected.includes('attendees')) { //if activiy is an offer show div numbers of attendees
-                $('#attendees_div').show(); // show the div
+            if (activity_selected.includes('attendees')) { // if activiy is an offer show div: numbers of attendees
                 $('#volunteers_div').hide();
+                $('#attendees_div').show(); // show the div
+                $('#button_right').empty();
+                $('#button_right').append(  // Add button preview
+                    $('<a>').attr({ 'id': 'button_preview', 'class': 'flat_button_preview' }).text('Preview')// create the button preview
+                );
             }
-           // else {
+           // else { 
              //  $('#attendees_div').hide();     // hide the div
             //}
-            else if (activity_selected.includes('volunteers')) { //if activiy is a project show div numbers of volunteers roles
+            else if (activity_selected.includes('volunteers')) { // if activiy is a project show div: numbers of volunteers roles
+                $('#attendees_div').hide(); 
                 $('#volunteers_div').show();
-               // $('#attendees_div').hide(); 
+                
             }
-            //else {     //if activity is an offer add the preview button on the next page
-              //  $('#volunteers_div').hide();
-           // }
+           // else {     //if activity is an offer add the preview button on the next page
+             //   $('#volunteers_div').hide();
+              //  $('#button_right').empty();
+               // $('#button_right').append(  // Add button preview
+                 //   $('<a>').attr({ 'id': 'button_preview', 'class': 'flat_button_preview' }).text('Preview')// create the button preview
+                //);
+            //}
 
-            else if (activity_selected.includes('attendees_volunteers')) { //if activiy is a project show div numbers of volunteers roles
+            else if (activity_selected.includes('attendees_volunteers')) { //if activiy is a project and an offer show both divs
                 $('#attendees_div').show(); // show the div
                 $('#volunteers_div').show();
                 
@@ -402,7 +401,7 @@ $(document).ready(function () {
             $('#role_4 *').prop("disabled", true); // disable all the data input of Role 4
             $('#role_5 *').prop("disabled", true); // disable all the data input of Role 5
         }
-        if (project_type != "CO" || project_type == "BO") { // fill in the Role data if it is not a community offer
+        if (project_type != "CO" || project_type === "BO") { // fill in the Role data if it is not a community offer
             /// add the first role
             $('#inputRole1Title').val($('#title_role_1').val());
             $('#inputRole1Description').val($('#description_role_1').val());
