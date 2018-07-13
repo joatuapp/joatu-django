@@ -5,7 +5,22 @@ $(document).ready(function () {
     var spinner = $(".spinner").spinner(); // launch Jquery UI spinner
     var number_of_roles;
 
-    $(function () { $("#dialog").dialog({ autoOpen: false, show: { effect: "fade", duration: 200 }, hide: { effect: "fade", duration: 200 } }); }); // dialog box
+    $(function () { 
+        $("#dialog").dialog(
+            { autoOpen: false, 
+                show: { 
+                    effect: "fade", 
+                    duration: 200 
+                }, 
+                hide: { 
+                    effect: "fade", 
+                    duration: 200 
+                } 
+            }
+        ); 
+        
+
+    }); // dialog box
 
     $('.timepicker').pickatime();
     $('.datepicker').pickadate();
@@ -120,10 +135,33 @@ $(document).ready(function () {
             var filled = $("#page_3 input[required]").filter(function () {
                 return $.trim($(this).val()).length == 0
             }).length == 0;
+            var $input_date_start_selected = $('#date_start').pickadate()
+            var $input_time_start_selected = $('#time_start').pickatime()
+            var $input_date_end_selected = $('#date_end').pickadate()
+            var $input_time_end_selected = $('#time_end').pickatime()
+            var picker_date_start_selected = $input_date_start_selected.pickadate('picker')
+            var picker_time_start_selected = $input_time_start_selected.pickatime('picker')
+            var picker_date_end_selected = $input_date_end_selected.pickadate('picker')
+            var picker_time_end_selected = $input_time_end_selected.pickatime('picker')
+            var start_selected = picker_date_start_selected.get('select', 'yyyy-mm-dd') + 'T' + picker_time_start_selected.get('select', 'HH:i') + ':00';
+            var end_selected = picker_date_end_selected.get('select', 'yyyy-mm-dd') + 'T' + picker_time_end_selected.get('select', 'HH:i') + ':00';
+
             if (!filled) {
                 $("#dialog").dialog("open");
                 return;
             }
+            else if(Date.now()>new Date(start_selected)){
+                $("#box_message").text('please select a date and a time after today');
+                $("#dialog").dialog("open");
+                return;
+            }  
+            else if (new Date(end_selected)<new Date(start_selected)){
+                $("#box_message").text('please select a start date and time that is before the end date and time');
+                $("#dialog").dialog("open");
+                return;
+            }
+            $("#box_message").text('Please answer all questions');
+
         }
         if (page === 4) { // Validation page 4
             var filled = $("#page_4 input[required]").filter(function () {
@@ -181,25 +219,27 @@ $(document).ready(function () {
         $('#page_' + page).toggle('fade', 200);//hide the current page
         $('#buttons').toggle('fade', 200);//hide the button next
         if (page === 4) {
-            activity_selected = $('input[name=activity_type]:checked').map(function (_, el) {
-                return $(el).val();
-            }).get();
-            if (activity_selected.includes('attendees')) { //if activiy is an offer show div numbers of attendees
-                $('#attendees_div').show(); // show the div
+            activity_selected = $('input[name=activity_type]:checked').val(); // remove mapping cause issue with the array keeping the previous value after an edit
+            switch(activity_selected){
+                case 'attendees': //show only the number of attendees
+                    $('#attendees_div').show();
+                    $('#volunteers_div').hide();
+                    $('#button_right').empty();
+                    $('#button_right').append(  // Add button preview
+                    $('<a>').attr({ 'id': 'button_preview', 'class': 'flat_button_preview' }).text('Preview'));// create the button preview
+                    break;
+                case 'volunteers': // show only the volunteers role
+                    $('#volunteers_div').show();
+                    $('#attendees_div').hide(); 
+                    break;
+                case 'attendees_volunteers': // show both attendees and volunteers
+                    $('#attendees_div').show();
+                    $('#volunteers_div').show();
+                    break;
+                default:
+                break;
             }
-            else {
-                $('#attendees_div').hide();     // hide the div
-            }
-            if (activity_selected.includes('volunteers')) { //if activiy is a project show div numbers of volunteers roles
-                $('#volunteers_div').show();
-            }
-            else {     //if activity is an offer add the preview button on the next page
-                $('#volunteers_div').hide();
-                $('#button_right').empty();
-                $('#button_right').append(  // Add button preview
-                    $('<a>').attr({ 'id': 'button_preview', 'class': 'flat_button_preview' }).text('Preview')// create the button preview
-                );
-            }
+  
         }
         if (page === 5) {   // identify numbers of roles
             if ($('input[name=more_than_1_role]:checked').val() === 'yes') {  // if there is more than one role
@@ -275,6 +315,9 @@ $(document).ready(function () {
         $('#page_' + page).toggle('fade', 200);//show the first page
         $('#button_right').append(//add button for next page
             $('<a>').attr({ 'id': 'button_next', 'class': 'flat_button_success' }).text('Next')
+        );
+        $('#button_left').append(//add button for previous page
+            $('<a>').attr({'id':'button_previous','class':'flat_button_danger'}).text('Previous')// create the button previous
         );
         $('#buttons').delay(205).show('fade', 200);     //show buttons
 

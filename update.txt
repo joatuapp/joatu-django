@@ -1,0 +1,29 @@
+Update 0.1 Joatu-Test:
+Login/registration page Design (Work in progress)
+Add Register popup
+Alert when something went wrong for password and email (Work in Progress)
+Homepage redirect to /projects/list/
+On /projects/list:
+Show only actual activities
+Button to show past activities
+Create a Project:
+Correct bug Select Volunteers / Attendees / both
+Correct bug Button previous when click on edit button in the preview page
+Start Date and End Date validation (validation) => cannot create an event before now and cannot create an event  with a end date value less than the start date value
+Create and Update a profile:
+Country value is Canada
+City value is Montréal 
+Postal Code placeholder
+Menu :
+Hide offers / home/ demands
+
+
+
+Next update (0.2) ETA Tuesday 17/07/2018:
+Create a profile:
+Country not required (server side)
+Login/registration page design (desktop + Mobile)
+Alert to be shown under the input in red
+Terms and conditions check box
+Date Time server side validation 
+Password requirement on the registration box

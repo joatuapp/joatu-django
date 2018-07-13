@@ -1,4 +1,27 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render
+from .serializers import *
+from rest_framework import viewsets
+
+
+###Models###
+from accounts.models import User
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
+    queryset = User.objects.all().order_by('id')
+    serializer_class = UserSerializer
+
+
+
+
+
+
+
+from django.shortcuts import redirect, reverse
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash, authenticate, login
 

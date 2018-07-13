@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from accounts.views import login_view
+from django.views.generic import TemplateView
 from django.contrib.auth.views import (
     login,
     logout,
@@ -13,7 +14,7 @@ from django.contrib.auth.views import (
 app_name = 'accounts'
 
 urlpatterns = [
-    path('index/', views.index, name="index"),
+    path('index/', TemplateView.as_view(template_name="accounts/index_2.html")),
     path('login/', login_view, name='login'),
     path('logout/', logout, name="logout"),
     path('edit/', views.edit_account, name="edit_account"),

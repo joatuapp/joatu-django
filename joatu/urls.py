@@ -29,6 +29,9 @@ urlpatterns = [
 
     path('accounts/', include('accounts.urls', namespace='accounts')),
     re_path(r'^api/', include('rest_api.urls')),
-    path('', TemplateView.as_view(template_name="homepage.html"), name='homepage'),
+    path('', RedirectView.as_view(url='/projects/list/', permanent=False), name='homepage'), #redirect homepage to list projects
+    #path('', TemplateView.as_view(template_name="homepage.html"), name='homepage'),
     path('settings/', TemplateView.as_view(template_name="settings/settings.html"), name='settings'),
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
 ]

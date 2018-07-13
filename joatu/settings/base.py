@@ -49,7 +49,34 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'crispy_forms',
     'django_filters',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+
 ]
+
+SITE_ID = 1
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'accounts.serializers.MyRegisterSerializer',
+}
+REST_AUTH_SERIALIZERS = {
+    'LOGIN_SERIALIZER': 'accounts.serializers.MyLoginSerializer',
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+}
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -150,13 +177,29 @@ LOGIN_EXEMPT_URLS = (
     'accounts/reset_password/done/',
     'accounts/reset_password/complete/',
     'accounts/reset_password/confirm/<uidb64>/<token>/',
+    'rest-auth/login/',
+    'rest-auth/registration/',
+
 )
 
-REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
-}
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 9,
+        }
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
 
 import django_heroku
 
