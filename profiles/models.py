@@ -6,11 +6,11 @@ from hubs.models import Hub
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     display_name = models.CharField(max_length=20, blank=False, null=False)
-    birth_date = models.DateField(blank=False, null=False)
+    birth_date = models.DateField(blank=True, null=True)
     street = models.CharField(max_length=50, blank=True)
     postal_code = models.CharField(max_length=20, blank=False, null=False)
     city = models.CharField(max_length=50, blank=False, null=False)
-    country = models.CharField(max_length=50, blank=False, null=False)
+    country = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         display = self.display_name + ' - ' + self.user.email

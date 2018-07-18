@@ -17,13 +17,24 @@ $(function () {
 
     $('#profile-creation').on('click', function (e) {
         e.preventDefault()
-        let profile = {
+        let profile = {};
+        if($('#inputBirthday').val()===""){
+            profile = {
+                display_name: $('#inputName').val(),
+                postal_code: $('#inputZip').val(),
+                city: $('#inputCity').val(),
+                country: $('#inputCountry').val()
+            };
+        } else {
+            profile = {
             display_name: $('#inputName').val(),
             birth_date: $('#inputBirthday').val(),
             postal_code: $('#inputZip').val(),
             city: $('#inputCity').val(),
             country: $('#inputCountry').val()
+        };
         }
+        console.log(profile);
 
         fetch('/api/profiles/create/', {
             method: "POST",

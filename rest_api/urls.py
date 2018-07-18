@@ -15,4 +15,6 @@ urlpatterns = [
     re_path('^', include('rest_api.offers.urls')),
     re_path('^', include('rest_api.profiles.urls')),
     re_path('^', include('rest_api.projects.urls')),
+    re_path('^', include('rest_api.accounts.urls')),
+
 ]

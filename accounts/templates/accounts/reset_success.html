@@ -73,24 +73,10 @@
         </nav>
 
         <div class='top-container container-fluid'>
-            <div class="row" style="margin-top:50px;">
+            <div class="row" style="margin-top:50px;text-align:center;">
                 <div class="col-md-6 col-md-offset-3">
-                        <p class="err_form" id="reset-err"></p>
-
-                    <form class='form-group' id="form_reset_confirm">
-                        <label for="password1_reset" style="padding-top:15px;">Enter your password</label>
-                        <small class="form-text text-muted" style="text-align: left;">Password should be at least 8 characters</small>
-                        <input class='form-control input-sm' required="required" id="password1_reset" name='new_password1' placeholder='Enter your Password' type='password'>
-                        <p class="err_form" id="password1-err"></p>
-                        <label for="password2_reset" style="padding-top:15px;">Re-enter your password</label>
-                        <input class='form-control input-sm' required="required" id="password2_reset" name='new_password2' placeholder='Re-enter your Password' type='password'>
-                        <p class="err_form" id="password2-err"></p>
-                        <input type="text" hidden name="token" id="token">
-                        <input type="text" hidden name="uid" id="uid">
-
-                        <button type="submit" class="btn btn-success">Change Password</button>
-
-                    </form>
+                <h1>Your password has been reset!</h1>
+                <p>You can now login with your new password.</p>
                 </div>
             </div>
             <div id="joatu_modal" class="modal fade" role="dialog">
@@ -181,9 +167,8 @@
         </script>
         <script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
         <script src="{% static 'js/mobile/script_mobile.js' %}"></script>
-
         <script src="{% static 'js/script_index.js' %}"></script>
-        <script src="{% static 'js/script_reset_confirm.js' %}"></script>
+        <script src="{% static 'js/script_reset_start.js' %}"></script>
 
     </body>
 

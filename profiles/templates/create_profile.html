@@ -7,6 +7,7 @@
     <div class="row" style="margin-top:15px;">
         <div class="col-10 offset-1" style="text-align:center;">
             <h3>Create your Profile</h3>
+            <h4>Before continuing, you need to create your profile.</h4>
         </div>
     </div>
     <div class="row">
@@ -33,8 +34,8 @@
         </div>
         <div class="row">
             <div class="col-10 offset-1">
-                <label for="inputBirthday">Your Birthday*</label>
-                <input type="date" required name="birth_date" class="form-control" id="inputBirthday">
+                <label for="inputBirthday">Your Birthday</label>
+                <input type="date" name="birth_date" class="form-control" id="inputBirthday">
                 <p id="birth-date-err"></p>
                 <div class="invalid-feedback">Please enter your birthday</div>
             </div>
@@ -45,14 +46,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10 offset-1">
-                <label for="inputCity">City*</label>
-                <input pattern=".{1,50}" type="text" required name="city" class="form-control" id="inputCity"
-                       placeholder="Montréal">
-                <p id="city-err"></p>
-                <div class="invalid-feedback">Please enter your city</div>
+                <div class="col-10 offset-1">
+                    <label for="inputZip">Postal Code*</label>
+                    <input pattern=".{1,10}" type="text" required name="postal_code" class="form-control" id="inputZip"
+                           placeholder="Type your Postal Code example: H2Y 1C6">
+                    <p id="postal-code-err"></p>
+                    <div class="invalid-feedback">Please enter your zip code</div>
+                </div>
+            </div>
+        
+        <div class="row">
+            <div class="col-8 offset-2">
+                <hr>
             </div>
         </div>
+        <div class="row">
+                <div class="col-10 offset-1">
+                    <label for="inputCity">City*</label>
+                    <input pattern=".{1,50}" type="text" required name="city" class="form-control" id="inputCity"
+                           value="Montreal">
+                    <p id="city-err"></p>
+                    <div class="invalid-feedback">Please enter your city</div>
+                </div>
+            </div>
         <div class="row">
             <div class="col-8 offset-2">
                 <hr>
@@ -60,25 +76,9 @@
         </div>
         <div class="row">
             <div class="col-10 offset-1">
-                <label for="inputZip">Postal Code*</label>
-                <input pattern=".{1,10}" type="text" required name="postal_code" class="form-control" id="inputZip"
-                       placeholder="H3K1K2">
-                <p id="postal-code-err"></p>
-                <div class="invalid-feedback">Please enter your zip code</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-8 offset-2">
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10 offset-1">
-                <label for="inputCountry">Country*</label>
-                <input pattern=".{1,50}" type="text" required name="country" class="form-control" id="inputCountry"
-                       placeholder="Canada">
-                <p id="country-err"></p>
-                <div class="invalid-feedback">Please enter your country</div>
+                <label for="inputCountry">Country</label>
+                <input pattern=".{1,50}" type="text" name="country" class="form-control" id="inputCountry"
+                    value="Canada">
             </div>
         </div>
         <!-- <div class="row">

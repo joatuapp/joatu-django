@@ -49,8 +49,38 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'crispy_forms',
     'django_filters',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    'allauth.socialaccount',
+
 ]
+
+SITE_ID = 1
+
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'rest_api.accounts.serializers.MyRegisterSerializer',
+}
+REST_AUTH_SERIALIZERS = {
+    'LOGIN_SERIALIZER': 'rest_api.accounts.serializers.MyLoginSerializer',
+    'PASSWORD_RESET_SERIALIZER': 'rest_api.accounts.serializers.MyPasswordResetSerializer',
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+}
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+#ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
 MIDDLEWARE = [
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,6 +88,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'joatu.middleware.ProfileRequiredMiddleware',
     'joatu.middleware.LoginRequiredMiddleware',
 ]
 
@@ -97,7 +128,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -143,20 +173,37 @@ LOGIN_REDIRECT_URL = '/profiles/index'
 LOGOUT_REDIRECT_URL = '/accounts/index'
 LOGIN_URL = '/accounts/index/'
 LOGIN_EXEMPT_URLS = (
-    'accounts/login/',
     'accounts/logout/',
-    'accounts/register/',
     'accounts/reset_password/',
-    'accounts/reset_password/done/',
-    'accounts/reset_password/complete/',
     'accounts/reset_password/confirm/<uidb64>/<token>/',
+    'account/reset_password/success/',
+    'rest-auth/login/',
+    'rest-auth/registration/',
+    'rest-auth/password/reset/',
+    'rest-auth/password/reset/confirm/',
 )
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ 
 
-REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
-}
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 9,
+        }
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
 
 import django_heroku
 

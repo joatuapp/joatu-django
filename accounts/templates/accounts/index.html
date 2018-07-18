@@ -1,76 +1,335 @@
-{% extends "base.html" %}
-{% block title %}
-    <title>welcome to Joatu</title>
-{% endblock title %}
-{% block login %}
-<header>
-    <a href="#register">Join Now</a>
-</header>
-<a href="#howItWorks">How It Works</a>
-<a href="#logIn">Log In </a>
+<!DOCTYPE html>
+<html lang='en'>
 
-{% endblock login %}
+    <head>
+        <meta charset='utf-8'>
+        <meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible'>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <title>JoatU</title>
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]> <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script> <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script> <![endif]-->
+        {% load static %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" media="all" href="{% static 'css/index_style.css' %}"/>
+        <link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-144x144-precomposed.png" sizes="144x144"/>
+        <link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-114x114-precomposed.png" sizes="114x114"/>
+        <link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-72x72-precomposed.png" sizes="72x72"/>
+        <link rel="apple-touch-icon-precomposed" type="image/png" href="/images/apple-touch-icon-precomposed.png"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"/>
+
+    </head>
+
+    <body data-offset='50' data-spy='scroll' data-target='#main-nav'>
         
-{% block body %}
-
-
-<div id="register">
-    <div>
-        
-    </div>
-    {% load crispy_forms_tags %}
-    <form action="{% url 'accounts:index' %}" method="post" accept-charset="utf-8">
-        {{ registration_form|crispy }}
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ next }}">
-        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Register">
-    </form>
-</div>
-
-
-<div id="howItWorks">
-</div>
-
-
-<div id="logIn" style="margin-top:50px;">
-    <div class="row">
-        <div class="col-10 offset-1" style="text-align:center;">
-            <h3>Login</h3>
-        </div>
-    </div>
-    <form class="" method="post" role="form" action="{% url 'accounts:login' %}" accept-charset="utf-8"> 
-        <div class="row" style="margin-top:15px;">
-            <div class="col-10 offset-1">
-                <div class="form-group mr-2">
-                        <input type="email" placeholder="email" class="form-control" name="email">
+        <nav class='navbar navbar-default navbar-fixed-top navbar-inverse' id='main-nav' role='navigation'>
+            <div class='container-fluid'>
+                <div class='navbar-header'>
+                    <button class='navbar-toggle' data-target='.navbar-responsive-collapse' data-toggle='collapse' type='button'>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                    </button>
+                    <a class='navbar-brand' href='/'>
+                        <img src="{% static 'images/logo_white-alpha.png' %}" alt="Logo white"/>
+                    </a>
+                </div>
+                <div class='navbar-collapse collapse navbar-responsive-collapse'>
+                    <ul class='nav navbar-nav'>
+                        <li>
+                            <a data-ride="scroll" href="accounts/index/#how-it-works">How It Works</a>
+                        </li>
+                        <li>
+                            <a data-ride="scroll" href="#benefits">Benefits</a>
+                        </li>
+                        <li>
+                            <a data-ride="scroll" href="#features">Features</a>
+                        </li>
+                        <li>
+                            <a href="https://goo.gl/forms/oCW9tA1QwHngzqw92">Help Out</a>
+                        </li>
+                    </ul>
+                    <div class="navbar-right">
+                        <div class="row">
+                            <form id="login" class="navbar-form" accept-charset="UTF-8">
+                                {% csrf_token %}
+                                <div class='form-group' style="margin-right:20px;">
+                                    <div class="row">
+                                        <input class='form-control input-sm' required="required" name='email' placeholder='Email' type='email'>
+                                        <input class='form-control input-sm' required="required" name='password' placeholder='Password' type='password'>
+                                    </div>
+                                    <div class="row">
+                                        <p style="display:none; margin-bottom:0px; text-align:left;" class="err_form" id="login-err"></p>
+                                        <p style="display:none; margin-bottom:0px; text-align:right; width:100%;" class="err_form" id="password-err"></p>
+                                    </div>
+                                </div>
+                                <button class='btn btn-default btn-sm' style="vertical-align: top;" type='submit'>Log In</button>
+                            </form>
+                        </div>
+                        <div class="row" style="text-align:right;">
+                            <a class="forgot" href="{% url 'accounts:reset_start' %}">Forgot your Password?</a>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </nav>
+
+        <div id="registration" style="display:none">
+            <div class="backdrop" id="backdrop_registration"></div>
+            <div class="modal_registration">
+                <form id="registration_form">
+                    <p class="err_form" id="registration-err"></p>
+                    <div class='form-group' style="margin: 25px;">
+                        <div>
+                            <label for="email_registration">Email address</label>
+                            <input class='form-control input-sm' required="required" id="email_registration" name='email' placeholder='Email' type='email'>
+                            <p class="err_form" id="email-err"></p>
+                        </div>
+                        <label for="password1_registration" style="padding-top:15px;">Enter your password</label>
+                        <small class="form-text text-muted">Password should be at least 9 characters</small>
+                        <input class='form-control input-sm' required="required" id="password1_registration" name='password1' placeholder='Enter your Password' type='password'>
+                        <p class="err_form" id="password1-err"></p>
+                        <label for="password2_registration" style="padding-top:15px;">Re-enter your password</label>
+                        <input class='form-control input-sm' required="required" id="password2_registration" name='password2' placeholder='Re-enter your Password' type='password'>
+                        <p class="err_form" id="password2-err"></p>
+
+                            
+                            <label required="required" for="checkConditions" style="margin-top:25px;margin-right:10px">
+                                    <input id="checkConditions" name="termsIsAccepted" type="checkbox">
+                                <p style="margin-left:10px; margin-right:10px;">By creating an account, you agree to JoatU's
+                                <a id="terms_link" href="#">Terms of Use & Privacy Policy</a>, and that you are at least 13 years old.
+                            </p></label>
+                        <p class="err_form" id="terms-err"></p>
+
+                    </div>
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            </div>
+
+        </div>
+        <div id="terms_window" style="display:none"></div>
+
+        <div class='top-container container-fluid'>
+            <div class='home_alert'></div>
+            <div class='home_page'>
+                <section class='scrollspy-offset' id='intro'>
+
+                    <div class='row'>
+                        <div class='col-sm-6 col-sm-offset-3 faded-background'>
+                            <h1>Trade skills and goods to meet your needs, and create vibrant communities!</h1>
+                            <a id="registration_button" class='btn btn-primary btn-lg' href='#'>Register</a>
+                        </div>
+                    </div>
+                </section>
+                <section class='scrollspy-offset' id='how-it-works'>
+                    <div class='row'>
+                        <div class='col-sm-10 col-sm-offset-1'>
+                            <h2>
+                                Welcome to the Jack of all trades Universe!
+                                <br>
+                                <small>Watch our animated video</small>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-8 col-sm-offset-2'>
+                            <div class='embed-responsive embed-responsive-16by9'>
+                                <iframe allowfullscreen="allowfullscreen" height='315' src='https://www.youtube.com/embed/mtMJlQhrLcQ' width='560'></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class='scrollspy-offset' id='benefits'>
+                    <div class='row'>
+                        <div class='col-sm-10 col-sm-offset-1'>
+                            <h2>
+                                Build Bonds, Share Skills, Develop Community
+                                <br>
+                                <small>Join your hyperlocal marketplace for skills and goods</small>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-10 col-sm-offset-1'>
+                            <div class='col-sm-4'>
+                                <div class='icon-container-circle center-block'>
+                                    <i class="fa fa-sitemap fa-3x"></i>
+                                </div>
+                                <h3>Build bonds with your neighbors</h3>
+                                <p>Meet community-minded members in a casual setting and build alliances. Free-to-attend local skillshares, clothing swaps, cookoffs, game nights, concerts, and educational classes.</p>
+                            </div>
+                            <div class='col-sm-4'>
+                                <div class='icon-container-circle center-block'>
+                                    <i class="fa fa-book fa-3x"></i>
+                                </div>
+                                <h3>HyperLocal Resources Directory</h3>
+                                <p>Access a pool of resources and dive in! Skill offers, goods and products for trade/rent/sale and even given away!</p>
+                            </div>
+                            <div class='col-sm-4'>
+                                <div class='icon-container-circle center-block'>
+                                    <i class="fa fa-trophy fa-3x"></i>
+                                </div>
+                                <h3>Help others and be helped</h3>
+                                <p>Give a hand to your neighbors, contribute to your hyperlocal economy and get paid. Volunteer at a non-profit, plant community gardens, teach classes, and be rewarded with JoatU’s exclusive Community Action Points.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class='scrollspy-offset' id='features'>
+                    <div class='row'>
+                        <div class='col-sm-10 col-sm-offset-1'>
+                            <h2>
+                                Features You'll Love
+                                <br>
+                                <small>with more on the way</small>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-5 col-sm-offset-1'>
+                            <img src="{% static 'images/networkofpeople.png' %}" alt="Networkofpeople"/>
+                        </div>
+                        <div class='col-sm-5'>
+                            <ul>
+                                <li>
+                                    <i class="fa fa-map-marker"></i>
+                                    <div>Choose your walking distance for making exchanges.</div>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star"></i>
+                                    <div>Build up your reputation with our easy to use reference system.</div>
+                                </li>
+                                <li>
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                    <div>Propose Community Projects like feeding the hungry or planting a community garden, and get support with labour, materials and financing in CAPS!</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class='scrollspy-offset' id='subscribe'>
+                    <div class='row'>
+                        <div class='col-sm-12'>
+                            <h2>
+                                Subscribe To Our Newsletter
+                                <br>
+                                <small>Don't miss a thing</small>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-6 col-sm-offset-3'>
+                            <div class='newsletter-container'>
+                                <form action='//joatu.us3.list-manage.com/subscribe/post?u=6ecb9879cbdb4a555e09ca127&amp;amp;id=ccbbcd52d1' class='form-inline validate' id='mc-embedded-subscribe-form' method='post' name='mc-embedded-subscribe-form' novalidate="novalidate" target='_blank'>
+                                    <div class='input-group'>
+                                        <input class='form-control' id='mce-EMAIL' name='EMAIL' placeholder='Email Address' type='email'>
+                                        <span class='input-group-btn'>
+                                            <button class='btn btn-default' name='subscribe' type='submit'>
+                                                Subscribe
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div style='position: absolute; left: -5000px;'>
+                                        <input name='b_6ecb9879cbdb4a555e09ca127_ccbbcd52d1' tabindex='-1' type='text' value=''>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="joatu_modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body">Loading...</div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-10 offset-1">
-                <div class="form-group mr-2">
-                    <input type="password" placeholder="Password" class="form-control" name="password">
-                </div>  
+        <div class='container-fluid clearfix'>
+            <footer class='inverse'>
+                <div class='row' style="text-align: center;">
+                    <div class='col-sm-12 col-md-4'>
+                        <h5>Join Us</h5>
+                        <p>
+                            JoatU is
+                            <a href='https://waffle.io/joatuapp/joatu-django'>100% open source</a>
+                            and is always looking for more help on all fronts!
+                        </p>
+                    </div>
+                    <div class='col-sm-12 col-md-4'>
+                        <h5>Mail Us</h5>
+                        <p>
 
-            </div>
+                            <a href="mailto:info@joatu.com">info@joatu.com</a>
+                        </p>
+                        <h5>Support us with Bitcoin</h5>
+                        <p>
+                            <small>Wallet: 1335KiPa82fkgESyNVy7nA74W4vyQjUpwY</small>
+                        </p>
+                    </div>
+                    <div class='col-sm-12 col-md-4'>
+                        <h5>Follow Us</h5>
+                        <ul>
+                            <li>
+                                <a href="https://www.facebook.com/joatunit">
+                                    <i class="fa fa-facebook-square fa-2x"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/Joatunit">
+                                    <i class="fa fa-twitter-square fa-2x"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://instagram.com/joatu_">
+                                    <i class="fa fa-instagram fa-2x"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://joatu.tumblr.com/">
+                                    <i class="fa fa-tumblr-square fa-2x"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/+Joatuniverse/posts">
+                                    <i class="fa fa-google-plus-square fa-2x"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/company/joatu">
+                                    <i class="fa fa-linkedin-square fa-2x"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <p class='copyright'>
+                            &copy; JoatU 2014
+                        </p>
+                    </div>
+                </div>
+            </footer>
+
         </div>
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-4 offset-4">
-                <button type="submit" class="btn btn-success mr-5">login</button>
-            </div>
-        </div>
-        
-    </form>
-    <!--<a href="{% url 'accounts:reset_password' %}" >Forgot your password?</a>-->
-    {% if invalid %}
-    <p style="color: red; font-weight:bold;">Wrong email or Password</p>
-    {% endif %}
-</div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        {% load static %}
+        <script>
+            var url_terms_en = "{% static 'html/terms_en.html' %}";
+        </script>
+        <script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
+        <script src="{% static 'js/mobile/script_mobile.js' %}"></script>
+        <script src="{% static 'js/script_index.js' %}"></script>
 
+    </body>
 
-
-
-
-
-{% endblock body %}
+</html>

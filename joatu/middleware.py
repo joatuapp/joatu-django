@@ -5,6 +5,9 @@ from django.shortcuts import redirect
 from django.contrib.auth import logout
 from django.urls import reverse
 
+from django.utils.deprecation import MiddlewareMixin
+
+
 
 EXEMPT_URLS= [re.compile(settings.LOGIN_URL.lstrip('/'))]
 if hasattr(settings, 'LOGIN_EXEMPT_URLS'):
@@ -38,8 +41,29 @@ class LoginRequiredMiddleware:
             return None
 
         else: 
-            print('true')
             return redirect(settings.LOGIN_URL)
 
+class ProfileRequiredMiddleware(MiddlewareMixin):  
 
-            
+
+    def process_request(self, request): 
+        if request.path == '/rest-auth/logout/':
+            return None
+        if request.user.is_authenticated:
+            if not request.user.profileIsCreated:
+                if request.path == '/profiles/create/' or request.path =='/api/profiles/create/':  
+                    return None
+                else: 
+                    return redirect('/profiles/create')
+            else:
+                return None
+        else:
+            return None
+    #def process_request( self, request ):
+    #    print( "func" )
+    #    print(request.user.profileIsCreated)
+
+    #    if request.user.is_authenticated and not request.user.profileIsCreated:
+    #        return redirect('/profiles/create/')
+    #    else:
+    #        return None
