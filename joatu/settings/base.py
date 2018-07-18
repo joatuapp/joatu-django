@@ -59,7 +59,7 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 REST_AUTH_REGISTER_SERIALIZERS = {
@@ -67,7 +67,7 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 }
 REST_AUTH_SERIALIZERS = {
     'LOGIN_SERIALIZER': 'rest_api.accounts.serializers.MyLoginSerializer',
-    
+    'PASSWORD_RESET_SERIALIZER': 'rest_api.accounts.serializers.MyPasswordResetSerializer',
 }
 
 REST_FRAMEWORK = {
@@ -129,7 +129,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -184,9 +183,14 @@ LOGIN_EXEMPT_URLS = (
     'rest-auth/password/reset/',
     'rest-auth/password/reset/confirm/',
 )
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'communityactionpoints@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('SMTP_PASSWORD')
+ 
+#app pass: ldhwxhhhynopdkve
 
-FRONTEND_URL = 'http://localhost:8000/'
-ACCOUNT_PASSWORD_RESET_CONFIRM = FRONTEND_URL + 'accounts/reset_password/confirm/'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

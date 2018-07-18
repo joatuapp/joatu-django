@@ -1,9 +1,12 @@
 from django.urls import path
 from . import views
 from django.views.generic import TemplateView
+
 from django.contrib.auth.views import (
     login,
     logout,
+    password_reset, 
+    password_reset_confirm
 )
 
 app_name = 'accounts'

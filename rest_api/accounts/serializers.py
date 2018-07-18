@@ -1,17 +1,21 @@
 from rest_framework import serializers
 from accounts.models import User
 from rest_auth.registration.serializers import RegisterSerializer
-from rest_auth.serializers import LoginSerializer
+from rest_auth.serializers import LoginSerializer, PasswordResetSerializer
 from allauth.account import app_settings as allauth_settings
 from allauth.utils import email_address_exists
 from allauth.account.adapter import get_adapter
 from allauth.account.utils import setup_user_email
+from django.conf import settings
 
-
+class MyPasswordResetSerializer(PasswordResetSerializer):
+    def get_email_options(self):
+        return {
+            'domain_override': 'joatu-test.herokuapp.com',
+        }
 class MyRegisterSerializer(serializers.Serializer):
     email = serializers.EmailField(required=allauth_settings.EMAIL_REQUIRED)
     termsIsAccepted = serializers.CharField(required=True, write_only=True)
-    olderThanSixteen = serializers.CharField(required=True, write_only=True)
     password1 = serializers.CharField(required=True, write_only=True)
     password2 = serializers.CharField(required=True, write_only=True)
 
@@ -35,10 +39,6 @@ class MyRegisterSerializer(serializers.Serializer):
             raise serializers.ValidationError({
                 'termsIsAccepted':'Accept Terms and Conditions.'
             })
-        if data['olderThanSixteen'] != 'true':
-            raise serializers.ValidationError({
-                'olderThanSixteen':'Sorry you need to be older than 16.'
-            })
         return data
     
         
@@ -46,21 +46,16 @@ class MyRegisterSerializer(serializers.Serializer):
 
     def get_cleaned_data(self):
         terms = self.validated_data.get('termsIsAccepted')
-        older = self.validated_data.get('olderThanSixteen')
         
         if terms == "true" :
             isAccepted = True
         else:
             isAccepted = False
-        if older == "true" :
-            isOlder = True
-        else:
-            isOlder = False
+        
         return {
             'password1': self.validated_data.get('password1', ''),
             'email': self.validated_data.get('email', ''),
             'termsIsAccepted': isAccepted,
-            'olderThanSixteen' : isOlder,
         }
 
 
@@ -72,7 +67,6 @@ class MyRegisterSerializer(serializers.Serializer):
         adapter.save_user(request, user, self)
         setup_user_email(request, user, [])
         user.termsIsAccepted = self.cleaned_data.get('termsIsAccepted')
-        user.olderThanSixteen = self.cleaned_data.get('olderThanSixteen')
         user.save()
         return user
 
@@ -81,7 +75,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id','email','password','termsIsAccepted', 'olderThanSixteen','profileIsCreated')
+        fields = ('id','email','password','termsIsAccepted', 'profileIsCreated')
         extra_kwargs = {"password": {"default_error_messages": {"blank": "Give yourself a username"}}}
         def create(self, validated_data):
             termsAndConditions = validated_data.pop('conditionsRead') 

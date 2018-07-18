@@ -45,7 +45,7 @@
                             <a data-ride="scroll" href="#features">Features</a>
                         </li>
                         <li>
-                            <a href="https://joatu.wordpress.com/volunteer/">Help Out</a>
+                            <a href="https://goo.gl/forms/oCW9tA1QwHngzqw92">Help Out</a>
                         </li>
                     </ul>
                     <div class="navbar-right">
@@ -78,7 +78,7 @@
             <div class="modal_registration">
                 <form id="registration_form">
                     <p class="err_form" id="registration-err"></p>
-                    <div class='form-group'>
+                    <div class='form-group' style="margin: 25px;">
                         <div>
                             <label for="email_registration">Email address</label>
                             <input class='form-control input-sm' required="required" id="email_registration" name='email' placeholder='Email' type='email'>
@@ -91,26 +91,14 @@
                         <label for="password2_registration" style="padding-top:15px;">Re-enter your password</label>
                         <input class='form-control input-sm' required="required" id="password2_registration" name='password2' placeholder='Re-enter your Password' type='password'>
                         <p class="err_form" id="password2-err"></p>
-                    </div>
-                    <div class="row">
-                        <div class="checkbox-container">
-                            <input id="checkConditions" name="termsIsAccepted" type="checkbox">
-                        </div>
-                        <div>
-                            <label required="required" for="checkConditions">
-                                <a id="terms_link" href="#">Please read and agreed for our terms and conditions</a>
-                            </label>
-                        </div>
-                        <p class="err_form" id="terms-err"></p>
 
-                    </div>
-                    <div class="row">
-                        <div class="checkbox-container">
-                            <input id="checkAge" name="olderThanSixteen" type="checkbox">
-                        </div>
-                        <label for="checkAge">I am older than 16.
-                        </label>
-                        <p class="err_form" id="age-err"></p>
+                            
+                            <label required="required" for="checkConditions" style="margin-top:25px;margin-right:10px">
+                                    <input id="checkConditions" name="termsIsAccepted" type="checkbox">
+                                <p style="margin-left:10px; margin-right:10px;">By creating an account, you agree to JoatU's
+                                <a id="terms_link" href="#">Terms of Use & Privacy Policy</a>, and that you are at least 13 years old.
+                            </p></label>
+                        <p class="err_form" id="terms-err"></p>
 
                     </div>
                     <button type="submit" class="btn btn-success">Register</button>
@@ -145,7 +133,7 @@
                     <div class='row'>
                         <div class='col-sm-8 col-sm-offset-2'>
                             <div class='embed-responsive embed-responsive-16by9'>
-                                <iframe allowfullscreen="allowfullscreen" height='315' src='https://www.youtube.com/embed/cGVmRwljfy0' width='560'></iframe>
+                                <iframe allowfullscreen="allowfullscreen" height='315' src='https://www.youtube.com/embed/mtMJlQhrLcQ' width='560'></iframe>
                             </div>
                         </div>
                     </div>
@@ -272,7 +260,7 @@
                         <h5>Join Us</h5>
                         <p>
                             JoatU is
-                            <a href='https://github.com/joatuapp/joatu-v2/'>100% open source</a>
+                            <a href='https://waffle.io/joatuapp/joatu-django'>100% open source</a>
                             and is always looking for more help on all fronts!
                         </p>
                     </div>

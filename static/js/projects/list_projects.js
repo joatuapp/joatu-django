@@ -5,7 +5,7 @@ $(document).ready(function(){
         $('#actual_table').toggle();
         $('#past_table').toggle();
         if(text_switch_is_old){
-            $('#switch_old_actual').text('See actual activities');
+            $('#switch_old_actual').text('See upcoming activities');
         }
         else{
             $('#switch_old_actual').text('See past activities');

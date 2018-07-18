@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
     $('#login').submit(function (e) { //login the user through Django-rest-auth
-        var data_to_send = $('#login').serializeObject(); //serialize data form  
+        var data_to_send = $('#login').serializeObject(); //serialize data form 
+        data_to_send.email=data_to_send.email.toLowerCase(); 
         final_data = JSON.stringify(data_to_send);
         var csrf = $('#login').find('input[name=csrfmiddlewaretoken]').val();    //auth token
         $.ajax({
@@ -81,12 +82,6 @@ $(document).ready(function () {
             e.preventDefault();
             return;
         }
-        if(!$('#checkAge').prop('checked')){
-            $('#age-err').html("You have to be more than 16.");
-            e.preventDefault();
-            return;
-        }
-
         if(!$('#checkConditions').prop('checked')){
             $('#terms-err').html("Please read and accept the terms and conditions.");
             e.preventDefault();
@@ -101,18 +96,16 @@ $(document).ready(function () {
         
 
         var data_to_send = $('#registration_form').serializeObject(); //serialize data form 
-
-        if(data_to_send.termsIsAccepted===true){
+        console.log(data_to_send)
+        if(data_to_send.termsIsAccepted==="on"){
             data_to_send.termsIsAccepted="true";
         } else {
             data_to_send.termsIsAccepted = "false";
         } 
-        if(data_to_send.olderThanSixteen===true){
-            data_to_send.olderThanSixteen="true";
-        } else {
-            data_to_send.olderThanSixteen = "false";
-        } 
+        
+        data_to_send.email=data_to_send.email.toLowerCase();
         final_data = JSON.stringify(data_to_send);
+        console.log(final_data)
         var csrf = $('#login').find('input[name=csrfmiddlewaretoken]').val();    //auth token
         $.ajax({
             url: '/rest-auth/registration/',
@@ -136,7 +129,6 @@ $(document).ready(function () {
                 $('#password1-err').html(error.responseJSON.password1 || '');
                 $('#password2-err').html(error.responseJSON.password2|| '');
                 $('#terms-err').html(error.responseJSON.termsIsAccepted || '');
-                $('#age-err').html(error.responseJSON.olderThanSixteen|| '');
                 $('#registration-err').html(error.responseJSON.non_field_errors|| '');
 
                 
