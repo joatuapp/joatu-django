@@ -43,12 +43,13 @@ class User(AbstractUser):
 
     username = models.CharField(max_length=150, blank=True, null=True)
     email = models.EmailField(_('email address'), unique=True)
-
+    termsIsAccepted = models.BooleanField(default=False, null=False, blank=False)
+    profileIsCreated = models.BooleanField(default=False, null=False, blank=False)
+    olderThanSixteen = models.BooleanField(default=False, null=False, blank=False)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
     objects = UserManager() 
-
 
 
 

@@ -19,11 +19,12 @@ Hide offers / home/ demands
 
 
 
-Next update (0.2) ETA Tuesday 17/07/2018:
-Create a profile:
-Country not required (server side)
-Login/registration page design (desktop + Mobile)
-Alert to be shown under the input in red
-Terms and conditions check box
-Date Time server side validation 
-Password requirement on the registration box
+Update 0.2 Joatu-Test:
+Login/Registration page Design (mobile + Desktop)
+Reset Password
+Form Validation (Client + Server) + message for the user
+Terms and conditions
+Legal Age
+Information about the password 
+Middleware : If user do not have created profile, always redirect to Profiles/create
+Country and Birthdate are not mandatory anymore

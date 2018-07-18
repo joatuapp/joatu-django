@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+    'allauth.socialaccount',
 
 ]
 
@@ -62,10 +63,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'accounts.serializers.MyRegisterSerializer',
+    'REGISTER_SERIALIZER': 'rest_api.accounts.serializers.MyRegisterSerializer',
 }
 REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER': 'accounts.serializers.MyLoginSerializer',
+    'LOGIN_SERIALIZER': 'rest_api.accounts.serializers.MyLoginSerializer',
+    
 }
 
 REST_FRAMEWORK = {
@@ -76,8 +78,10 @@ REST_FRAMEWORK = {
 
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
+#ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 MIDDLEWARE = [
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -85,6 +89,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'joatu.middleware.ProfileRequiredMiddleware',
     'joatu.middleware.LoginRequiredMiddleware',
 ]
 
@@ -170,17 +175,18 @@ LOGIN_REDIRECT_URL = '/profiles/index'
 LOGOUT_REDIRECT_URL = '/accounts/index'
 LOGIN_URL = '/accounts/index/'
 LOGIN_EXEMPT_URLS = (
-    'accounts/login/',
     'accounts/logout/',
-    'accounts/register/',
     'accounts/reset_password/',
-    'accounts/reset_password/done/',
-    'accounts/reset_password/complete/',
     'accounts/reset_password/confirm/<uidb64>/<token>/',
+    'account/reset_password/success/',
     'rest-auth/login/',
     'rest-auth/registration/',
-
+    'rest-auth/password/reset/',
+    'rest-auth/password/reset/confirm/',
 )
+
+FRONTEND_URL = 'http://localhost:8000/'
+ACCOUNT_PASSWORD_RESET_CONFIRM = FRONTEND_URL + 'accounts/reset_password/confirm/'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

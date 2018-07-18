@@ -17,29 +17,22 @@ $(document).ready(function () {
                 window.location.href = "/projects/list/";
 
             },
-            error: function (error) {
-                console.log(error);
-                if (error.responseJSON.non_field_errors) {
-                    switch (error.responseJSON.non_field_errors[0]) {
-                        case 'Must include \"username\" and \"password\".':
-                            alert('missing email');
-                            break;
-                        case 'Unable to log in with provided credentials.':
-                            alert('Wrong password or email');
-                            break;
-                        default:
-                            alert('sorry something wrong happened');
-                            break;
-                    }
+            error: function (error) {                
+                $('#login-err').html(error.responseJSON.non_field_errors || '');
+                $('#password-err').html(error.responseJSON.password || '');
+                if($('#login-err').text()){
+                    $('#login-err').show();
+                    $('#password-err').hide();
                 }
-                else if(error.responseJSON.password){
-                    if(error.responseJSON.password[0]=="This field may not be blank."){
-                        alert('missing password');
-                    }
-                    else{
-                        alert('something went wrong!')
-                    }
+                else if($('#password-err').text()){
+                    $('#password-err').show();
+                    $('#login-err').hide()
                 }
+                else{
+                    $('#password-err').hide();
+                    $('#login-err').hide()
+                }
+
             }
         });
         e.preventDefault();
@@ -51,15 +44,74 @@ $(document).ready(function () {
         $('#registration').show()
     });
 
-    $('.backdrop').click(function(e){
+    $('#backdrop_registration').click(function(e){
         e.preventDefault();
         $('#registration').hide()
     });
+    
+    $('#terms_window').on('click', '#backdrop_terms', function (e){
+        e.preventDefault();
+        $('#terms_window').hide()
+        $('#backdrop_terms').remove();
+    });
 
 
+    $('#terms_link').click(function(e){
+        e.preventDefault();
+        $('#terms_window').load(url_terms_en +'#backdrop_terms');
+        $('#terms_window').show()
+
+    });
+   
+    $('#terms_window').on('click', '#accepted_terms_modal', function (e){
+        e.preventDefault();
+        $('#checkConditions').prop('checked', true);
+        $('#terms_window').hide();
+        $('#backdrop_terms').remove();
+
+    })
 
     $('#registration_form').submit(function (e) { //login the user through Django-rest-auth
-        var data_to_send = $('#registration_form').serializeObject(); //serialize data form  
+        $('#password1-err').html("");
+        $('#age-err').html("");        
+        $('#terms-err').html("")
+        
+        if($('#password1_registration').val() !== $('#password2_registration').val()){
+            $('#password1-err').html("Passwords didn't match.")
+            e.preventDefault();
+            return;
+        }
+        if(!$('#checkAge').prop('checked')){
+            $('#age-err').html("You have to be more than 16.");
+            e.preventDefault();
+            return;
+        }
+
+        if(!$('#checkConditions').prop('checked')){
+            $('#terms-err').html("Please read and accept the terms and conditions.");
+            e.preventDefault();
+            return;
+        }
+
+        if($('#password1_registration').val().length < 9){
+            $('#password1-err').html("Password too short! 8 characters minimum.");
+            e.preventDefault();
+            return;
+        }
+        
+
+        var data_to_send = $('#registration_form').serializeObject(); //serialize data form 
+
+        if(data_to_send.termsIsAccepted===true){
+            data_to_send.termsIsAccepted="true";
+        } else {
+            data_to_send.termsIsAccepted = "false";
+        } 
+        if(data_to_send.olderThanSixteen===true){
+            data_to_send.olderThanSixteen="true";
+        } else {
+            data_to_send.olderThanSixteen = "false";
+        } 
         final_data = JSON.stringify(data_to_send);
         var csrf = $('#login').find('input[name=csrfmiddlewaretoken]').val();    //auth token
         $.ajax({
@@ -78,59 +130,26 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log(error);
-                if (error.responseJSON.non_field_errors) {
-                    switch (error.responseJSON.non_field_errors[0]) {
-                        case "The two password fields didn't match.":
-                            alert('Please enter the same password twice');
-                            break;
-                        case 'Unable to log in with provided credentials.':
-                            alert('Wrong password or email');
-                            break;
-                        default:
-                            alert('sorry something wrong happened');
-                            break;
-                    }
-                }
-                else if(error.responseJSON.password1){
-                    switch (error.responseJSON.password1[0]) {
-                        case "This field may not be blank.":
-                            alert('missing password');
-                            break;
-                        case "This password is too short. It must contain at least 8 characters.":
-                            alert('Your password should be at least 8 characters');
-                            break;
-                        default:
-                            alert('Something went wrong!');
-                            break;
-                    }
+                
 
-                } 
-                else if(error.responseJSON.password2){
-                    if(error.responseJSON.password2[0]=="This field may not be blank."){
-                        alert('missing password');
-                    }
-                    else{
-                        alert('something went wrong!')
-                    }
-                } 
-                else if(error.responseJSON.email){
-                    switch (error.responseJSON.email[0]) {
-                        case "A user is already registered with this e-mail address.":
-                            alert('This email is already taken!');
-                            break;
-                        case 'Enter a valid email address.':
-                            alert('Invalid email address');
-                            break;
-                        case 'This field may not be blank.':
-                            alert('Please enter an email');
-                            break;
-                        default:
-                            alert('Something went wrong!');
-                            break;
-                    }
-                } 
+                $('#email-err').html(error.responseJSON.email || '');
+                $('#password1-err').html(error.responseJSON.password1 || '');
+                $('#password2-err').html(error.responseJSON.password2|| '');
+                $('#terms-err').html(error.responseJSON.termsIsAccepted || '');
+                $('#age-err').html(error.responseJSON.olderThanSixteen|| '');
+                $('#registration-err').html(error.responseJSON.non_field_errors|| '');
+
+                
             }
         });
         e.preventDefault();
     });
+
+    
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          
+        }, false);
+
+    
 });

@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, reverse
 from rest_framework.generics import CreateAPIView, RetrieveUpdateAPIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework.response import Response
-
+from accounts.models import User
 from profiles.models import Profile, ProfileGeolocation
 from .serializers import CreateProfileSerializers, UpdateProfileSerializers, ProfileSerializer
 from utils.utils import coordinates_calculation
@@ -24,6 +24,9 @@ class CreateProfileView(CreateAPIView):
                 instance.__getitem__('country')
             )
             profile = Profile.objects.get(user=self.request.user)
+            user = self.request.user
+            user.profileIsCreated = True
+            user.save()
             ProfileGeolocation.objects.create(profile=profile, lat=lat_cal, lng=lng_cal)
             return Response({'redirect': reverse('homepage')})
         except Exception as e:

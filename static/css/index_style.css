@@ -245,11 +245,6 @@ td, th {
     }
 }
 
-@font-face {
-    font-family: 'Glyphicons Halflings';
-    src: url("/assets/bootstrap/glyphicons-halflings-regular-431794794c2cfb8b92dca733679a7eb3.eot");
-    src: url("/assets/bootstrap/glyphicons-halflings-regular-431794794c2cfb8b92dca733679a7eb3.eot?#iefix") format("embedded-opentype"), url("/assets/bootstrap/glyphicons-halflings-regular-f92594e620da2d9059641b9eb51379a8.woff2") format("woff2"), url("/assets/bootstrap/glyphicons-halflings-regular-25254e51244992c7f9d88cb84ab7e044.woff") format("woff"), url("/assets/bootstrap/glyphicons-halflings-regular-6ba2e8778b2cba179953cef5130930b3.ttf") format("truetype"), url("/assets/bootstrap/glyphicons-halflings-regular-a3ee894e7649725a3f661051b1b108cc.svg#glyphicons_halflingsregular") format("svg")
-}
 
 .glyphicon {
     position: relative;
@@ -1401,7 +1396,7 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Bebas Neue Regular";
+    font-family: "Arial, Helvetica, sans-serif;";
     font-weight: 500;
     line-height: 1.1;
     color: inherit
@@ -2887,7 +2882,7 @@ input[type="radio"][disabled], input[type="radio"].disabled, fieldset[disabled] 
 
 .input-sm, .input-group-sm>.form-control, .input-group-sm>.input-group-addon, .input-group-sm>.input-group-btn>.btn {
     height: 30px;
-    padding: 5px 10px;
+    margin-left: 20px;
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px
@@ -3844,7 +3839,7 @@ tbody.collapse.in {
     position: relative;
     z-index: 2;
     float: left;
-    width: 100%;
+    width: 80%;
     margin-bottom: 0
 }
 
@@ -6766,13 +6761,7 @@ button.close {
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
-@font-face {
-    font-family: 'FontAwesome';
-    src: url("/assets/fontawesome-webfont-fb2195bbae89a833c3b31d17e05c8d04.eot?v=4.3.0");
-    src: url("/assets/fontawesome-webfont-fb2195bbae89a833c3b31d17e05c8d04.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("/assets/fontawesome-webfont-46cba506cf8d6a11bc6f8c1a0dfcb38e.woff2?v=4.3.0") format("woff2"), url("/assets/fontawesome-webfont-8210d70ce9f7b6e9fc6d994e840ed51f.woff?v=4.3.0") format("woff"), url("/assets/fontawesome-webfont-d033a28f3b7d5e9d256d6e1ee116fc5d.ttf?v=4.3.0") format("truetype"), url("/assets/fontawesome-webfont-fad07a97e76c5eadf2c04939b3711a29.svg?v=4.3.0#fontawesomeregular") format("svg");
-    font-weight: normal;
-    font-style: normal
-}
+
 
 .fa {
     display: inline-block;
@@ -9176,7 +9165,7 @@ footer ul li {
 
 .home_page #intro .row {
     padding-top: 75px;
-    background-image: url("/assets/apple_chop_xs-a09d7472d34cf4e5ce1bb79f654dab45.jpg");
+    background-image: url("../images/apple.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -9190,13 +9179,13 @@ footer ul li {
 
 .home_page #intro h1 {
     color: #FFF;
-    font-family: "Bebas Neue Light";
+    font-family: "Arial, Helvetica, sans-serif;";
     font-size: 2.75em
 }
 
 @media screen and (min-width: 768px) {
     .home_page #intro .row {
-        background-image: url("/assets/apple_chop_sm-7124b96d9730c2d0fe387128250c57a4.jpg")
+        background-image: url("../images/apple.jpg")
     }
 }
 
@@ -9204,7 +9193,7 @@ footer ul li {
     .home_page #intro .row {
         height: 700px;
         padding-top: 150px;
-        background-image: url("/assets/apple_chop_md-d9b98f95a7f37301a3bec5d2423f7b44.jpg")
+        background-image: url("../images/apple.jpg")
     }
     .home_page #intro h1 {
         font-size: 4em
@@ -9213,7 +9202,7 @@ footer ul li {
 
 @media screen and (min-width: 1200px) {
     .home_page #intro .row {
-        background-image: url("/assets/apple_chop-0523d164eed0dc1185b14a09ab5c15f9.jpg")
+        background-image: url("../images/apple.jpg")
     }
 }
 
@@ -9710,21 +9699,9 @@ footer ul li {
     border: 0
 }
 
-@font-face {
-    font-family: "Bebas Neue Regular";
-    src: url(/assets/BebasNeueRegular-1a4b278c53ee06de2a27c4addfeaa45c.otf);
-    src: url(/assets/BebasNeueRegular-bbf5c80c6cd4e0d003ccd9abaa6c7e0e.ttf) format("truetype");
-    font-weight: normal;
-    font-style: normal
-}
 
-@font-face {
-    font-family: "Bebas Neue Light";
-    src: url(/assets/BebasNeueLight-56ab31fd90c985243da59f41e400108d.otf);
-    src: url(/assets/BebasNeueLight-c743f5449caf7fa738fddbd11dc50c80.ttf) format("truetype");
-    font-weight: normal;
-    font-style: normal
-}
+
+
 
 body {
     margin-top: 50px
@@ -9751,33 +9728,69 @@ body {
     }
 }
 
-.backdrop{
+.backdrop {
     width: 100%;
-    height:100%;
+    height: 100%;
     position: fixed;
-    z-index:100;
-    left:0;
+    z-index: 100;
+    left: 0;
     top: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal_registration{
-    position:fixed;
-    z-index:500;
+.modal_registration {
+    position: fixed;
+    z-index: 500;
     background-color: rgb(255, 255, 255);
-    width:70%;
-    border:1px solid #ccc;
-    box-shadow:1px 1px 1px black;
+    width: 70%;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px black;
     padding: 16px;
     left: 15%;
     top: 30%;
-    box-sizing:border-box;
+    box-sizing: border-box;
     transition: all 0.3s ease-out;
-
 }
-@media (min-width:600px){
-    .modal_registration{
-        width:500px;
+
+.modal_terms {
+    position: fixed;
+    z-index: 700;
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px black;
+    padding: 16px;
+    left: 10%;
+    top: 20%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+}
+
+@media (min-width:600px) {
+    .modal_registration {
+        width: 500px;
         left: calc(50% - 250px);
     }
+}
+
+.err_form {
+    color: red;
+    font-weight: bold;
+}
+
+.succ_form {
+    color: green;
+    font-weight: bold;
+}
+
+.checkbox-container {
+    width: 30px;
+    display: flex;
+    align-items: center;
+    float: left;
+    margin-left: 15px;
+}
+
+label {
+    display: flex;
 }
