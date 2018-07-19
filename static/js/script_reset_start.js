@@ -1,7 +1,8 @@
 $(document).ready(function () {
     
     $('#form_reset_start').submit(function (e) { //login the user through Django-rest-auth
-        var data_to_send = $('#form_reset_start').serializeObject(); //serialize data form  
+        var data_to_send = $('#form_reset_start').serializeObject();
+        data_to_send.email=data_to_send.email.toLowerCase();  //serialize data form  
         final_data = JSON.stringify(data_to_send);
         var csrf = $('#login').find('input[name=csrfmiddlewaretoken]').val();    //auth token
         $.ajax({
@@ -14,11 +15,13 @@ $(document).ready(function () {
                 xhr.setRequestHeader("X-CSRFToken", csrf);
             },
             success: function (result) {
+                $('#email-err').hide();
                 $('#email-succ').show();
 
             },
-            error: function (error) {                
-
+            error: function (error) { 
+                $('#email-err').hide();               
+                $('#email-err').show();
             }
         });
         e.preventDefault();
