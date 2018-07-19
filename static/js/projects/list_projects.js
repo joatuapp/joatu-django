@@ -207,11 +207,11 @@ $(document).ready(function(){
                 };
 
                 if (selected_cat.slice(0, 3) === 'Oth') { // user defined other category and other subcategory
-                    project_category = old_projects[i].project.oth_category + ' - ' + old_projects[i].project.oth_sub_cat;
+                    project_category = old_projects[i].project.oth_category + ' - ' + old_projects[l].project.oth_sub_cat;
                 }
                 else { // pre-defined category
                     if (selected_cat.slice(4, 7) === 'oth') { // other subcategory
-                        project_category = category[selected_cat.slice(0, 3)] + ' - '+ old_projects[i].project.oth_sub_cat;
+                        project_category = category[selected_cat.slice(0, 3)] + ' - '+ old_projects[l].project.oth_sub_cat;
                     }
                     else { // pre-defined subcategory
                         project_category = category[selected_cat.slice(0, 3)] + ' - ' + sub_cat[selected_cat];
