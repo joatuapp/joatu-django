@@ -5840,8 +5840,9 @@ button.close {
 }
 
 .modal-open {
-    overflow: hidden;
-    position: fixed;
+
+    overflow: hidden
+    position:fixed;
 }
 
 .modal {
