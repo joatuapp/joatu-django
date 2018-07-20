@@ -11,7 +11,7 @@ from django.conf import settings
 class MyPasswordResetSerializer(PasswordResetSerializer):
     def get_email_options(self):
         return {
-            'domain_override': 'joatu2018.herokuapp.com',
+            'domain_override': 'joatu-test.herokuapp.com',
         }
 class MyRegisterSerializer(serializers.Serializer):
     email = serializers.EmailField(required=allauth_settings.EMAIL_REQUIRED)
