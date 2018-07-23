@@ -89,7 +89,7 @@ $(document).ready(function () {
         }
 
         if($('#password1_registration').val().length < 9){
-            $('#password1-err').html("Password too short! 8 characters minimum.");
+            $('#password1-err').html("Password too short! 9 characters minimum.");
             e.preventDefault();
             return;
         }
