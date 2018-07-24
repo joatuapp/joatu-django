@@ -499,7 +499,7 @@
                         <hr>
                     </div>
                 </div>        
-        <!-- ##################################################ROLES############################################################-->
+        <!-- ################################################## ROLES ############################################################-->
             <!-- Role 1-->
                 <div id="page_6" style="display:none;">
                     <div class="row">
@@ -515,7 +515,7 @@
                             <label for="name">Title:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <input class="form-control" type="text" name="name" id="title_role_1" placeholder="Title of the role" required >                        
+                            <input class="form-control" type="text" name="name" id="title_role_1" placeholder="What should this group of volunteers be called?" required >                        
                         </div>
                     </div>
                     <hr>
@@ -524,26 +524,14 @@
                             <label for="description">Description:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <textarea class="form-control" id="description_role_1" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                            <textarea class="form-control" id="description_role_1" cols="100" rows="8" placeholder="A more detailed description will help your volunteers be better prepared." required></textarea>
                         </div>
                     </div>
                     <hr>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_volunteers_role_1">How many volunteers do you need for this role?</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_1" name="num_reg_att" min="0" placeholder="0" value="0" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top:15px;">
-                        <div class="row">
-                            <div class="col-10 offset-1">
-                                <label for="number_min_role_1">What is the minimum registration (for this role) for your activity to happen?</label>
+                                <label for="number_min_role_1">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
@@ -552,6 +540,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <label for="number_volunteers_role_1">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <input class="spinner" id="number_volunteers_role_1" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                            </div>
+                        </div>
+                    </div> 
                     <hr>    
                 </div>
                 <!-- Role 2-->
@@ -569,7 +569,7 @@
                             <label for="name">Title:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <input class="form-control" type="text" name="name" id="title_role_2" placeholder="Title of the role" required >                        
+                            <input class="form-control" type="text" name="name" id="title_role_2" placeholder="What should this group of volunteers be called?" required >                        
                         </div>
                     </div>
                     <hr>
@@ -578,31 +578,31 @@
                             <label for="description">Description:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <textarea class="form-control" id="description_role_2" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                            <textarea class="form-control" id="description_role_2" cols="100" rows="8" placeholder="A more detailed description will help your volunteers be better prepared." required></textarea>
                         </div>
                     </div>
                     <hr>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_volunteers_role_1">How many volunteers do you need for this role?</label>
+                                <label for="number_min_role_2">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_2" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_2" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_min_role_2">What is the minimum registration (for this role) for your activity to happen?</label>
+                                <label for="number_volunteers_role_1">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_2" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_2" name="num_reg_att" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -623,7 +623,7 @@
                             <label for="name">Title:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <input class="form-control" type="text" name="name" id="title_role_3" placeholder="Title of the role" required >                        
+                            <input class="form-control" type="text" name="name" id="title_role_3" placeholder="What should this group of volunteers be called?" required >                        
                         </div>
                     </div>
                     <hr>
@@ -632,31 +632,31 @@
                             <label for="description">Description:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <textarea class="form-control" id="description_role_3" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                            <textarea class="form-control" id="description_role_3" cols="100" rows="8" placeholder="A more detailed description will help your volunteers be better prepared." required></textarea>
                         </div>
                     </div>
                     <hr>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_volunteers_role_3">How many volunteers do you need for this role?</label>
+                                <label for="number_min_role_3">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_3" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_3" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_min_role_3">What is the minimum registration (for this role) for your activity to happen?</label>
+                                <label for="number_volunteers_role_3">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_3" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_3" name="num_reg_att" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -677,7 +677,7 @@
                             <label for="name">Title:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <input class="form-control" type="text" name="name" id="title_role_4" placeholder="Title of the role" required >                        
+                            <input class="form-control" type="text" name="name" id="title_role_4" placeholder="What should this group of volunteers be called?" required >                        
                         </div>
                     </div>
                     <hr>
@@ -686,31 +686,31 @@
                             <label for="description">Description:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <textarea class="form-control" id="description_role_4" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                            <textarea class="form-control" id="description_role_4" cols="100" rows="8" placeholder="A more detailed description will help your volunteers be better prepared." required></textarea>
                         </div>
                     </div>
                     <hr>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_volunteers_role_4">How many volunteers do you need for this role?</label>
+                                <label for="number_min_role_4">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_4" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_4" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_min_role_4">What is the minimum registration (for this role) for your activity to happen?</label>
+                                <label for="number_volunteers_role_4">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_4" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_4" name="num_reg_att" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -731,7 +731,7 @@
                             <label for="name">Title:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <input class="form-control" type="text" name="name" id="title_role_5" placeholder="Title of the role" required >                        
+                            <input class="form-control" type="text" name="name" id="title_role_5" placeholder="What should this group of volunteers be called?" required >                        
                         </div>
                     </div>
                     <hr>
@@ -740,31 +740,31 @@
                             <label for="description">Description:</label>
                         </div>
                         <div class="col-8" style="text-align:left;">
-                            <textarea class="form-control" id="description_role_5" cols="100" rows="8" placeholder="Describe the tasks that the volunteer will realize..." required></textarea>
+                            <textarea class="form-control" id="description_role_5" cols="100" rows="8" placeholder="A more detailed description will help your volunteers be better prepared." required></textarea>
                         </div>
                     </div>
                     <hr>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
-                            <div class="col-10 offset-5">
-                                <label for="number_volunteers_role_5">How many volunteers do you need for this role?</label>
+                            <div class="col-10 offset-1">
+                                <label for="number_min_role_1">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_5" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_5" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_min_role_1">What is the minimum registration (for this role) for your activity to happen?</label>
+                                <label for="number_volunteers_role_5">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_5" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_5" name="num_reg_att" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
