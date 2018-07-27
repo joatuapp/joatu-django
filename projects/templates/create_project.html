@@ -446,14 +446,14 @@
                         <div class="row" style="margin-top:15px;">
                             <div class="row">
                                 <div class="col-10 offset-1">
-                                    <label for="attendees_min_reg">This community activity will bring value to the community if there is at least <input class="spinner" id="attendees_min_reg" name="min_reg_att" min="3" placeholder="3" value="3" style="width:30px;" required> people attending.</label>
+                                    <label for="attendees_min_reg">This community activity will bring value to the community if there is at least <input class="spinner" id="attendees_min_reg" name="min_reg_att" type="number" min="3" placeholder="3" value="3" style="width:30px;" required> people attending.</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row" style="margin-top:15px;">
                             <div class="row">
                                 <div class="col-10 offset-1">
-                                    <label for="number_attendees">This community activity can host up to <input class="spinner" id="number_attendees" name="num_reg_att" min="3" placeholder="3" value="3" style="width:30px;" required> people.</label>
+                                    <label for="number_attendees">This community activity can host up to <input class="spinner" id="number_attendees" name="num_reg_att" type="number" min="3" placeholder="3" value="3" style="width:30px;" required> people.</label>
                                 </div>
                             </div>
                         </div>
@@ -492,7 +492,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-6 offset-2">
-                                    <input class="spinner" id="numbers_of_roles"  min="2" max="5" placeholder="2" value="2" required>
+                                    <input class="spinner" id="numbers_of_roles" type="number" min="2" max="5" placeholder="2" value="2" required>
                                 </div>
                             </div>
                         </div>
@@ -536,7 +536,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_1" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_1" name="min_reg_att" type="number" max="0" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -548,7 +548,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_1" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_1" name="num_reg_att" type="number" min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div> 
@@ -590,19 +590,19 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_2" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_2" name="min_reg_att" type="number" max="0" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_volunteers_role_1">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
+                                <label for="number_volunteers_role_2">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_2" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_2" name="num_reg_att" type="number" min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
@@ -644,7 +644,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_3" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_3" name="min_reg_att" type="number" max="0" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -656,7 +656,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_3" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_3" name="num_reg_att" type="number" min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
@@ -698,7 +698,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_4" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_4" name="min_reg_att" type="number" max="0" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -710,7 +710,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_4" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_4" name="num_reg_att" type="number" min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
@@ -747,12 +747,12 @@
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_min_role_1">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
+                                <label for="number_min_role_5">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_5" name="min_reg_att" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_5" name="min_reg_att" type="number" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -764,7 +764,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_5" name="num_reg_att" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_volunteers_role_5" name="num_reg_att" type="number" min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
@@ -869,11 +869,11 @@
         // keyboard events for input box
         $('#number_volunteers_role_1').keyup(function() {
             $('#number_min_role_1').spinner({
-                max: this.value
+                max: this.value 
             });
             if (parseInt(this.value, 10) < parseInt($('#number_min_role_1').val(), 10)) {
                 $('#number_min_role_1').val($('#number_volunteers_role_1').val());
-            } 
+            }            
         });
         $('#number_volunteers_role_2').keyup(function() {
             $('#number_min_role_2').spinner({
@@ -947,13 +947,15 @@
             if (parseInt($('#number_volunteers_role_5').val(), 10) < parseInt($('#number_min_role_5').val(), 10)) {
                 $('#number_min_role_5').val($('#number_volunteers_role_5').val());
             }
+        
         });
+        
         //////////////////-Attendiees-Registration-Input-Logic-////////////////////
         $('#attendees_min_reg').keyup(function() {
             $('#number_attendees').spinner({
                 min: this.value
             });
-            if (parseInt($('#number_attendees').val()) < parseInt(this.value)) {
+            if ( parseInt($('#number_attendees').val()) < parseInt(this.value) ) {
                 $('#number_attendees').val(this.value);
             }
         });
@@ -965,6 +967,7 @@
                 $('#number_attendees').val($('#attendees_min_reg').val());
             }
         });
+
         //////////////////////////////////////////////////////////////////
         $('input[id$="_oth"],input[id="Oth"]').click(function() {
             $('.other-category-input').css('display', 'inline');
