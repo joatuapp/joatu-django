@@ -536,7 +536,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_1" name="min_reg_att" type="number" max="0" min="0" placeholder="0" value="0" required>
+                                <input class="spinner" id="number_min_role_1" name="min_reg_att" type="number" max="number_volunteers_role_1" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -910,7 +910,7 @@
         // mouse events for arrow keys
         $('#number_volunteers_role_1').nextAll().click(function() {
             $('#number_min_role_1').spinner({
-                max: $('#number_volunteers_role_1').val()
+                max: $('#number_volunteers_role_1').val(),
             });
             if (parseInt($('#number_volunteers_role_1').val(), 10) < parseInt($('#number_min_role_1').val(), 10)) {
                 $('#number_min_role_1').val($('#number_volunteers_role_1').val());
