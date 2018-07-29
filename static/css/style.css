@@ -99,6 +99,8 @@
     background-color: white;
 }
 .flat_button_success{
+    white-space: nowrap;
+    display:inline-block;
     padding: 5% 10% 5% 10%;
     background-color: rgb(0, 190, 63) !important;
     color:white !important;
@@ -118,6 +120,11 @@
     color:white !important;
     font-weight: bold;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.icon-button_plus i {
+    color: rgb(0, 190, 63);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 body{

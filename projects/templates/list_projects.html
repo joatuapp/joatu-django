@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="row" style="margin-top:15px;">
-            <div class="col-7 offset-1">
+            <div class="col-md-7 offset-md-1">
                 <form action="">
                     <div class="form-group">
                         <input class="form-control" type="text" name="search" id="search_bar" style="width:100%;" placeholder="Search...">
@@ -24,7 +24,7 @@
                 </form>
 
             </div>
-            <div class="col-3 offset-1">
+            <div class="col-md-3 offset-md-1">
                 <a id="switch_old_actual" class="flat_button_success" href="#">See past activities</a>
             </div>
         </div>
@@ -40,8 +40,8 @@
         </div>
     </div>
     <div style="position:fixed; bottom:40px; right:20px;">
-            <a href="{% url 'projects:create' %}" id="" class="">&nbsp;
-                <img src="{% static 'images/icon/add_mobile.png' %}" alt="Button_to_add_project">
+            <a href="{% url 'projects:create' %}" id="" class="icon-button_plus">
+                <i class="fas fa-plus-circle fa-5x"></i>
             </a>
     </div>
     
