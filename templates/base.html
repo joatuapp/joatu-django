@@ -6,6 +6,7 @@
     {% block title %}
     <title>Joatu - CAPs</title>
     {% endblock title %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Karla:700" rel="stylesheet">
 
@@ -43,26 +44,28 @@
                     <img src="{% static 'images/logo_white_mobile.png' %}" class="navbar-brand ml-auto  mr-auto" alt="logo Joatu"/>
                 </nav> 
                 <input type="hidden" id="userId" value={{request.user.profile.id}}>
-                    <div class="row">
-                        <div class="col-4"  style="text-align:center; border-right:1px solid rgb(168, 168, 168); border-bottom:1px solid rgb(168, 168, 168);">
-                            <a class="navbar-brand" href="#">
-                                   ?
-                            </a>
-                        </div>
-                        <div class="col-4" style="text-align:center; border-right:1px solid rgb(168, 168, 168); border-bottom:1px solid rgb(168, 168, 168);">
-                            <a class="navbar-brand" href="#" style="text-align:center;">
-                                <span style="font-size:1em;"><strong id="numb_CAPS"></strong> CAPS
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4"  style="text-align:center; border-right:1px solid rgb(168, 168, 168); border-bottom:1px solid rgb(168, 168, 168);">
+                                <a class="navbar-brand" href="#">
+                                       ?
+                                </a>
+                            </div>
+                            <div class="col-4" style="text-align:center; border-right:1px solid rgb(168, 168, 168); border-bottom:1px solid rgb(168, 168, 168);">
+                                <a class="navbar-brand" href="#" style="text-align:center;">
+                                    <span style="font-size:1em;"><strong id="numb_CAPS"></strong> CAPS
+                                        </span>
+                                </a> 
+                            </div>
+    
+                            <div class="col-4" style="text-align:center; border-bottom:1px solid rgb(168, 168, 168);">
+                                <a class="navbar-brand" href="#" >
+                                    <span><strong id="numb_message"></strong>
+                                        <img src="{% static 'images/icon/message.png' %}" width="30" height="30" alt="">
                                     </span>
-                            </a> 
-                        </div>
-
-                        <div class="col-4" style="text-align:center; border-bottom:1px solid rgb(168, 168, 168);">
-                            <a class="navbar-brand" href="#" >
-                                <span><strong id="numb_message"></strong>
-                                    <img src="{% static 'images/icon/message.png' %}" width="30" height="30" alt="">
-                                </span>
-                                
-                            </a> 
+                                    
+                                </a> 
+                            </div>
                         </div>
                     </div>
                 {% block body %}
