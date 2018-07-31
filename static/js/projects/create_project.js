@@ -4,6 +4,7 @@ $(document).ready(function () {
     var activity_selected;
     var spinner = $(".spinner").spinner(); // launch Jquery UI spinner
     var number_of_roles;
+    var hub_data = null
 
     $(function () { 
         $("#dialog").dialog(
@@ -35,20 +36,30 @@ $(document).ready(function () {
     /// PAGE4
     $('#hub').click(function () {//when user click on "My community Hub"
         $('#address').show(); // show address input
-        $.getJSON('/api/profiles/' + user_id + '/', function (data) {    //get data from user
-            $.getJSON(data.profile_hub[0].hub, function (result) {     // get Hub's data
-                $('#address_number').val(result.number).prop('disabled', true);        // give value to the input and disabled = true
-                $('#address_street').val(result.street).prop('disabled', true);        // "  "
-                $('#address_postal_code').val(result.postal_code).prop('disabled', true);      // "    "
-                $('#address_city').val(result.city).prop('disabled', true);       //      " "
+        if (!hub_data) {
+            $.getJSON('/api/profiles/' + user_id + '/', function (data) {    //get data from user
+                $.getJSON(data.profile_hub[0].hub, function (result) {     // get Hub's data
+                    hub_data = result;
+                    $('#address_name').val(result.hub_name).prop('disabled',true);
+                    $('#address_number').val(result.number).prop('disabled', true);        // give value to the input and disabled = true
+                    $('#address_street').val(result.street).prop('disabled', true);        // "  "
+                    $('#address_postal_code').val(result.postal_code).prop('disabled', true);      // "    "
+                    $('#address_city').val(result.city).prop('disabled', true);       //      " "
+                });
+    
             });
-
-        });
-
+        } else {
+            $('#address_name').val(hub_data.hub_name).prop('disabled',true);
+            $('#address_number').val(hub_data.number).prop('disabled', true);        // give value to the input and disabled = true
+            $('#address_street').val(hub_data.street).prop('disabled', true);        // "  "
+            $('#address_postal_code').val(hub_data.postal_code).prop('disabled', true);      // "    "
+            $('#address_city').val(hub_data.city).prop('disabled', true);       //      "            
+        }
     })
 
     $('#other').click(function () {// when user click on "other"
         $('#address').show(); // show address
+        $('#address_name').val('').prop('disabled', false); 
         $('#address_number').val('').prop('disabled', false);   // give no value and disabled =  false
         $('#address_street').val('').prop('disabled', false);   // "    "   
         $('#address_postal_code').val('').prop('disabled', false);  //  "    "
