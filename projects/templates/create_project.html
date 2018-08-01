@@ -26,9 +26,10 @@
         </div>
     </div>
     <hr>
+    <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="container" >
+            <div id="main-container" class="container" >
                 <div id="disclaimer">
                     <div class="row">
                         <div class="col-10 offset-1">
@@ -414,6 +415,8 @@
                     <div class="row" style="margin-top:15px;">
                         <div class="col-10 offset-1">
                             <div id="address" class="form-group" style="display:none;">
+                                <label for="address_name">Name</label>
+                                <input class="form-control"  type="text" id="address_name" required>
                                 <label for="address_number">Number</label>
                                 <input class="form-control"  type="number" id="address_number" required>
                                 <label style="margin-top:10px;" for="address_street">Street</label>
@@ -500,8 +503,8 @@
                     </div>
                 </div>        
         <!-- ##################################################ROLES############################################################-->
-            <!-- Role 1-->
-                <div id="page_6" style="display:none;">
+                <!-- Role 1-->
+                <div id="page_6" class= "volunteer_role" style="display:none;">
                     <div class="row">
                         <div class="col-12">
                             <div class="" style="text-align:center;">
@@ -527,7 +530,7 @@
                             <textarea class="form-control" id="description_role_1" cols="100" rows="8" placeholder="A more detailed description will help your volunteers be better prepared." required></textarea>
                         </div>
                     </div>
-                    <hr>
+                    <hr> 
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
@@ -536,7 +539,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_1" name="min_reg_att" type='number' max="1" min="0" placeholder="0" value="0" required>
+                                <input class="spinner number_min_role" id="number_min_role_1" name="min_reg_att" type='number' min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -548,14 +551,14 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_1" name="num_reg_att" type='number' max="100" min="1" placeholder="1" value="1" required>
+                                <input class="spinner number_volunteers_role" id="number_volunteers_role_1" name="num_reg_att" type='number' min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
-                    <hr>    
+                    <hr>     
                 </div>
                 <!-- Role 2-->
-                <div id="page_7" style="display:none;">
+                <div id="page_7" class= "volunteer_role" style="display:none;">
                     <div class="row">
                         <div class="col-12">
                             <div class="" style="text-align:center;">
@@ -590,26 +593,26 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_2" name="min_reg_att" type='number' max="1" min="0" placeholder="0" value="0" required>
+                                <input class="spinner number_min_role" id="number_min_role_2" name="min_reg_att" type='number' min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_volunteers_role_1">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
+                                <label for="number_volunteers_role_2">For this this activity to be even better, what is the maximum amount of volunteers for this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_2" name="num_reg_att" type='number' max="100" min="1" placeholder="1" value="1" required>
+                                <input class="spinner number_volunteers_role" id="number_volunteers_role_2" name="num_reg_att" type='number' min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
                     <hr>     
                 </div>
                 <!-- Role 3-->
-                <div id="page_8" style="display:none;">
+                <div id="page_8" class= "volunteer_role" style="display:none;">
                     <div class="row">
                         <div class="col-12">
                             <div class="" style="text-align:center;">
@@ -644,7 +647,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_3" name="min_reg_att" type='number' max="1" min="0" placeholder="0" value="0" required>
+                                <input class="spinner number_min_role" id="number_min_role_3" name="min_reg_att" type='number' min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -656,14 +659,14 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_3" name="num_reg_att" type='number' max="100" min="1" placeholder="1" value="1" required>
+                                <input class="spinner number_volunteers_role" id="number_volunteers_role_3" name="num_reg_att" type='number' min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
                     <hr>    
                 </div>
                 <!-- Role 4-->
-                <div id="page_9" style="display:none;">
+                <div id="page_9" class= "volunteer_role" style="display:none;">
                     <div class="row">
                         <div class="col-12">
                             <div class="" style="text-align:center;">
@@ -698,7 +701,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_4" name="min_reg_att" type='number' max="1" min="0" placeholder="0" value="0" required>
+                                <input class="spinner number_min_role" id="number_min_role_4" name="min_reg_att" type='number' min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -710,14 +713,14 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_4" name="num_reg_att" type='number' max="100" min="1" placeholder="1" value="1" required>
+                                <input class="spinner number_volunteers_role" id="number_volunteers_role_4" name="num_reg_att" type='number' min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
                     <hr>    
                 </div>
                 <!-- Role 5-->
-                <div id="page_10" style="display:none;">
+                <div id="page_10" class= "volunteer_role" style="display:none;">
                     <div class="row">
                         <div class="col-12">
                             <div class="" style="text-align:center;">
@@ -747,12 +750,12 @@
                     <div class="row" style="margin-top:15px;">
                         <div class="row">
                             <div class="col-10 offset-1">
-                                <label for="number_min_role_1">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
+                                <label for="number_min_role_5">For this activity to happen, what is the minimum amount of volunteers required to fill this specific role?</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_min_role_5" name="min_reg_att" type='number' max="1" min="0" placeholder="0" value="0" required>
+                                <input class="spinner number_min_role" id="number_min_role_5" name="min_reg_att" type="number" min="0" placeholder="0" value="0" required>
                             </div>
                         </div>
                     </div>
@@ -764,19 +767,21 @@
                         </div>
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <input class="spinner" id="number_volunteers_role_5" name="num_reg_att" type='number' max="100" min="1" placeholder="1" value="1" required>
+                                <input class="spinner number_volunteers_role" id="number_volunteers_role_5" name="num_reg_att" type="number" min="1" placeholder="1" value="1" required>
                             </div>
                         </div>
                     </div>
                     <hr>    
-                </div>
+                </div> 
 <!-- Preview page -->
                 <div id="preview_page" style="display:none;">
                 </div>   
             </div>
         </div>
     </div>
+    </div>
     <!--################################################################END OF PAGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <div class="container-fluid">
     <div class="row" id="buttons" style="background-color:white;display:align-block;margin-top:30px">
         <div class="col-5 offset-1" id="button_left">
         </div>
@@ -784,7 +789,7 @@
 
         </div>
     </div>                           
-        
+    </div>
     <div style="padding-bottom:100px;">
 
     </div>
@@ -848,8 +853,6 @@
 
 {% block script %}
 {% load static %}
-
- 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="{% static 'js/datetimepicker/picker.js' %}"></script>
 <script src="{% static 'js/datetimepicker/picker.date.js' %}"></script>
@@ -857,114 +860,37 @@
 <script>
     var logo= "{% static 'images/icon/tree_original.svg' %}"
     var template= "{% static 'html/preview_project.html' %}"
-
 </script>
 
 <script src="{% static 'js/projects/create_project.js' %}"></script>
 <script src="{% static 'js/jquery.serialize-object.min.js' %}"></script>
 
+
 <script>
     $(document).ready(function() {
         ///////////////-Volunteers-Minimum-Input-Logic-//////////////////////
         // keyboard events for input box
-        $('#number_volunteers_role_1').keyup(function() {
-            $('#number_min_role_1').spinner({
-                max: this.value
-            });
-            if (parseInt(this.value, 10) < parseInt($('#number_min_role_1').val(), 10)) {
-                $('#number_min_role_1').val($('#number_volunteers_role_1').val());
-            } 
-        });
-        $('#number_volunteers_role_2').keyup(function() {
-            $('#number_min_role_2').spinner({
-                max: this.value
-            });
-            if (parseInt(this.value, 10) < parseInt($('#number_min_role_2').val(), 10)) {
-                $('#number_min_role_2').val($('#number_volunteers_role_2').val());
-            } 
-        });
-        $('#number_volunteers_role_3').keyup(function() {
-            $('#number_min_role_3').spinner({
-                max: this.value
-            });
-            if (parseInt(this.value, 10) < parseInt($('#number_min_role_3').val(), 10)) {
-                $('#number_min_role_3').val($('#number_volunteers_role_3').val());
-            } 
-        });
-        $('#number_volunteers_role_4').keyup(function() {
-            $('#number_min_role_4').spinner({
-                max: this.value
-            });
-            if (parseInt(this.value, 10) < parseInt($('#number_min_role_4').val(), 10)) {
-                $('#number_min_role_4').val($('#number_volunteers_role_4').val());
-            } 
-        });
-        $('#number_volunteers_role_5').keyup(function() {
-            $('#number_min_role_5').spinner({
-                max: this.value
-            });
-            if (parseInt(this.value, 10) < parseInt($('#number_min_role_5').val(), 10)) {
-                $('#number_min_role_5').val($('#number_volunteers_role_5').val());
-            } 
-        });
-        // mouse events for arrow keys
-        $('#number_volunteers_role_1').nextAll().click(function() {
-            $('#number_min_role_1').spinner({
-                max: $('#number_volunteers_role_1').val()
-            });
-            if (parseInt($('#number_volunteers_role_1').val(), 10) < parseInt($('#number_min_role_1').val(), 10)) {
-                $('#number_min_role_1').val($('#number_volunteers_role_1').val());
+        $('.volunteer_role').on('keyup click','span', function(){
+            if ($(this).find('.number_min_role').length>0) {
+                var number_min_role = $(this).find('.number_min_role');
+                var number_volunteers_role = $(this).parents('.volunteer_role').find('.number_volunteers_role');
+                number_volunteers_role.spinner({
+                    min: number_min_role.val()
+                });
+                if (parseInt(number_volunteers_role.val()) < parseInt(number_min_role.val())) {
+                   number_volunteers_role.val(number_min_role.val());
+                }                 
             }
-        });
-        $('#number_volunteers_role_2').nextAll().click(function() {
-            $('#number_min_role_2').spinner({
-                max: $('#number_volunteers_role_2').val()
-            });
-            if (parseInt($('#number_volunteers_role_2').val(), 10) < parseInt($('#number_min_role_2').val(), 10)) {
-                $('#number_min_role_2').val($('#number_volunteers_role_2').val());
-            }
-        });
-        $('#number_volunteers_role_3').nextAll().click(function() {
-            $('#number_min_role_3').spinner({
-                max: $('#number_volunteers_role_3').val()
-            });
-            if (parseInt($('#number_volunteers_role_3').val(), 10) < parseInt($('#number_min_role_3').val(), 10)) {
-                $('#number_min_role_3').val($('#number_volunteers_role_3').val());
-            }
-        });
-        $('#number_volunteers_role_4').nextAll().click(function() {
-            $('#number_min_role_4').spinner({
-                max: $('#number_volunteers_role_4').val()
-            });
-            if (parseInt($('#number_volunteers_role_4').val(), 10) < parseInt($('#number_min_role_4').val(), 10)) {
-                $('#number_min_role_4').val($('#number_volunteers_role_4').val());
-            }
-        });
-        $('#number_volunteers_role_5').nextAll().click(function() {
-            $('#number_min_role_5').spinner({
-                max: $('#number_volunteers_role_5').val()
-            });
-            if (parseInt($('#number_volunteers_role_5').val(), 10) < parseInt($('#number_min_role_5').val(), 10)) {
-                $('#number_min_role_5').val($('#number_volunteers_role_5').val());
-            }
-        });
+        })
         //////////////////-Attendiees-Registration-Input-Logic-////////////////////
-        $('#attendees_min_reg').keyup(function() {
+        $('#attendees_min_reg').on('keyup click', function(){
             $('#number_attendees').spinner({
                 min: this.value
             });
             if (parseInt($('#number_attendees').val()) < parseInt(this.value)) {
                 $('#number_attendees').val(this.value);
-            }
-        });
-        $('#attendees_min_reg').nextAll().click(function() {
-            $('#number_attendees').spinner({
-                min: $('#attendees_min_reg').val()
-            });
-            if (parseInt($('#number_attendees').val()) < parseInt($('#attendees_min_reg').val())) {
-                $('#number_attendees').val($('#attendees_min_reg').val());
-            }
-        });
+            }            
+        })
         //////////////////////////////////////////////////////////////////
         $('input[id$="_oth"],input[id="Oth"]').click(function() {
             $('.other-category-input').css('display', 'inline');

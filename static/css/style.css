@@ -205,3 +205,10 @@ a:hover { color: black;
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
+/* Hide default number input spinner */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
