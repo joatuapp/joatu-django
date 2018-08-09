@@ -41,7 +41,7 @@ class Project(models.Model):
         ('Hea_oth', 'Other activity'),
         ('Soc_foo', 'Food security'),
         ('Soc_chi', 'Childcare'),
-        ('Soc_eld', 'Eldercare'),
+        ('Soc_eld', 'Senior Friendly'),
         ('Soc_ani', 'Animalcare'),
         ('Soc_oth', 'Other activity'),
         ('Env_gar', 'Gardening'),
