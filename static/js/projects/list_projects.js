@@ -16,16 +16,26 @@ $(document).ready(function(){
     function format_time(time){
         var start = new Date(time),// convert string to date
         locale = "en-us",//english
-        month = start.toLocaleString(locale, { month: "short" });//month name
-        var date = month + ' ' + start.getDate();
+        monthStart = start.toLocaleString(locale, { month: "short" });//month name
+        end = new Date($('#inputEndDate').val()),
+        monthEnd = end.toLocaleString(locale, { month: "short" }); //month name
+        var dateStart = monthStart + ' ' + start.getDate(),
+            dateEnd = monthEnd + ' ' + end.getDate();
 
-        minutes = start.getMinutes(); // get minutes
-        if(minutes===0){    //add another 0 if minutes = 0
-            minutes='00';
-        }
-        var start_time = start.getHours() + 'H' + minutes; //format hours
-        return date +' '+start_time
+        minutesStart = start.getMinutes(); // get minutes
+            if (minutesStart === 0) {    //add another 0 if minutes = 0
+                minutesStart = '00';
+            }
+        minutesEnd = end.getMinutes(); // get minutes
+            if (minutesEnd === 0) {    //add another 0 if minutes = 0
+                minutesEnd = '00';
+            }
+        var start_time = start.getHours() + ':' + minutesStart; //format hours
+        return dateStart +' '+start_time
+        var end_time = end.getHours() + ':' + minutesEnd;
+        return dateEnd +' '+end_time
     }
+    
     
     function format_community(abb){
         if(abb==='CP'){
