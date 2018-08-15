@@ -23,7 +23,7 @@ $(document).ready(function(){
         if(minutes===0){    //add another 0 if minutes = 0
             minutes='00';
         }
-        var start_time = start.getHours() + 'H' + minutes; //format hours
+        var start_time = start.getHours() + ':' + minutes; //format hours
         return date +' '+start_time
     }
     
@@ -104,6 +104,7 @@ $(document).ready(function(){
 
                 var sub_cat = {
                     'Cul_con': 'Concert/Show/Presentation',
+                    'Cul_lei': 'Leisure',
                     'Edu_kno': 'Knowledge',
                     'Edu_ski': 'Skills share',
                     'Hea_phy': 'Physical fitness',
@@ -111,7 +112,7 @@ $(document).ready(function(){
                     'Hea_oth': 'Other activity',
                     'Soc_foo': 'Food security',
                     'Soc_chi': 'Childcare',
-                    'Soc_eld': 'Eldercare',
+                    'Soc_eld': 'Senior Friendly',
                     'Soc_ani': 'Animalcare',
                     'Env_gar': 'Gardening',
                     'Env_cle': 'Cleanups',
@@ -193,6 +194,7 @@ $(document).ready(function(){
 
                 var sub_cat = {
                     'Cul_con': 'Concert/Show/Presentation',
+                    'Cul_lei': 'Leisure',
                     'Edu_kno': 'Knowledge',
                     'Edu_ski': 'Skills share',
                     'Hea_phy': 'Physical fitness',
