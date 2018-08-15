@@ -429,6 +429,7 @@ $(document).ready(function () {
         if ($('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
             $('#inputOthSubCat').val($('input[name=sub_category]:checked').parent().find('.other-category-input').val());
         }
+        $('#inputPlaceName').val($('#address_name').val());
         $('#inputNumber').val($('#address_number').val());
         $('#inputStreet').val($('#address_street').val());
         $('#inputCity').val($('#address_city').val());
@@ -523,6 +524,7 @@ $(document).ready(function () {
             $('#time_start_template').text(start_time_conv);//show hours
             var address = $('#inputNumber').val() + ' ' + $('#inputStreet').val() + ', ' + $('#inputZip').val(); // format address
             $('#project_address').text(address); //show project address
+            $('#project_place_name').text($('#inputPlaceName').val())
             $('#icon_category').append(
                 $('<object>').attr({ 'data': logo, 'width': '50', 'height': '50', 'type': 'image/svg+xml' })
             );

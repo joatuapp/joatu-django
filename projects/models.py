@@ -8,6 +8,7 @@ class Project(models.Model):
     description = models.TextField(blank=False, null=False)
     start = models.DateTimeField(blank=False, null=True)
     end = models.DateTimeField(blank=False, null=True)
+    place_name = models.CharField(max_length=20, blank=False, null=True)
     number = models.CharField(max_length=10, blank=True)
     street = models.CharField(max_length=200, blank=False)
     postal_code = models.CharField(max_length=10, blank=False)
