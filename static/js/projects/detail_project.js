@@ -401,6 +401,7 @@ $(document).ready(function () {
 
         var address = data.number + ' ' + data.street + ', ' + data.postal_code; // format address
         $('#project_address').text(address); //show project address
+        $('#project_place_name').text(data.place_name);
         $.getJSON(data.organizer, function (data_organizer) { //get info about organizer
             $('#project_organizer').text(data_organizer.display_name); //show name of organizer
         });

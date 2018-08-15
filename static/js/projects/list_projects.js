@@ -75,6 +75,7 @@ $(document).ready(function(){
     $.getJSON( link, function( data ){ // load profile data
         $.getJSON(data.profile_hub[0].hub, function(result){ // load projects in the hub (for the moment user can have only one hub)
             var projects= result.projects;
+            console.log(projects);
             projects.sort(function(a,b) { 
                 return new Date(a.project.start)- new Date(b.project.start)
             });
@@ -89,7 +90,7 @@ $(document).ready(function(){
                     actual_projects.push(projects[j]);
                 }
             }
-            for (i in actual_projects){
+            for (var i in actual_projects){
                 var project_category;
                 var selected_cat = actual_projects[i].project.sub_category;
 
@@ -129,7 +130,7 @@ $(document).ready(function(){
                         project_category = category[selected_cat.slice(0, 3)] + ' - ' + sub_cat[selected_cat];
                     }
                 }
-                
+
                 $('#actual_table').append(
                     $('<li>').append(
                         $('<a>').attr('href','/projects/detail/'+actual_projects[i].project.id +'/').append(
@@ -167,9 +168,11 @@ $(document).ready(function(){
                                         )
                                     ).append(
                                         $('<div>').attr('class','col-4').css({'text-align':'right'}).append(
-                                            $('<span>').text('0.2Km')
+                                            $('<div>').text(actual_projects[i].project.place_name)).append(
+                                            $('<div>').text('0.2Km')
                                         )
                                     )
+
                                 )
                             )
                         )
@@ -179,7 +182,7 @@ $(document).ready(function(){
                 );
             }
 
-            for (l in old_projects){
+            for (var l in old_projects){
                 var project_category;
                 var selected_cat = old_projects[l].project.sub_category;
 
@@ -257,6 +260,7 @@ $(document).ready(function(){
                                         )
                                     ).append(
                                         $('<div>').attr('class','col-4').css({'text-align':'right'}).append(
+                                            $('<div>').text(old_projects[l].project.place_name)).append(
                                             $('<span>').text('0.2Km')
                                         )
                                     )
