@@ -380,7 +380,7 @@ $(document).ready(function () {
         var start = new Date(data.start),// convert string to date
             locale = "en-us",//english
             monthStart = start.toLocaleString(locale, {month: "long"});//start month name
-            end = new Date(data.start),
+            end = new Date(data.end),
             monthEnd = end.toLocaleString(locale, {month: "long"});//end month name})
         var dateStart = monthStart + ' ' + start.getDate();
         $('#date_start').text(dateStart);//show date start
