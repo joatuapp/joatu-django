@@ -23,6 +23,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='project',
             name='sub_category',
-            field=models.CharField(choices=[('Cul_con', 'Concert/Show/Presentation'), ('Cul_oth', 'Other activity'), ('Edu_kno', 'Knowledge'), ('Edu_ski', 'Skills share'), ('Edu_oth', 'Other activity'), ('Hea_phy', 'Physical fitness'), ('Hea_emo', 'Emotional well-being'), ('Hea_oth', 'Other activity'), ('Soc_foo', 'Food security'), ('Soc_chi', 'Childcare'), ('Soc_eld', 'Eldercare'), ('Soc_ani', 'Animalcare'), ('Soc_oth', 'Other activity'), ('Env_gar', 'Gardening'), ('Env_cle', 'Cleanups'), ('Env_oth', 'Other activity'), ('Oth_oth', 'Other activity')], max_length=7),
+            field=models.CharField(choices=[('Cul_con', 'Concert/Show/Presentation'), ('Cul_lei', 'Leisure'), ('Cul_oth', 'Other activity'), ('Edu_kno', 'Knowledge'), ('Edu_ski', 'Skills share'), ('Edu_oth', 'Other activity'), ('Hea_phy', 'Physical fitness'), ('Hea_emo', 'Emotional well-being'), ('Hea_oth', 'Other activity'), ('Soc_foo', 'Food security'), ('Soc_chi', 'Childcare'), ('Soc_eld', 'Senior Friendly'), ('Soc_ani', 'Animalcare'), ('Soc_oth', 'Other activity'), ('Env_gar', 'Gardening'), ('Env_cle', 'Cleanups'), ('Env_oth', 'Other activity'), ('Oth_oth', 'Other activity')], max_length=7),
         ),
     ]

@@ -352,6 +352,7 @@ $(document).ready(function () {
 
         var sub_cat = {
             'Cul_con': 'Concert/Show/Presentation',
+            'Cul_lei': 'Leisure',
             'Edu_kno': 'Knowledge',
             'Edu_ski': 'Skills share',
             'Hea_phy': 'Physical fitness',
@@ -359,7 +360,7 @@ $(document).ready(function () {
             'Hea_oth': 'Other activity',
             'Soc_foo': 'Food security',
             'Soc_chi': 'Childcare',
-            'Soc_eld': 'Eldercare',
+            'Soc_eld': 'Senior Friendly',
             'Soc_ani': 'Animalcare',
             'Env_gar': 'Gardening',
             'Env_cle': 'Cleanups',
