@@ -379,16 +379,25 @@ $(document).ready(function () {
         // 2018-04-17T14:00:00-04:00
         var start = new Date(data.start),// convert string to date
             locale = "en-us",//english
-            month = start.toLocaleString(locale, {month: "long"});//month name
-        var date = month + ' ' + start.getDate();
-        $('#date_start').text(date);//show date start
-
-        minutes = start.getMinutes(); // get minutes
-        if (minutes === 0) {    //add another 0 if minutes = 0
-            minutes = '00';
+            monthStart = start.toLocaleString(locale, {month: "long"});//start month name
+            end = new Date(data.start),
+            monthEnd = end.toLocaleString(locale, {month: "long"});//end month name})
+        var dateStart = monthStart + ' ' + start.getDate();
+        $('#date_start').text(dateStart);//show date start
+        var dateEnd = monthEnd + ' ' + end.getDate();
+        $('#date_end').text(dateEnd);//show date end
+        minutesStart = start.getMinutes(); // get start minutes
+        if (minutesStart === 0) {    //add another 0 if minutes = 0
+            minutesStart = '00';
         }
-        var start_time = start.getHours() + 'H' + minutes; //format hours
+        minutesEnd = end.getMinutes(); // get end minutes
+        if (minutesEnd === 0) {    //add another 0 if minutes = 0
+            minutesEnd = '00';
+        }
+        var start_time = start.getHours() + ':' + minutesStart; //format hours
         $('#time_start').text(start_time);//show hours
+        var end_time = end.getHours() + ':' + minutesEnd; //format hours
+        $('#time_end').text(end_time);//show hours
 
         var address = data.number + ' ' + data.street + ', ' + data.postal_code; // format address
         $('#project_address').text(address); //show project address
