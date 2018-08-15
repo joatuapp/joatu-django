@@ -33,6 +33,7 @@ class Project(models.Model):
     category = models.CharField(max_length=3, choices=TYPE_OF_CATEGORY)
     TYPE_OF_SUB_CATEGORY = (
         ('Cul_con', 'Concert/Show/Presentation'),
+        ('Cul_lei', 'Leisure'),
         ('Cul_oth', 'Other activity'),
         ('Edu_kno', 'Knowledge'),
         ('Edu_ski', 'Skills share'),
@@ -42,7 +43,7 @@ class Project(models.Model):
         ('Hea_oth', 'Other activity'),
         ('Soc_foo', 'Food security'),
         ('Soc_chi', 'Childcare'),
-        ('Soc_eld', 'Eldercare'),
+        ('Soc_eld', 'Senior Friendly'),
         ('Soc_ani', 'Animalcare'),
         ('Soc_oth', 'Other activity'),
         ('Env_gar', 'Gardening'),
