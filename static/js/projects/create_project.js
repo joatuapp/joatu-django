@@ -429,6 +429,7 @@ $(document).ready(function () {
         if ($('input[name=sub_category]:checked').val().slice(4, 7) === 'oth') {
             $('#inputOthSubCat').val($('input[name=sub_category]:checked').parent().find('.other-category-input').val());
         }
+        $('#inputPlaceName').val($('#address_name').val());
         $('#inputNumber').val($('#address_number').val());
         $('#inputStreet').val($('#address_street').val());
         $('#inputCity').val($('#address_city').val());
@@ -512,17 +513,28 @@ $(document).ready(function () {
             $('#project_name').text($('#inputName').val());
             var start = new Date($('#inputStartDate').val()),// convert string to date
                 locale = "en-us",//english
-                month = start.toLocaleString(locale, { month: "long" });//month name
-            var date = month + ' ' + start.getDate();
-            $('#date_start_template').text(date);//show date start
-            minutes = start.getMinutes(); // get minutes
-            if (minutes === 0) {    //add another 0 if minutes = 0
-                minutes = '00';
+                monthStart = start.toLocaleString(locale, { month: "long" });// Start month name
+                end = new Date($('#inputEndDate').val()),// convert string to date
+                monthEnd = end.toLocaleString(locale, { month: "long" });   // End month name
+            var dateStart = monthStart + ' ' + start.getDate();
+            $('#date_start_template').text(dateStart);  //show date start
+            minutesStart = start.getMinutes(); // get minutes
+            if (minutesStart === 0) {    //add another 0 if minutes = 0
+                minutesStart = '00';
             }
-            var start_time_conv = start.getHours() + 'H' + minutes; //format hours
+            var dateEnd = monthEnd + ' ' + end.getDate();
+            $('#date_end_template').text(dateEnd);  //show end date
+            minutesEnd = end.getMinutes(); // get minutes
+            if (minutesEnd === 0) {    //add another 0 if minutes = 0
+                minutesEnd = '00';
+            }
+            var start_time_conv = start.getHours() + ':' + minutesStart; //format hours
             $('#time_start_template').text(start_time_conv);//show hours
+            var end_time_conv = end.getHours() + ':' + minutesEnd; //format hours
+            $('#time_end_template').text(end_time_conv);//show hours
             var address = $('#inputNumber').val() + ' ' + $('#inputStreet').val() + ', ' + $('#inputZip').val(); // format address
             $('#project_address').text(address); //show project address
+            $('#project_place_name').text($('#inputPlaceName').val())
             $('#icon_category').append(
                 $('<object>').attr({ 'data': logo, 'width': '50', 'height': '50', 'type': 'image/svg+xml' })
             );

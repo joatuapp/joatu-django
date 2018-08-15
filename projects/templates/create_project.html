@@ -78,6 +78,14 @@
                                 </div>
                                 <div class="row ">
                                     <div class="col-9 offset-1">
+                                        <label class="container_radio" for="Cul_lei">
+                                            <input type="radio" name="sub_category" value="Cul_lei" id="Cul_lei" required>
+                                            <span class="checkmark">Leisure</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-9 offset-1">
                                         <label class="container_radio" for="Cul_oth">
                                             <input type="radio" name="sub_category" value="Cul_oth" id="Cul_oth" required>
                                         <span class="checkmark" z-index="-1">Other :&nbsp;<input class="other-category-input"></span>
@@ -194,7 +202,7 @@
                                     <div class="col-9 offset-1">
                                         <label class="container_radio" for="Soc_eld">
                                             <input type="radio" name="sub_category" value="Soc_eld" id="Soc_eld" required>
-                                            <span class="checkmark">Eldercare</span>
+                                            <span class="checkmark">Senior Friendly</span>
                                         </label>
                                     </div>
                                 </div>
@@ -806,6 +814,7 @@
                 <input type="text" required name ="sub_category"  id="inputSubCategory">
                 <input type="text" required name ="oth_category"  id="inputOthCategory">
                 <input type="text" required name ="oth_sub_cat"   id="inputOthSubCat">
+                <input type="text" required name ="place_name"   id="inputPlaceName">
                 <input type="text" required name ="number"  id="inputNumber">
                 <input type="text" required name ="street" class="form-control" id="inputStreet">
                 <input pattern=".{1,50}" type="text" required name="city" id="inputCity">
