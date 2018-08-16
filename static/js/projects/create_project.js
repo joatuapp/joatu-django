@@ -143,7 +143,10 @@ $(document).ready(function () {
             }
         }
         if (page === 3) { // Validation page 3
-            var filled = $("#page_3 input[required]").filter(function () {
+            var filled = $("#page_3 input[required]").filter(function () {          // checks if input is filled
+                return $.trim($(this).val()).length == 0    
+            }).length == 0;
+            var textFilled = $("#page_3 textarea[required]").filter(function () {       // checks if textarea is filled
                 return $.trim($(this).val()).length == 0
             }).length == 0;
             var $input_date_start_selected = $('#date_start').pickadate()
@@ -157,7 +160,7 @@ $(document).ready(function () {
             var start_selected = picker_date_start_selected.get('select', 'yyyy-mm-dd') + 'T' + picker_time_start_selected.get('select', 'HH:i') + ':00';
             var end_selected = picker_date_end_selected.get('select', 'yyyy-mm-dd') + 'T' + picker_time_end_selected.get('select', 'HH:i') + ':00';
 
-            if (!filled) {
+            if (!filled || !textFilled) {
                 $("#dialog").dialog("open");
                 return;
             }
